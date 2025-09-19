@@ -18,7 +18,7 @@ const Ids = () => {
 
   return (
     <div
-      className="relative flex min-h-screen w-full flex-col bg-[#111714] overflow-x-hidden"
+      className="relative flex min-h-screen w-full flex-col bg-[#121212] overflow-x-hidden"
       style={{
         fontFamily: "Inter, Noto Sans, sans-serif",
         "--radio-dot-svg":

@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <div
-      className="relative flex flex-col min-h-screen w-full bg-[#111714]"
+      className="relative flex flex-col min-h-screen w-full bg-[#121212]"
       style={{ fontFamily: "Inter, Noto Sans, sans-serif" }}
     >
       {/* Smooth Scroll Style */}
@@ -100,7 +100,7 @@ const Home = () => {
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
               {/* Feature Cards */}
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <h2 className="text-white font-bold">Real-time Monitoring</h2>
                 <p className="text-[#9eb7a8] text-sm">
                   Track livestock health metrics in real-time with dashboards
@@ -108,7 +108,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <h2 className="text-white font-bold">Risk Prediction</h2>
                 <p className="text-[#9eb7a8] text-sm">
                   Predict disease outbreaks using algorithms and historical
@@ -116,7 +116,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <h2 className="text-white font-bold">Collaborative Platform</h2>
                 <p className="text-[#9eb7a8] text-sm">
                   Seamless collaboration between veterinarians and extension
@@ -137,7 +137,7 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <p className="text-[#9eb7a8] text-sm">
                   We are a team of innovators building a Digital Biosecurity
                   Management Portal to protect pig and poultry farms from
@@ -166,7 +166,7 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <p className="text-[#9eb7a8] text-sm">
                   “Have questions, feedback, or want to collaborate with us?
                   Reach out using the form below – whether you’re a farmer, vet,
@@ -179,21 +179,21 @@ const Home = () => {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="px-4 py-2 rounded-lg bg-[#111714] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
+                    className="px-4 py-2 rounded-lg bg-[#121212] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
                   />
 
                   {/* Email */}
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="px-4 py-2 rounded-lg bg-[#111714] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
+                    className="px-4 py-2 rounded-lg bg-[#121212] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
                   />
 
                   {/* Message */}
                   <textarea
                     placeholder="Write your complaint or query..."
                     rows="5"
-                    className="px-4 py-2 rounded-lg bg-[#111714] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c] resize-none"
+                    className="px-4 py-2 rounded-lg bg-[#121212] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c] resize-none"
                   ></textarea>
 
                   {/* Submit Button */}

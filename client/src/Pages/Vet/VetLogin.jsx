@@ -14,7 +14,7 @@ const VetLogin = () => {
     e.preventDefault();
 
     if (state === "Login") {
-      navigate("/vet/dashboard"); // placeholder route
+      navigate("/vet-dashboard"); // placeholder route
     } else {
       navigate("/vet/welcome"); // placeholder route
     }
@@ -22,10 +22,10 @@ const VetLogin = () => {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-[#111714]"
+      className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-[#121212]"
       style={{ fontFamily: "Inter, Noto Sans, sans-serif" }}
     >
-      <div className="bg-[#1a1f1c] p-4 rounded-2xl shadow-lg w-full sm:w-96 text-sm">
+      <div className="bg-[#1e1e1e] p-4 rounded-2xl shadow-lg w-full sm:w-[450px] text-sm">
         {/* Title */}
         <h2 className="text-3xl font-bold text-white text-center mb-3">
           {state === "Sign Up" ? "Create Vet Account" : "Vet Login"}
@@ -90,6 +90,33 @@ const VetLogin = () => {
             {state}
           </button>
         </form>
+
+        {/* Divider */}
+        <div className="flex items-center my-6">
+          <div className="flex-grow h-px bg-gray-700"></div>
+          <span className="px-2 text-gray-400 text-xs">or continue with</span>
+          <div className="flex-grow h-px bg-gray-700"></div>
+        </div>
+
+        {/* Social login buttons */}
+        <div className="flex flex-col gap-3">
+          <button
+            type="button"
+            className="w-full py-2.5 rounded-lg bg-[#2a2f2c] text-white font-medium flex items-center justify-center gap-2 hover:bg-[#333]"
+          >
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
+            Continue with Google
+          </button>
+
+          <button
+            type="button"
+            className="w-full py-2.5 rounded-lg bg-[#3b5998] text-white font-medium flex items-center justify-center gap-2 hover:bg-[#334d84]"
+          >
+            <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Facebook" className="w-5 h-5" />
+            Continue with Facebook
+          </button>
+        </div>
+
 
         {/* Switch between login/signup */}
         {state === "Sign Up" ? (
