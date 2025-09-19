@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <div
-      className="relative flex flex-col min-h-screen w-full bg-[#111714]"
+      className="relative flex flex-col min-h-screen w-full bg-[#121212]"
       style={{ fontFamily: "Inter, Noto Sans, sans-serif" }}
     >
       {/* Smooth Scroll Style */}
