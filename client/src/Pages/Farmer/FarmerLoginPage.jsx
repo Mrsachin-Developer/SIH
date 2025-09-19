@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import WifiOffIcon from "@mui/icons-material/WifiOff";
 
 export default function FarmerLoginPage() {
@@ -26,18 +26,19 @@ export default function FarmerLoginPage() {
     console.log("Signup Data:", payload);
 
     // here you’d do your real signup API call
-    // on success:
-    navigate("/dashboard");
+    // on success navigate to dashboard:
+    navigate("/farmer/dashboard");
   };
 
   return (
-    <div className="font-display bg-background-dark text-foreground-dark">
+    <div className="font-display bg-[#0A100B] text-[#f8f8f8]">
       <div className="flex flex-col items-center justify-center h-screen p-4 overflow-y-auto">
         <div className="w-full max-w-md">
+          {/* Logo */}
           <div className="flex justify-center mb-6">
             <div className="flex items-center gap-3">
               <svg
-                className="w-10 h-10 text-primary"
+                className="w-10 h-10 text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -68,25 +69,26 @@ export default function FarmerLoginPage() {
             </div>
           </div>
 
-          <div className="bg-card-dark p-6 rounded-xl shadow-2xl border border-border-dark">
+          {/* Form */}
+          <div className="bg-[#111912] p-6 rounded-xl shadow-2xl border border-[#333]">
             <h2 className="text-xl font-bold text-center mb-1">
               Create your account
             </h2>
-            <p className="text-center text-muted-dark mb-4 text-sm">
+            <p className="text-center text-gray-400 mb-4 text-sm">
               Let's get started with your farm
             </p>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label
-                  className="block text-sm font-medium mb-1 text-muted-dark"
+                  className="block text-sm font-medium mb-1 text-gray-400"
                   htmlFor="phone"
                 >
                   Phone Number
                 </label>
                 <div className="relative">
                   <input
-                    className="w-full h-11 px-4 bg-background-dark border border-border-dark rounded-lg focus:ring-primary focus:border-primary placeholder-muted-dark/50"
+                    className="w-full h-11 px-4 bg-[#0A100B] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 placeholder-gray-500"
                     id="phone"
                     placeholder="Enter your phone number"
                     type="tel"
@@ -95,7 +97,7 @@ export default function FarmerLoginPage() {
                     onChange={(e) => setPhone(e.target.value)}
                   />
                   <button
-                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm font-semibold text-primary"
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm font-semibold text-green-400"
                     type="button"
                     onClick={handleSendOtp}
                   >
@@ -106,13 +108,13 @@ export default function FarmerLoginPage() {
 
               <div>
                 <label
-                  className="block text-sm font-medium mb-1 text-muted-dark"
+                  className="block text-sm font-medium mb-1 text-gray-400"
                   htmlFor="otp"
                 >
                   OTP
                 </label>
                 <input
-                  className="w-full h-11 px-4 bg-background-dark border border-border-dark rounded-lg focus:ring-primary focus:border-primary placeholder-muted-dark/50"
+                  className="w-full h-11 px-4 bg-[#0A100B] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 placeholder-gray-500"
                   id="otp"
                   placeholder="Enter OTP"
                   type="text"
@@ -124,13 +126,13 @@ export default function FarmerLoginPage() {
 
               <div>
                 <label
-                  className="block text-sm font-medium mb-1 text-muted-dark"
+                  className="block text-sm font-medium mb-1 text-gray-400"
                   htmlFor="name"
                 >
                   Name
                 </label>
                 <input
-                  className="w-full h-11 px-4 bg-background-dark border border-border-dark rounded-lg focus:ring-primary focus:border-primary placeholder-muted-dark/50"
+                  className="w-full h-11 px-4 bg-[#0A100B] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 placeholder-gray-500"
                   id="name"
                   placeholder="Enter your full name"
                   type="text"
@@ -142,18 +144,18 @@ export default function FarmerLoginPage() {
 
               <div>
                 <label
-                  className="block text-sm font-medium mb-1 text-muted-dark"
+                  className="block text-sm font-medium mb-1 text-gray-400"
                   htmlFor="farm-type"
                 >
                   Farm Type
                 </label>
                 <select
-                  className="w-full h-11 px-4 bg-background-dark border border-border-dark rounded-lg focus:ring-primary focus:border-primary text-foreground-dark"
+                  className="w-full h-11 px-4 bg-[#0A100B] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 text-[#f8f8f8]"
                   id="farm-type"
                   value={farmType}
                   onChange={(e) => setFarmType(e.target.value)}
                 >
-                  <option className="text-muted-dark">Select farm type</option>
+                  <option className="text-gray-400">Select farm type</option>
                   <option>Crop Farming</option>
                   <option>Livestock</option>
                   <option>Mixed Farming</option>
@@ -162,13 +164,13 @@ export default function FarmerLoginPage() {
 
               <div>
                 <label
-                  className="block text-sm font-medium mb-1 text-muted-dark"
+                  className="block text-sm font-medium mb-1 text-gray-400"
                   htmlFor="location"
                 >
                   Location
                 </label>
                 <input
-                  className="w-full h-11 px-4 bg-background-dark border border-border-dark rounded-lg focus:ring-primary focus:border-primary placeholder-muted-dark/50"
+                  className="w-full h-11 px-4 bg-[#0A100B] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 placeholder-gray-500"
                   id="location"
                   placeholder="Enter your farm's location"
                   type="text"
@@ -179,7 +181,7 @@ export default function FarmerLoginPage() {
               </div>
 
               <button
-                className="w-full h-11 bg-primary text-background-dark font-bold rounded-lg hover:bg-primary/90 transition-colors"
+                className="w-full h-11 bg-green-400 text-[#0A100B] font-bold rounded-lg hover:bg-green-300 transition-colors"
                 type="submit"
               >
                 Sign Up
@@ -187,13 +189,12 @@ export default function FarmerLoginPage() {
             </form>
           </div>
 
+          {/* Footer / language selection */}
           <div className="mt-6 flex flex-col items-center space-y-4">
             <div className="relative w-full flex items-center">
-              <div className="flex-grow border-t border-border-dark"></div>
-              <span className="flex-shrink mx-2 text-muted-dark text-xs">
-                Or
-              </span>
-              <div className="flex-grow border-t border-border-dark "></div>
+              <div className="flex-grow border-t border-[#333]"></div>
+              <span className="flex-shrink mx-2 text-gray-400 text-xs">Or</span>
+              <div className="flex-grow border-t border-[#333] "></div>
             </div>
 
             <div className="w-full">
@@ -201,7 +202,7 @@ export default function FarmerLoginPage() {
                 Language
               </label>
               <select
-                className="w-full h-11 px-4 bg-card-dark border border-border-dark rounded-lg focus:ring-primary focus:border-primary text-center"
+                className="w-full h-11 px-4 bg-[#111912] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 text-center"
                 id="language"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
@@ -212,22 +213,22 @@ export default function FarmerLoginPage() {
               </select>
             </div>
 
-            <div className="flex items-center space-x-3 text-muted-dark text-xs text-center p-3 bg-primary/10 rounded-lg border border-primary/20 w-full">
-              <WifiOffIcon className="text-primary" fontSize="small" />
+            <div className="flex items-center space-x-3 text-gray-400 text-xs text-center p-3 bg-green-400/10 rounded-lg border border-green-400/20 w-full">
+              <WifiOffIcon className="text-green-400" fontSize="small" />
               <p>
                 If there's no internet, signup data will be stored locally and
                 synced later.
               </p>
             </div>
 
-            <p className="text-xs text-muted-dark">
+            <p className="text-xs text-gray-400">
               Already have an account?{" "}
-              <a
-                className="font-semibold text-primary hover:underline"
-                href="#"
+              <Link
+                className="font-semibold text-green-400 hover:underline"
+                to="/farmer/login"
               >
                 Log in
-              </a>
+              </Link>
             </p>
           </div>
         </div>
