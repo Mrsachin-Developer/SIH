@@ -14,6 +14,7 @@ import FarmerLoginPage from "./Pages/Farmer/FarmerLoginPage.jsx";
 import FarmerDashboard from "./Pages/Farmer/FarmerDashboard.jsx";
 import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
 import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx";
+import TrainingGuides from "./Pages/Farmer/TrainingAndGuide.jsx";
 // ✅ Import Survey page
 
 // Admin
@@ -56,6 +57,7 @@ export default function App() {
         <Route path="/farmer/riskalert" element={<FarmerRiskResult />}>
           {" "}
         </Route>
+        <Route path="/farmer/training" element={<TrainingGuides />} />
         {/* ✅ Added */}
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />

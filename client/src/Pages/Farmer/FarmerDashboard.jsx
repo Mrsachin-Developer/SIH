@@ -81,7 +81,7 @@ export default function FarmerDashboard() {
                 <div className="bg-card-dark rounded-xl p-4 shadow-lg">
                   <h2 className="text-lg font-bold text-white mb-3">
                     Risk Overview
-                  </h2>
+                  </h2> 
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <div className="flex-1">
                       <p className="text-sm text-gray-400">

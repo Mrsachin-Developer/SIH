@@ -8,7 +8,7 @@ export default function FarmerIncidentReport() {
     <div className="bg-[#020202] font-display text-foreground-dark flex min-h-screen">
       {/* Sidebar */}
       <Sidebar />
-
+ 
       {/* Main Content */}
       <main className="flex-grow p-8 overflow-y-auto">
         <div className="max-w-4xl mx-auto">
