@@ -13,10 +13,13 @@ import VetDashboard from "./Pages/Vet/VetDashboard.jsx";
 import FarmerLoginPage from "./Pages/Farmer/FarmerLoginPage.jsx";
 import FarmerDashboard from "./Pages/Farmer/FarmerDashboard.jsx";
 import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
-import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx"; // ✅ Import Survey page
+import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx";
+// ✅ Import Survey page
 
 // Admin
 import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
+import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
+import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
 
 export default function App() {
   return (
@@ -36,6 +39,10 @@ export default function App() {
           element={<FarmerIncidentReport />}
         />
         <Route path="/farmer/survey" element={<RiskAssessmentSurvey />} />{" "}
+        <Route path="/farmer/alert" element={<AlertsPage />}></Route>
+        <Route path="/farmer/riskalert" element={<FarmerRiskResult />}>
+          {" "}
+        </Route>
         {/* ✅ Added */}
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />

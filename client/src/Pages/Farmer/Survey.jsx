@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 
 const RiskAssessmentSurvey = () => {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   return (
     <div
       className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-gray-50"
@@ -10,11 +13,7 @@ const RiskAssessmentSurvey = () => {
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 bg-white px-4 sm:px-6 py-3 sticky top-0 z-10">
         <div className="flex items-center gap-3 text-gray-800">
           <div className="size-8 text-[#4CAF50]">
-            <svg
-              fill="none"
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
                 fill="currentColor"
@@ -48,8 +47,7 @@ const RiskAssessmentSurvey = () => {
               Risk Assessment Survey
             </h1>
             <p className="mt-2 text-gray-500">
-              Answer the following questions to calculate your farm's risk
-              score.
+              Answer the following questions to calculate your farm's risk score.
             </p>
           </div>
 
@@ -137,16 +135,11 @@ const RiskAssessmentSurvey = () => {
               </h3>
               <div className="mt-4 flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <p className="text-base font-medium text-gray-800">
-                    Risk Level
-                  </p>
+                  <p className="text-base font-medium text-gray-800">Risk Level</p>
                   <span className="font-semibold text-green-600">Low</span>
                 </div>
                 <div className="w-full rounded-full bg-gray-200 h-2.5">
-                  <div
-                    className="bg-green-500 h-2.5 rounded-full"
-                    style={{ width: "25%" }}
-                  ></div>
+                  <div className="bg-green-500 h-2.5 rounded-full" style={{ width: "25%" }}></div>
                 </div>
                 <div className="flex justify-between text-xs text-gray-500">
                   <span>Low</span>
@@ -156,9 +149,12 @@ const RiskAssessmentSurvey = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* ✅ Submit Button */}
             <div className="mt-2">
-              <button className="flex w-full h-12 items-center justify-center rounded-md bg-[#4CAF50] text-white font-semibold shadow-md hover:bg-green-600 transition">
+              <button
+                onClick={() => navigate("/farmer/riskalert")} // ✅ Navigate to risk result page
+                className="flex w-full h-12 items-center justify-center rounded-md bg-[#4CAF50] text-white font-semibold shadow-md hover:bg-green-600 transition"
+              >
                 Submit &amp; Generate Report
               </button>
             </div>
