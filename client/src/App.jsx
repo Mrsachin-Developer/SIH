@@ -1,19 +1,20 @@
 // App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import your pages
+// Pages
 import Home from "./Pages/Home.jsx";
 import Ids from "./Pages/Ids.jsx";
 
+// Vet
 import VetLogin from "./Pages/Vet/VetLogin.jsx";
 import VetDashboard from "./Pages/Vet/VetDashboard.jsx";
 
+// Farmer
 import FarmerLoginPage from "./Pages/Farmer/FarmerLoginPage.jsx";
 import FarmerDashboard from "./Pages/Farmer/FarmerDashboard.jsx";
+import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
 
-import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
-import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
-
+// Admin
 import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
 
 export default function App() {
@@ -31,8 +32,10 @@ export default function App() {
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
-        <Route path="/farmer/risk-result" element={<FarmerRiskResult />} />
-        <Route path="/farmer/alerts" element={<AlertsPage />} />
+        <Route
+          path="/farmer/incident-report"
+          element={<FarmerIncidentReport />}
+        />
 
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />

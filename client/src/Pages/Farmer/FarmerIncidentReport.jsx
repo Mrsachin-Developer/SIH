@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 import IncidentType from "../../Components/Farmer/FarmerIncidentReport/IncidentType";
-import Sidebar from "../../Components/Farmer/Sidebar";
+import Sidebar from "../../Components/Farmer/SideBar";
 
 export default function FarmerIncidentReport() {
   return (
-    <div className="bg-background-dark font-display text-foreground-dark flex min-h-screen">
+    <div className="bg-[#020202] font-display text-foreground-dark flex min-h-screen">
       {/* Sidebar */}
       <Sidebar />
 

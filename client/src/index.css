@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+
+/* Dark theme overrides for react-calendar / react-date-picker */
+.react-calendar,
+.react-date-picker__calendar {
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #444;
+}
+
+.react-calendar__tile {
+    color: #fff;
+}
+
+.react-calendar__tile--active {
+    background-color: #1d4ed8;
+    /* your primary color */
+    color: #fff;
+}
+
+.react-calendar__tile:hover {
+    background-color: #333;
+}
+
+.react-calendar__tile {
+    padding: 1rem !important;
+    font-size: 1rem;
+}

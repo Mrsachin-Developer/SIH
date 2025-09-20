@@ -13,10 +13,10 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import SchoolIcon from "@mui/icons-material/School";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import Sidebar from "../../Components/Farmer/SideBar";
-
+import { useNavigate } from "react-router-dom";
 export default function FarmerDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const navigate = useNavigate();
   // Handle resize to show/hide sidebar at md breakpoint
 
   return (
@@ -116,7 +116,10 @@ export default function FarmerDashboard() {
                     <CampaignIcon />
                     <span>View Alerts</span>
                   </button>
-                  <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all">
+                  <button
+                    className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all"
+                    onClick={() => navigate("/farmer/incident-report")}
+                  >
                     <ReportIcon />
                     <span>Report Incident</span>
                   </button>
