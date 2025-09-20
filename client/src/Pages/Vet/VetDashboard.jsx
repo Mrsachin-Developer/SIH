@@ -4,7 +4,7 @@ import Sidebar from "../../Components/Vet/Sidebar";
 
 const VetDashboard = () => {
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
 
@@ -15,6 +15,32 @@ const VetDashboard = () => {
 
       {/* Main content */}
       <main className="flex-1 ml-64">
+        <nav className="sticky top-0 z-50 flex items-center justify-between bg-[#1e1e1e] px-6 py-6 border-b border-[#3d5245]">
+          {/* Left: Page Title */}
+          <div>
+            <p className="text-white text-2xl font-bold">Dashboard</p>
+          </div>
+
+          {/* Right: Icons */}
+          <div className="flex items-center gap-4">
+            {/* Bell Icon */}
+            <button className="relative text-white hover:text-green-400">
+              bell
+              <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
+            </button>
+
+            {/* Profile Icon */}
+            <button
+              onClick={() => navigate("/vet-profile")}
+              className="text-white hover:text-green-400"
+            >
+              user
+            </button>
+          </div>
+        </nav>
+
+
+
         <div
           className="relative flex h-auto min-h-screen w-full flex-col bg-[#111714] dark group/design-root overflow-x-hidden"
           style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
@@ -26,11 +52,14 @@ const VetDashboard = () => {
                 {/* Header */}
                 <div className="flex flex-wrap justify-between gap-3 p-4">
                   <div className="flex min-w-72 flex-col gap-3">
+
+
                     <p className="text-white tracking-light text-[32px] font-bold leading-tight">
-                      Dashboard
+                      Welcome back, <span className="text-[#20df6c]">Dr. Carter</span>.
                     </p>
+
                     <p className="text-[#9eb7a8] text-sm font-normal leading-normal">
-                      Welcome back, Dr. Carter. Here's your overview for today.
+                      Here's your overview for today.
                     </p>
                   </div>
                 </div>
@@ -161,7 +190,7 @@ const VetDashboard = () => {
                               {farm.update}
                             </td>
                             <td onClick={() => navigate("#")}
-                             className="h-[72px] px-4 py-2 w-60 text-[#9eb7a8] text-sm font-bold leading-normal tracking-[0.015em] cursor-pointer hover:underline">
+                              className="h-[72px] px-4 py-2 w-60 text-[#9eb7a8] text-sm font-bold leading-normal tracking-[0.015em] cursor-pointer hover:underline">
                               View Details
                             </td>
                           </tr>

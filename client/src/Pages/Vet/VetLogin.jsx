@@ -5,6 +5,10 @@ import { assets } from "../../assets/assets";
 const VetLogin = () => {
   const navigate = useNavigate();
 
+  const goToHome = () => {
+    navigate("/"); // replace "/" with your home route if different
+  };
+
   const [state, setState] = useState("Login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,17 +29,23 @@ const VetLogin = () => {
       className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-[#121212]"
       style={{ fontFamily: "Inter, Noto Sans, sans-serif" }}
     >
+    
+
+
       <div className="bg-[#1e1e1e] p-4 rounded-2xl shadow-lg w-full sm:w-[450px] text-sm">
         {/* Title */}
         <h2 className="text-3xl font-bold text-white text-center mb-3">
           {state === "Sign Up" ? "Create Vet Account" : "Vet Login"}
         </h2>
 
+
+
         <p className="text-center text-gray-400 mb-6">
           {state === "Sign Up"
             ? "Create your veterinarian account"
             : "Login to your veterinarian account"}
         </p>
+
 
         {/* Form */}
         <form onSubmit={onSubmitHandler}>

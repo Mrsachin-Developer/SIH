@@ -13,6 +13,7 @@ import VetCases from "./Pages/Vet/VetCases.jsx";
 import VetAlerts from "./Pages/Vet/VetAlerts.jsx";
 import VetReports from "./Pages/Vet/VetReports.jsx";
 import VetProfile from "./Pages/Vet/VetProfile.jsx";
+import VetProfileEdit from "./Pages/Vet/VetProfileEdit.jsx";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/vet-alerts" element={<VetAlerts />} />
         <Route path="/vet-reports" element={<VetReports />} />
         <Route path="/vet-profile" element={<VetProfile />} />
+        <Route path="/vet-profileEdit" element={<VetProfileEdit />} />
         
 
 

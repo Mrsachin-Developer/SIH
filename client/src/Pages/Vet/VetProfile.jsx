@@ -1,169 +1,125 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/Vet/Sidebar";
 
 
 const VetProfile = () => {
-    const [profile, setProfile] = useState({
+
+    const navigate = useNavigate();
+
+    const [profileImage, setProfileImage] = useState(null);
+    const [formData, setFormData] = useState({
         name: "Dr. John Doe",
-        email: "vet@example.com",
-        phone: "+91 9876543210",
-        address: "123 Green Valley, Pune, India",
-        specialization: "Cattle & Dairy",
-        bio: "Passionate about livestock health and sustainable farming.",
-        profilePic: "https://via.placeholder.com/150", // default
+        email: "john@example.com",
+        phone: "9876543210",
+        address: "123 Main Street, New York",
+        specialization: "Dogs, Cats",
+        language: "English",
     });
 
-    // Handle text inputs
+    // handle text inputs
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfile((prev) => ({ ...prev, [name]: value }));
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Handle profile picture upload
-    const handlePhotoChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const imageUrl = URL.createObjectURL(file);
-            setProfile((prev) => ({ ...prev, profilePic: imageUrl }));
+    // handle image upload
+    const handleImageUpload = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setProfileImage(URL.createObjectURL(e.target.files[0]));
         }
-    };
-
-    // Handle form submit
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Updated Profile:", profile);
-        alert("Profile Updated Successfully ✅");
     };
 
 
 
     return (
         <div className="flex">
-            {/* Sidebar */}
             <Sidebar />
 
             {/* Main content */}
             <main className="flex-1 ml-64">
-                <div className="min-h-screen bg-[#111714] text-white flex flex-col items-center px-4 py-8">
-                    {/* Page Title */}
-                    <h1 className="text-3xl font-bold mb-6">Vet Profile</h1>
+                <div className="min-h-screen bg-[#111714] text-white flex flex-col px-4 py-8 ">
 
-                    {/* Profile Container */}
-                    <div className="w-full max-w-2xl bg-[#1a201d] rounded-2xl shadow-lg p-6 space-y-6">
-                        {/* Profile Picture */}
-                        <div className="flex flex-col items-center space-y-3">
-                            <img
-                                src={profile.profilePic}
-                                alt=""
-                                className="w-28 h-28 rounded-full object-cover border-4 border-[#20df6c]"
-                            />
-                            {/* Hidden file input */}
-                            <input
-                                type="file"
-                                id="fileInput"
-                                accept="image/*"
-                                className="hidden"
-                                onChange={handlePhotoChange}
-                            />
-                            <button
-                                type="button"
-                                onClick={() => document.getElementById("fileInput").click()}
-                                className="text-sm text-[#20df6c] hover:underline"
-                            >
-                                Change Photo
-                            </button>
+                    {/* Profile Header */}
+                    <div className="flex items-center justify-between border-b pb-6">
+                        {/* Profile Header Left */}
+                        <div className="flex items-center gap-6">
+                            <div className="relative">
+                                <img
+                                    src={profileImage || "src/assets/doctorprofile.png"}
+                                    className="w-28 h-28 rounded-full object-cover border"
+                                />
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-semibold">{formData.name}</h2>
+                                <p className="text-gray-600">{formData.specialization} Specialist</p>
+                                <p className="text-sm text-gray-500">{formData.email}</p>
+                            </div>
                         </div>
 
-                        {/* Form */}
-                        <form onSubmit={handleSubmit} className="space-y-5">
-                            {/* Name */}
-                            <div>
-                                <label className="block text-sm mb-1">Full Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={profile.name}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-lg bg-[#111714] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
-                                />
-                            </div>
-
-                            {/* Email */}
-                            <div>
-                                <label className="block text-sm mb-1">Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={profile.email}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-lg bg-[#111714] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
-                                />
-                            </div>
-
-                            {/* Phone */}
-                            <div>
-                                <label className="block text-sm mb-1">Phone</label>
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    value={profile.phone}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-lg bg-[#111714] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
-                                />
-                            </div>
-
-                            {/* Address */}
-                            <div>
-                                <label className="block text-sm mb-1">Address</label>
-                                <input
-                                    type="text"
-                                    name="address"
-                                    value={profile.address}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-lg bg-[#111714] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
-                                />
-                            </div>
-
-                            {/* Specialization */}
-                            <div>
-                                <label className="block text-sm mb-1">Specialization</label>
-                                <select
-                                    name="specialization"
-                                    value={profile.specialization}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 rounded-lg bg-[#111714] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
-                                >
-                                    <option>Cattle & Dairy</option>
-                                    <option>Poultry</option>
-                                    <option>Sheep & Goats</option>
-                                    <option>Equine</option>
-                                    <option>Companion Animals</option>
-                                </select>
-                            </div>
-
-                            {/* Bio */}
-                            <div>
-                                <label className="block text-sm mb-1">Bio</label>
-                                <textarea
-                                    name="bio"
-                                    value={profile.bio}
-                                    onChange={handleChange}
-                                    rows="4"
-                                    className="w-full px-4 py-2 rounded-lg bg-[#111714] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
-                                ></textarea>
-                            </div>
-
-                            {/* Submit Button */}
-                            <div className="flex justify-end">
-                                <button
-                                    type="submit"
-                                    className="bg-[#20df6c] text-[#111714] px-6 py-2 rounded-xl font-medium hover:bg-[#18b858] transition"
-                                >
-                                    Save Changes
-                                </button>
-                            </div>
-                        </form>
+                        {/* Buttons Right */}
+                        <div className="flex gap-3">
+                            <button
+                                type="button"
+                                onClick={() => navigate("/vet-profileEdit")}
+                                className="bg-[#20df6c] hover:bg-[#18b858] text-[#111714] px-6 py-2 rounded-xl font-medium transition"
+                            >
+                                Edit Profile
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => navigate("/vet/login")}
+                                className="bg-[#da3a3a] hover:bg-[#bb0000] text-white px-6 py-2 rounded-xl font-medium transition"
+                            >
+                                Log Out
+                            </button>
+                        </div>
                     </div>
+
+
+
+
+                    {/* Form Section */}
+                    <div className="mt-6 space-y-5">
+                        <div>
+                            <p className="text-sm text-gray-400">Full Name</p>
+                            <p className="text-lg font-medium text-white">{formData.name}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-sm text-gray-400">Email</p>
+                            <p className="text-lg text-white">{formData.email}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-sm text-gray-400">Phone</p>
+                            <p className="text-lg text-white">{formData.phone}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-sm text-gray-400">Address</p>
+                            <p className="text-lg text-white">{formData.address}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-sm text-gray-400 ">Specialization</p>
+                            <p className="text-lg text-white">{formData.specialization}</p>
+                        </div>
+
+                        <div >
+                            <p className="text-sm text-gray-400">BIO:</p>
+                            <div className="p-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714] w-1/2">
+                                <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
+                                    <p>Dr. John Doe
+                                        Veterinary Officer – Poultry & Swine Health Specialist.
+
+                                        Dr. John Doe is a dedicated veterinary professional with over 7 years of experience in livestock health and farm biosecurity. She has worked closely with rural farmers to prevent and manage outbreaks such as Avian Influenza and Swine Fever. Passionate about animal welfare and farmer awareness, she specializes in practical, low-cost solutions that help farmers improve productivity while keeping their animals safe. Through this platform, Dr. Verma aims to guide farmers with easy-to-follow advice, timely health updates, and trusted veterinary support.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </main>
         </div>
