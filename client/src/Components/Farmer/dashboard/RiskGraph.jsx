@@ -14,7 +14,8 @@ const chartSetting = {
   series: [
     {
       dataKey: "RiskScore",
-      valueFormatter, // series label color
+      valueFormatter,
+      color: "#32C844", // series label color
     },
   ],
   height: 300,

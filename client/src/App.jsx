@@ -14,6 +14,7 @@ import FarmerLoginPage from "./Pages/Farmer/FarmerLoginPage.jsx";
 import FarmerDashboard from "./Pages/Farmer/FarmerDashboard.jsx";
 import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
 import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx";
+import MyRecords from "./Pages/Farmer/Record.jsx";
 // ✅ Import Survey page
 
 // Admin
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/vet/dashboard" element={<VetDashboard />} />
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
+        <Route path="/farmer/record" element={<MyRecords />} />
         <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
         <Route
           path="/farmer/incident-report"
