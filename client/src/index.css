@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
 
+
+@keyframes grow {
+  from {
+    height: 0%;
+  }
+  to {
+    height: var(--bar-height);
+  }
+}
+
+.bar {
+  animation: grow 1s ease-out forwards;
+}
+
 /* Dark theme overrides for react-calendar / react-date-picker */
 .react-calendar,
 .react-date-picker__calendar {
@@ -28,3 +42,4 @@
     padding: 1rem !important;
     font-size: 1rem;
 }
+

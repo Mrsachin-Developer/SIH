@@ -1,7 +1,12 @@
 import React from "react";
 import Sidebar from "../../Components/Vet/Sidebar";
+import { useNavigate } from "react-router-dom";
+import { assets } from "../../assets/assets";
+import Nav from "../../Components/Vet/Nav";
 
 const VetAlerts = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="flex">
             {/* Sidebar */}
@@ -9,97 +14,97 @@ const VetAlerts = () => {
 
             {/* Main content */}
             <main className="flex-1 ml-64">
-                <div
-                    className="relative flex h-auto min-h-screen w-full flex-col bg-[#111714] overflow-x-hidden"
-                    style={{ fontFamily: 'Manrope, "Noto Sans", sans-serif' }}
-                >
-                    <div className="layout-container flex h-full grow flex-col">
-                        <div className="gap-1 px-6 flex flex-1 justify-center py-5">
-                            <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-                                {/* Header */}
-                                <div className="flex flex-wrap justify-between gap-3 p-4">
-                                    <div className="flex min-w-72 flex-col gap-3">
-                                        <p className="text-white text-[32px] font-bold leading-tight">
-                                            Alerts &amp; Notifications
-                                        </p>
-                                        <p className="text-[#9eb7a8] text-sm font-normal leading-normal">
-                                            Stay informed with critical updates for your livestock.
-                                        </p>
-                                    </div>
-                                </div>
+                <Nav title="Alerts" />
 
-                                {/* Disease Outbreaks */}
-                                <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                                    Disease Outbreaks
-                                </h2>
-                                <div className="p-4 m-4 border-2 border-[#3d5245] bg-transparent rounded-4xl flex flex-col gap-2">
-                                    <div className="flex items-stretch justify-between gap-4 rounded-lg">
-                                        <div className="flex flex-col gap-1 flex-[2_2_0px]">
-                                            <p className="text-white text-base font-bold leading-tight">
-                                                Foot and Mouth Disease Outbreak
-                                            </p>
-                                            <p className="text-[#9eb7a8] text-sm font-normal leading-normal">
-                                                High risk of outbreak in your region. Take immediate action to protect your livestock.
-                                            </p>
-                                        </div>
-                                        <div
-                                            className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
-                                            style={{
-                                                backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkhrt7562GfV7MsieDrbU02GafgJpoB62rXJtanJe0xsPqR5C5BR362QRKkqUkBl24aiXsh4rUA8f4x0Mu1Ok0euvKhim_x001TZfJuqIvKdKQW-FoqTLtQav3NiFhH-xGS3vLxQo9t59B5l5cJclrJ7jjLFaW4GPEKbRP7i2V6B42ZbdJK_TdAYcqF3KCuvTPNLgIQRjayfRLmM7FqVELmmsjR1o0XWy_rcWNN3aQxVu9KLHT3SMY5Hh8ELYtyk_mWLrweJXLP0M")',
-                                            }}
-                                        ></div>
-                                    </div>
-                                </div>
-
-                                {/* Vaccination Due Dates */}
-                                <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                                    Vaccination Due Dates
-                                </h2>
-                                <div className="p-4 m-4 border-2 border-[#3d5245] bg-transparent rounded-4xl flex flex-col gap-2">
-                                    <div className="flex items-stretch justify-between gap-4 rounded-lg">
-                                        <div className="flex flex-col gap-1 flex-[2_2_0px]">
-                                            <p className="text-white text-base font-bold leading-tight">
-                                                Vaccination Due for Cattle
-                                            </p>
-                                            <p className="text-[#9eb7a8] text-sm font-normal leading-normal">
-                                                Schedule vaccinations for your cattle within the next 7 days to prevent common diseases.
-                                            </p>
-                                        </div>
-                                        <div
-                                            className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
-                                            style={{
-                                                backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeRTuDJIJaADrdsNX6ppeorohS1Q5YXCDRXHxhNZaxhL8ZQfaN9ibOs5NXun8Qhhs6tbC8-xDxzE3CpL54EBMPjMozBO5nsL3uRtmwZrzTTDRVf2aNctSFeb0kzKKZij-vsHd5EToRmyH4LoWksUP5TzaM07qvj7fIhMKjnIHRjm2A66lqCF8lwwqRzHWhH9lfgPs7MEYRlJerT5bRdiz4xxRpciILQstyE06LQosT3CfSMeZKcVKMRJQ5mEGLNSRUx20U1t1cACM")',
-                                            }}
-                                        ></div>
-                                    </div>
-                                </div>
-
-                                {/* Government Updates */}
-                                <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                                    Government Updates
-                                </h2>
-                                <div className="p-4 m-4 border-2 border-[#3d5245] bg-transparent rounded-4xl flex flex-col gap-2">
-                                    <div className="flex items-stretch justify-between gap-4 rounded-lg">
-                                        <div className="flex flex-col gap-1 flex-[2_2_0px]">
-                                            <p className="text-white text-base font-bold leading-tight">
-                                                New Regulations for Livestock Movement
-                                            </p>
-                                            <p className="text-[#9eb7a8] text-sm font-normal leading-normal">
-                                                Stay updated on the latest regulations affecting livestock movement in your area.
-                                            </p>
-                                        </div>
-                                        <div
-                                            className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
-                                            style={{
-                                                backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6HAnVRsSYbeMjz926BA1q28CuLkjDWqjh-jCblcKtt7r2t371u38bZYL4pK_A-UMTJlhY8R9tw5N_1OnwVQXvhETSEPk_RErFkhf-S2YtDMrDqk6M2iIK9LyrVy5Iqww3Jo6CizMm7fEhrGcTnIIfhIpa13Zfygezo4YuVgyyJ9rQja_0vtbhVhoS_9fSw54_svoj27-bnEg7wjDnl7tRTLs0yAAp2G7ojPHkjIxVhHfn-mhonBGArsnp3vxXT_LZW80S0qcQEfU")',
-                                            }}
-                                        ></div>
-                                    </div>
-                                </div>
+                <div className="flex-1 px-4 py-8 sm:px-6 md:px-8 bg-[#111714] min-h-screen">
+                    <div className="mx-auto max-w-2xl">
+                        <div className="space-y-6 rounded-lg bg-[#1b211e] p-6 shadow-sm">
+                            {/* Header */}
+                            <div className="space-y-2">
+                                <h1 className="text-2xl font-bold text-white">
+                                    Send Communication
+                                </h1>
+                                <p className="text-gray-500">
+                                    Send SOPs, messages, or alerts directly to farmers.
+                                </p>
                             </div>
+
+                            {/* Form */}
+                            <form className="space-y-6">
+                                {/* Recipient */}
+                                <div className="space-y-2">
+                                    <label
+                                        htmlFor="recipient"
+                                        className="text-sm font-medium text-white"
+                                    >
+                                        Recipient Farmer
+                                    </label>
+                                    <select
+                                        id="recipient"
+                                        name="recipient"
+                                        className="form-select w-full rounded-md border-gray-700 bg-[#111714] text-white shadow-sm focus:border-green-500 focus:ring-green-500"
+                                    >
+                                        <option disabled selected>
+                                            Select a farmer
+                                        </option>
+                                        <option>John Doe - Sunnydale Farm</option>
+                                        <option>Jane Smith - Green Acres</option>
+                                        <option>Peter Jones - Hilltop Ranch</option>
+                                        <option>ALL FARMERS</option>
+                                    </select>
+                                </div>
+
+                                {/* Subject */}
+                                <div className="space-y-2">
+                                    <label
+                                        htmlFor="subject"
+                                        className="text-sm font-medium text-white"
+                                    >
+                                        Subject
+                                    </label>
+                                    <input
+                                        id="Text"
+                                        name="subject"
+                                        placeholder="e.g., New Biosecurity SOP"
+                                        className="form-select w-full rounded-md border-gray-700 bg-[#111714] text-white shadow-sm focus:border-green-500 focus:ring-green-500"
+                                    />
+                                </div>
+
+                                {/* Message */}
+                                <div className="space-y-2">
+                                    <label
+                                        htmlFor="message"
+                                        className="text-sm font-medium text-white"
+                                    >
+                                        Message
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="6"
+                                        placeholder="Enter your message or SOP details here..."
+                                        className="form-select w-full rounded-md border-gray-700 bg-[#111714] text-white shadow-sm focus:border-green-500 focus:ring-green-500"
+                                    ></textarea>
+                                </div>
+
+                                {/* Buttons */}
+                                <div className="flex items-center justify-between">
+                                    <button
+                                        type="button"
+                                        className="flex items-center gap-2 text-sm font-medium text-white hover:text-green-600"
+                                    >
+                                        <span className="material-symbols-outlined">attach_file</span>
+                                        Attach SOP (PDF)
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        className="flex items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+                                    >
+                                        <span className="material-symbols-outlined text-black">Send Message</span>
+                                        
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

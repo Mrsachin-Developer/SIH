@@ -11,7 +11,7 @@ const Sidebar = () => {
   const navItems = [
     { name: "Dashboard", path: "/vet-dashboard", icon: assets.dashboard },
     { name: "Cases", path: "/vet-Cases", icon: assets.cases },
-    { name: "Alerts", path: "/vet-alerts", icon: assets.alerts },
+    { name: "Send Alerts", path: "/vet-alerts", icon: assets.alerts },
     { name: "Reports", path: "/vet-reports", icon: assets.reports },
     { name: "Profile", path: "/vet-profile", icon: assets.profile },
   ];
@@ -28,13 +28,13 @@ const Sidebar = () => {
     >
       {/* Logo/Header */}
       <div className="flex items-center justify-center h-20 border-b border-border-dark">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center w-full gap-3">
           <div className="text-primary">
             <img
               
               src="src\assets\pnhg.png"
               alt=""
-              className="p-2 m-2 size-50 cursor-pointer"
+              className="p-2 m-2 size-35 cursor-pointer"
               onClick={goToHome}
             />
           </div>
