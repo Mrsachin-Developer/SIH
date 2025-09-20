@@ -8,6 +8,13 @@ import Ids from "./Pages/Ids.jsx";
 // Vet
 import VetLogin from "./Pages/Vet/VetLogin.jsx";
 import VetDashboard from "./Pages/Vet/VetDashboard.jsx";
+import VetHome from "./Pages/Vet/VetHome.jsx";
+import VetCases from "./Pages/Vet/VetCases.jsx";
+import VetAlerts from "./Pages/Vet/VetAlerts.jsx";
+import VetReports from "./Pages/Vet/VetReports.jsx";
+import VetProfile from "./Pages/Vet/VetProfile.jsx";
+import VetProfileEdit from "./Pages/Vet/VetProfileEdit.jsx";
+import VetFarmDetails from "./Pages/Vet/VetFarmDetails.jsx";
 
 // Farmer
 import FarmerLoginPage from "./Pages/Farmer/FarmerLoginPage.jsx";
@@ -18,12 +25,6 @@ import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx";
 
 // Admin
 import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
-import VetHome from "./Pages/Vet/VetHome.jsx";
-import VetCases from "./Pages/Vet/VetCases.jsx";
-import VetAlerts from "./Pages/Vet/VetAlerts.jsx";
-import VetReports from "./Pages/Vet/VetReports.jsx";
-import VetProfile from "./Pages/Vet/VetProfile.jsx";
-import VetProfileEdit from "./Pages/Vet/VetProfileEdit.jsx";
 import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
 import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
 
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/vet-profile" element={<VetProfile />} />
         <Route path="/vet-profileEdit" element={<VetProfileEdit />} />
         <Route path="/vet/dashboard" element={<VetDashboard />} />
+        <Route path="/vet/vet-farmDetails" element={<VetFarmDetails />} />
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/dashboard" element={<FarmerDashboard />} />

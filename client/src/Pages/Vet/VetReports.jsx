@@ -1,7 +1,12 @@
 import React from "react";
 import Sidebar from "../../Components/Vet/Sidebar";
+import { useNavigate } from "react-router-dom";
+import { assets } from "../../assets/assets";
+import Nav from "../../Components/Vet/Nav";
 
 const VetReports = () => {
+         const navigate = useNavigate();
+    
     return (
         <div className="flex">
             {/* Sidebar */}
@@ -9,6 +14,9 @@ const VetReports = () => {
 
             {/* Main content */}
             <main className="flex-1 ml-64">
+
+                <Nav title="Reports"/>
+
                 <div
                     className="relative flex h-auto min-h-screen w-full flex-col bg-[#111714] overflow-x-hidden"
                     style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
@@ -67,7 +75,7 @@ const VetReports = () => {
 
 
                                 {/* Report Preview */}
-                                
+
                                 <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
                                         <div
@@ -97,7 +105,7 @@ const VetReports = () => {
 
 
                                 {/* Report Preview */}
-                                
+
 
                                 <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
@@ -126,13 +134,13 @@ const VetReports = () => {
                                 </div>
                                 {/* End Report Preview */}
 
-                                    
+
                                 <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
                                     Unsubmitted Reports by Farmers
                                 </h2>
 
-                                            {/* Report Preview */}
-                                
+                                {/* Report Preview */}
+
 
                                 <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
