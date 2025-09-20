@@ -108,14 +108,19 @@ export default function FarmerDashboard() {
 
                 {/* Action buttons */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all">
+                  <button
+                    className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all"
+                    onClick={() => navigate("/farmer/survey")}
+                  >
                     <PlaylistAddCheckIcon />
                     <span>Take Survey</span>
                   </button>
+
                   <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all">
                     <CampaignIcon />
                     <span>View Alerts</span>
                   </button>
+
                   <button
                     className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all"
                     onClick={() => navigate("/farmer/incident-report")}

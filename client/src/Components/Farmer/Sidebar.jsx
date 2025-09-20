@@ -75,14 +75,6 @@ export default function Sidebar({ sidebarOpen }) {
           <SchoolIcon />
           <span>Training & Guide</span>
         </Link>
-
-        <Link
-          to="/farmer/alerts"
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 transition-colors"
-        >
-          <NotificationsActiveIcon />
-          <span>Alerts & Notifications</span>
-        </Link>
       </nav>
     </aside>
   );
