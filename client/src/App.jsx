@@ -23,6 +23,8 @@ import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
 import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx";
 import TrainingGuides from "./Pages/Farmer/TrainingAndGuide.jsx";
 import MyRecords from "./Pages/Farmer/Record.jsx";
+import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
+import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
 // ✅ Import Survey page
 
 // Admin
@@ -30,8 +32,8 @@ import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
 import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 import AnalyticsHeatmap from "./Pages/Admin/AnalyticsHeatmap.jsx";
 import ComplianceReports from "./Pages/Admin/ComplianceReports.jsx";
-import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
-import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
+import AdminAlerts from "./Pages/Admin/AdminAlerts.jsx";
+import AdminUsers from "./Pages/Admin/AdminUsers.jsx";
 
 export default function App() {
   return (
@@ -74,6 +76,8 @@ export default function App() {
           path="/admin/ComplianceReports"
           element={<ComplianceReports />}
         />
+        <Route path="/admin/alerts" element={<AdminAlerts />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
       </Routes>
     </Router>
   );
