@@ -26,18 +26,15 @@ const AdminProfilePage = () => {
     department: "Operations",
   });
 
-  // active link helper
   const isActive = (path) =>
     location.pathname === path
       ? "bg-[#556B2F]/40 text-[#A9BA9D] font-bold"
       : "hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] text-white";
 
-  // handle text inputs
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // handle image upload
   const handleImageUpload = (e) => {
     if (e.target.files && e.target.files[0]) {
       setProfileImage(URL.createObjectURL(e.target.files[0]));
@@ -45,12 +42,12 @@ const AdminProfilePage = () => {
   };
 
   return (
-    <div className="flex h-screen bg-[#0A100A]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#0A100A]">
       {/* Sidebar */}
       <aside
         className={`${
           sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300 md:h-screen`}
       >
         <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
           <h1
@@ -62,7 +59,7 @@ const AdminProfilePage = () => {
           </h1>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-lg hover:bg-[#2C3B2C]"
+            className="p-2 rounded-lg hover:bg-[#2C3B2C] md:hidden"
           >
             {sidebarOpen ? (
               <X size={20} className="text-white" />
@@ -144,7 +141,7 @@ const AdminProfilePage = () => {
       {/* Main */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex items-center justify-between px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10">
+        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10 gap-3">
           <h2 className="text-2xl font-bold text-white">Admin Profile</h2>
           <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-full hover:bg-[#2C3B2C]">
@@ -170,10 +167,10 @@ const AdminProfilePage = () => {
         </header>
 
         {/* Profile Content */}
-        <div className="p-8 bg-[#111714] min-h-screen">
+        <div className="p-4 sm:p-8 bg-[#111714] min-h-screen">
           {/* Profile Header */}
-          <div className="flex items-center justify-between border-b pb-6">
-            <div className="flex items-center gap-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between border-b pb-6 gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
               <div className="relative">
                 <img
                   src={profileImage || "src/assets/adminprofile.png"}
@@ -189,7 +186,7 @@ const AdminProfilePage = () => {
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 type="button"
                 onClick={() => navigate("/admin-profileEdit")}
@@ -231,7 +228,7 @@ const AdminProfilePage = () => {
             </div>
             <div>
               <p className="text-sm text-gray-400">BIO:</p>
-              <div className="p-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714] w-1/2">
+              <div className="p-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714] w-full lg:w-1/2">
                 <p>
                   {formData.name} is a dedicated admin professional overseeing
                   operations and ensuring smooth workflow within the

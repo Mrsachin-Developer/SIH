@@ -8,10 +8,6 @@ import {
   FileText,
   Bell,
   Users,
-  AlertTriangle,
-  Tractor,
-  Syringe,
-  Activity,
   UserCircle,
 } from "lucide-react";
 
@@ -27,9 +23,9 @@ const AdminProfileEdit = () => {
     address: "456 Admin Street, New York",
     role: "Super Admin",
     department: "Operations",
+    bio: "Admin Jane Doe is a dedicated admin professional overseeing operations and ensuring smooth workflow within the organization.",
   });
 
-  // Notification state
   const [showNotification, setShowNotification] = useState(false);
 
   const handleChange = (e) => {
@@ -44,22 +40,25 @@ const AdminProfileEdit = () => {
 
   const handleSave = () => {
     console.log("Profile Saved:", formData);
-    // Show notification
     setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000); // hide after 3 sec
+    setTimeout(() => setShowNotification(false), 3000);
   };
 
   return (
     <div className="flex h-screen bg-[#0A100A]">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        className={`fixed md:relative z-20 top-0 left-0 h-full transition-all duration-300
+          ${
+            sidebarOpen
+              ? "translate-x-0 w-64"
+              : "-translate-x-full md:translate-x-0 w-64"
+          }
+          bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col`}
       >
         <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
           <h1
-            className={`text-xl font-bold text-white transition-all duration-300 ${
+            className={`text-xl font-bold text-white ${
               sidebarOpen ? "block" : "hidden"
             }`}
           >
@@ -77,49 +76,45 @@ const AdminProfileEdit = () => {
           </button>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 px-4 py-6 space-y-2">
           <a
             onClick={() => navigate("/admin/dashboard")}
             className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#556B2F]/40 text-[#A9BA9D] font-bold cursor-pointer"
           >
-            <LayoutDashboard size={20} />
+            <LayoutDashboard size={20} />{" "}
             {sidebarOpen && <span>Dashboard</span>}
           </a>
           <a
             onClick={() => navigate("/admin/analytics-heatmap")}
             className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
           >
-            <BarChart3 size={20} />
+            <BarChart3 size={20} />{" "}
             {sidebarOpen && <span>Analysis & Heatmap</span>}
           </a>
           <a
             onClick={() => navigate("/admin/ComplianceReports")}
             className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
           >
-            <FileText size={20} />
+            <FileText size={20} />{" "}
             {sidebarOpen && <span>Compliance & Reports</span>}
           </a>
           <a
             onClick={() => navigate("/admin/alerts")}
             className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
           >
-            <Bell size={20} />
-            {sidebarOpen && <span>Alerts & Outbreaks</span>}
+            <Bell size={20} /> {sidebarOpen && <span>Alerts & Outbreaks</span>}
           </a>
           <a
             onClick={() => navigate("/admin/users")}
             className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
           >
-            <Users size={20} />
-            {sidebarOpen && <span>Users</span>}
+            <Users size={20} /> {sidebarOpen && <span>Users</span>}
           </a>
           <a
             onClick={() => navigate("/admin/admin-profile")}
             className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
           >
-            <UserCircle size={20} />
-            {sidebarOpen && <span>Profile</span>}
+            <UserCircle size={20} /> {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 
@@ -136,7 +131,6 @@ const AdminProfileEdit = () => {
 
       {/* Main */}
       <main className="flex-1 overflow-y-auto relative">
-        {/* Notification */}
         {showNotification && (
           <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50">
             Profile changed successfully!
@@ -156,9 +150,6 @@ const AdminProfileEdit = () => {
                 alt="Admin avatar"
                 className="w-10 h-10 rounded-full border"
                 src={profileImage || "https://i.pravatar.cc/40"}
-                onError={(e) => {
-                  e.target.style.display = "none";
-                }}
               />
               <UserCircle className="w-8 h-8 text-[#A9BA9D]" />
               <div className="hidden md:block">
@@ -173,7 +164,7 @@ const AdminProfileEdit = () => {
         <div className="p-8 bg-[#111714] min-h-screen">
           <div className="flex items-center justify-between border-b pb-6">
             <div className="flex items-center gap-6">
-              <div className="relative">
+              <div className="relative group">
                 <img
                   src={profileImage || "src/assets/adminprofile.png"}
                   className="w-28 h-28 rounded-full object-cover border"
@@ -184,6 +175,9 @@ const AdminProfileEdit = () => {
                   onChange={handleImageUpload}
                   className="absolute inset-0 opacity-0 cursor-pointer rounded-full"
                 />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-full opacity-0 group-hover:opacity-100 transition">
+                  <UserCircle className="text-white w-6 h-6" />
+                </div>
               </div>
               <div>
                 <input
@@ -191,7 +185,7 @@ const AdminProfileEdit = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="text-2xl font-semibold bg-[#2C3B2C] text-white px-3 py-1 rounded-lg"
+                  className="text-2xl font-semibold bg-[#2C3B2C] text-white px-3 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
                 />
                 <p className="text-gray-400 mt-1">
                   <input
@@ -199,7 +193,7 @@ const AdminProfileEdit = () => {
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
-                    className="bg-[#2C3B2C] text-white px-2 py-1 rounded-lg"
+                    className="bg-[#2C3B2C] text-white px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
                   />
                 </p>
               </div>
@@ -207,56 +201,27 @@ const AdminProfileEdit = () => {
           </div>
 
           <div className="mt-6 space-y-5 text-white">
-            <div>
-              <p className="text-sm text-gray-400">Email</p>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg"
-              />
-            </div>
-            <div>
-              <p className="text-sm text-gray-400">Phone</p>
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg"
-              />
-            </div>
-            <div>
-              <p className="text-sm text-gray-400">Address</p>
-              <input
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg"
-              />
-            </div>
-            <div>
-              <p className="text-sm text-gray-400">Department</p>
-              <input
-                type="text"
-                name="department"
-                value={formData.department}
-                onChange={handleChange}
-                className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg"
-              />
-            </div>
+            {["email", "phone", "address", "department"].map((field) => (
+              <div key={field}>
+                <p className="text-sm text-gray-400">
+                  {field.charAt(0).toUpperCase() + field.slice(1)}
+                </p>
+                <input
+                  type={field === "email" ? "email" : "text"}
+                  name={field}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
+                />
+              </div>
+            ))}
             <div>
               <p className="text-sm text-gray-400">BIO</p>
               <textarea
                 name="bio"
-                value={
-                  formData.bio ||
-                  `${formData.name} is a dedicated admin professional overseeing operations and ensuring smooth workflow within the organization.`
-                }
+                value={formData.bio}
                 onChange={handleChange}
-                className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg"
+                className="w-full bg-[#2C3B2C] text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20df6c]"
               />
             </div>
           </div>

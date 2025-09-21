@@ -7,15 +7,10 @@ import {
   FileText,
   Bell,
   Users,
-  AlertTriangle,
-  Tractor,
-  Syringe,
-  Activity,
   User,
   UserCircle,
   Menu,
   X,
-  Settings,
 } from "lucide-react";
 
 export default function ComplianceReports() {
@@ -23,14 +18,14 @@ export default function ComplianceReports() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-[#0A100A]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#0A100A]">
       {/* Sidebar */}
       <aside
         className={`${
           sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300 flex-shrink-0`}
       >
-        <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
+        <div className="flex items-center justify-between p-4 md:p-6 border-b border-[#2C3B2C]">
           <h1
             className={`text-xl font-bold text-white transition-all duration-300 ${
               sidebarOpen ? "block" : "hidden"
@@ -51,84 +46,67 @@ export default function ComplianceReports() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-4 py-6 space-y-2">
-          <a
-            onClick={() => navigate("/admin/dashboard")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 text-white cursor-pointer"
-          >
-            <LayoutDashboard size={20} />
-            {sidebarOpen && <span>Dashboard</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/analytics-heatmap")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 text-white cursor-pointer"
-          >
-            <BarChart3 size={20} />
-            {sidebarOpen && <span>Analysis & Heatmap</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/ComplianceReports")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#556B2F]/40 text-[#A9BA9D] font-bold cursor-pointer"
-          >
-            <FileText size={20} />
-            {sidebarOpen && <span>Compliance & Reports</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/alerts")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 text-white cursor-pointer"
-          >
-            <Bell size={20} />
-            {sidebarOpen && <span>Alerts & Outbreaks</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/users")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 text-white cursor-pointer"
-          >
-            <Users size={20} />
-            {sidebarOpen && <span>Users</span>}
-          </a>
-          <a
-            onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <UserCircle size={20} />
-            {sidebarOpen && <span>Profile</span>}
-          </a>
+        <nav className="flex-1 px-2 md:px-4 py-4 space-y-2">
+          {[
+            {
+              name: "Dashboard",
+              icon: LayoutDashboard,
+              path: "/admin/dashboard",
+            },
+            {
+              name: "Analysis & Heatmap",
+              icon: BarChart3,
+              path: "/admin/analytics-heatmap",
+            },
+            {
+              name: "Compliance & Reports",
+              icon: FileText,
+              path: "/admin/ComplianceReports",
+              active: true,
+            },
+            { name: "Alerts & Outbreaks", icon: Bell, path: "/admin/alerts" },
+            { name: "Users", icon: Users, path: "/admin/users" },
+            { name: "Profile", icon: UserCircle, path: "/admin/admin-profile" },
+          ].map((item) => (
+            <a
+              key={item.name}
+              onClick={() => navigate(item.path)}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer ${
+                item.active
+                  ? "bg-[#556B2F]/40 text-[#A9BA9D] font-bold"
+                  : "hover:bg-[#556B2F]/30 text-white"
+              } transition-colors`}
+            >
+              <item.icon size={20} />
+              {sidebarOpen && <span className="truncate">{item.name}</span>}
+            </a>
+          ))}
         </nav>
 
-        <div className="p-6 border-t border-[#2C3B2C]">
+        <div className="p-4 md:p-6 border-t border-[#2C3B2C]">
           {sidebarOpen && (
             <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>
           )}
         </div>
       </aside>
 
-      {/* Main */}
+      {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex items-center justify-between px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10">
+        <header className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10 gap-3 md:gap-0">
           <h2 className="text-2xl font-bold text-white">
             Compliance & Reports
           </h2>
-          <div className="flex items-center gap-4">
-            {/* Notifications */}
+          <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto justify-between md:justify-end">
             <button className="relative p-2 rounded-full hover:bg-[#2C3B2C]">
               <Bell className="text-[#A9BA9D]" />
               <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
             </button>
-            {/* User Avatar */}
             <div className="flex items-center gap-2">
               <img
                 alt="User avatar"
                 className="w-10 h-10 rounded-full border"
                 src="https://i.pravatar.cc/40"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                }}
               />
               <User className="w-8 h-8 text-[#A9BA9D]" />
               <div className="hidden md:block">
@@ -139,17 +117,17 @@ export default function ComplianceReports() {
           </div>
         </header>
 
-        {/* Compliance Page Content */}
-        <div className="p-8 space-y-10">
+        {/* Content */}
+        <div className="p-4 md:p-8 space-y-8">
           {/* Overview */}
           <section>
             <h2 className="text-xl font-bold text-white mb-4">
               Farm Compliance Overview
             </h2>
-            <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-6">
-              <div className="flex items-center justify-between">
+            <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4 md:p-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                 <p className="font-medium text-white">Overall Compliance</p>
-                <p className="text-lg font-bold text-white">85%</p>
+                <p className="text-lg font-bold text-white mt-2 sm:mt-0">85%</p>
               </div>
               <div className="mt-2 h-2.5 w-full rounded-full bg-[#556B2F]/40">
                 <div
@@ -163,36 +141,52 @@ export default function ComplianceReports() {
             </div>
 
             {/* Categories */}
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4">
-                <p className="font-medium text-white">Biosecurity</p>
-                <p className="text-3xl font-bold text-white">90%</p>
-                <p className="text-sm font-medium text-green-400">+5%</p>
-              </div>
-              <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4">
-                <p className="font-medium text-white">Environmental</p>
-                <p className="text-3xl font-bold text-white">75%</p>
-                <p className="text-sm font-medium text-red-400">-10%</p>
-              </div>
-              <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4">
-                <p className="font-medium text-white">Animal Welfare</p>
-                <p className="text-3xl font-bold text-white">90%</p>
-                <p className="text-sm font-medium text-green-400">+5%</p>
-              </div>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                {
+                  name: "Biosecurity",
+                  value: "90%",
+                  change: "+5%",
+                  color: "green-400",
+                },
+                {
+                  name: "Environmental",
+                  value: "75%",
+                  change: "-10%",
+                  color: "red-400",
+                },
+                {
+                  name: "Animal Welfare",
+                  value: "90%",
+                  change: "+5%",
+                  color: "green-400",
+                },
+              ].map((cat) => (
+                <div
+                  key={cat.name}
+                  className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4"
+                >
+                  <p className="font-medium text-white">{cat.name}</p>
+                  <p className="text-3xl font-bold text-white">{cat.value}</p>
+                  <p className={`text-sm font-medium text-${cat.color}`}>
+                    {cat.change}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
 
           {/* Reports */}
           <section>
             <h2 className="text-xl font-bold text-white mb-4">Reports</h2>
-            <div className="flex flex-wrap gap-4">
-              <button className="flex items-center justify-center gap-2 rounded-lg bg-[#556B2F]/40 px-4 py-2 text-sm font-bold text-white hover:bg-[#556B2F]/60">
+            <div className="flex flex-wrap gap-3">
+              <button className="flex items-center justify-center gap-2 rounded-lg bg-[#556B2F]/40 px-3 py-2 text-sm font-bold text-white hover:bg-[#556B2F]/60">
                 <span className="material-symbols-outlined text-base">
                   description
                 </span>
                 <span>Export CSV</span>
               </button>
-              <button className="flex items-center justify-center gap-2 rounded-lg bg-[#556B2F]/40 px-4 py-2 text-sm font-bold text-white hover:bg-[#556B2F]/60">
+              <button className="flex items-center justify-center gap-2 rounded-lg bg-[#556B2F]/40 px-3 py-2 text-sm font-bold text-white hover:bg-[#556B2F]/60">
                 <span className="material-symbols-outlined text-base">
                   table_view
                 </span>
@@ -204,8 +198,8 @@ export default function ComplianceReports() {
           {/* Certificates */}
           <section>
             <h2 className="text-xl font-bold text-white mb-4">Certificates</h2>
-            <div className="flex flex-col gap-6 rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-6 md:flex-row">
-              <div className="flex flex-[2_2_0%] flex-col justify-center">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6 rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4 md:p-6">
+              <div className="flex flex-col flex-[2_2_0%] justify-center">
                 <h3 className="text-lg font-bold text-white">
                   Biosecure Farm Certificate
                 </h3>
@@ -231,90 +225,49 @@ export default function ComplianceReports() {
           {/* Audit History */}
           <section>
             <h2 className="text-xl font-bold text-white mb-4">Audit History</h2>
-            <div className="overflow-x-auto rounded-lg border border-[#2C3B2C]">
-              <table className="min-w-full divide-y divide-[#2C3B2C] text-left">
-                <thead className="bg-[#1A241A]">
-                  <tr>
-                    <th className="px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
-                      Date
-                    </th>
-                    <th className="px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
-                      Type
-                    </th>
-                    <th className="px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
-                      Status
-                    </th>
-                    <th className="px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
-                      Details
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#2C3B2C] bg-[#2C3B2C]">
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-[#A9BA9D]">
-                      2024-03-15
-                    </td>
-                    <td className="px-6 py-4 text-sm text-[#A9BA9D]">
-                      Biosecurity
-                    </td>
-                    <td className="px-6 py-4 text-sm">
+            <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C]">
+              <div className="grid grid-cols-1 md:grid-cols-4 text-white">
+                <div className="px-4 py-2 font-bold">Date</div>
+                <div className="px-4 py-2 font-bold">Type</div>
+                <div className="px-4 py-2 font-bold">Status</div>
+                <div className="px-4 py-2 font-bold">Details</div>
+
+                {[
+                  {
+                    date: "2024-03-15",
+                    type: "Biosecurity",
+                    status: "Completed",
+                  },
+                  {
+                    date: "2023-09-20",
+                    type: "Environmental",
+                    status: "Completed",
+                  },
+                  {
+                    date: "2023-03-10",
+                    type: "Animal Welfare",
+                    status: "Completed",
+                  },
+                ].map((row, idx) => (
+                  <React.Fragment key={idx}>
+                    <div className="px-4 py-2 text-[#A9BA9D]">{row.date}</div>
+                    <div className="px-4 py-2 text-[#A9BA9D]">{row.type}</div>
+                    <div className="px-4 py-2">
                       <span className="inline-flex items-center rounded-full bg-green-800/40 px-2.5 py-0.5 text-xs font-medium text-green-300">
-                        Completed
+                        {row.status}
                       </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm">
+                    </div>
+                    <div className="px-4 py-2">
                       <a
                         className="font-medium text-[#A9BA9D] hover:underline"
                         href="#"
                       >
                         View Report
                       </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-[#A9BA9D]">
-                      2023-09-20
-                    </td>
-                    <td className="px-6 py-4 text-sm text-[#A9BA9D]">
-                      Environmental
-                    </td>
-                    <td className="px-6 py-4 text-sm">
-                      <span className="inline-flex items-center rounded-full bg-green-800/40 px-2.5 py-0.5 text-xs font-medium text-green-300">
-                        Completed
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm">
-                      <a
-                        className="font-medium text-[#A9BA9D] hover:underline"
-                        href="#"
-                      >
-                        View Report
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-[#A9BA9D]">
-                      2023-03-10
-                    </td>
-                    <td className="px-6 py-4 text-sm text-[#A9BA9D]">
-                      Animal Welfare
-                    </td>
-                    <td className="px-6 py-4 text-sm">
-                      <span className="inline-flex items-center rounded-full bg-green-800/40 px-2.5 py-0.5 text-xs font-medium text-green-300">
-                        Completed
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm">
-                      <a
-                        className="font-medium text-[#A9BA9D] hover:underline"
-                        href="#"
-                      >
-                        View Report
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </section>
         </div>

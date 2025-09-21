@@ -11,7 +11,6 @@ import {
   User,
   X,
   Menu,
-  Settings,
   UserCircle,
 } from "lucide-react";
 
@@ -39,14 +38,14 @@ export default function AdminAlerts() {
   };
 
   return (
-    <div className="flex h-screen bg-[#0A100A]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#0A100A]">
       {/* Sidebar */}
       <aside
         className={`${
-          sidebarOpen ? "w-64" : "w-16"
+          sidebarOpen ? "w-full md:w-64" : "w-16"
         } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
       >
-        <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
+        <div className="flex items-center justify-between p-4 md:p-6 border-b border-[#2C3B2C]">
           <h1
             className={`text-xl font-bold text-white transition-all duration-300 ${
               sidebarOpen ? "block" : "hidden"
@@ -67,56 +66,52 @@ export default function AdminAlerts() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-4 py-6 space-y-2">
+        <nav className="flex-1 px-2 md:px-4 py-4 md:py-6 space-y-2">
           <a
             onClick={() => navigate("/admin/dashboard")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
           >
             <LayoutDashboard size={20} />
             {sidebarOpen && <span>Dashboard</span>}
           </a>
-
           <a
             onClick={() => navigate("/admin/analytics-heatmap")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
           >
             <BarChart3 size={20} />
             {sidebarOpen && <span>Analysis & Heatmap</span>}
           </a>
-
           <a
             onClick={() => navigate("/admin/ComplianceReports")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
           >
             <FileText size={20} />
             {sidebarOpen && <span>Compliance & Reports</span>}
           </a>
-
           <a
             onClick={() => navigate("/admin/alerts")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg bg-red-900/40 text-red-400 font-bold cursor-pointer"
+            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg bg-red-900/40 text-red-400 font-bold cursor-pointer"
           >
             <AlertTriangle size={20} className="text-red-400" />
             {sidebarOpen && <span>Alerts & Outbreaks</span>}
           </a>
-
           <a
             onClick={() => navigate("/admin/users")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
           >
             <Users size={20} />
             {sidebarOpen && <span>Users</span>}
           </a>
           <a
             onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
           >
             <UserCircle size={20} />
             {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 
-        <div className="p-6 border-t border-[#2C3B2C]">
+        <div className="p-4 md:p-6 border-t border-[#2C3B2C]">
           <p
             className={`text-sm text-[#A9BA9D] ${
               sidebarOpen ? "block" : "hidden"
@@ -130,15 +125,13 @@ export default function AdminAlerts() {
       {/* Main */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex items-center justify-between px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10">
+        <header className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10 space-y-2 md:space-y-0">
           <h2 className="text-2xl font-bold text-white">Alerts & Outbreaks</h2>
           <div className="flex items-center gap-4">
-            {/* Notifications */}
             <button className="relative p-2 rounded-full hover:bg-[#2C3B2C]">
               <Bell className="text-[#A9BA9D]" />
               <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
             </button>
-            {/* User Avatar */}
             <div className="flex items-center gap-2">
               <img
                 alt="User avatar"
@@ -158,68 +151,66 @@ export default function AdminAlerts() {
         </header>
 
         {/* Alerts Content */}
-        <div className="p-8 space-y-12">
+        <div className="p-4 md:p-8 space-y-12">
           {/* Recent Alerts */}
-          <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm">
+          <div className="bg-[#2C3B2C] p-4 md:p-6 rounded-xl shadow-sm overflow-x-auto">
             <h3 className="text-lg font-bold text-red-400 mb-4">
               Recent Alerts
             </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left text-[#A9BA9D]">
-                <thead className="text-xs uppercase bg-[#1A241A] text-[#A9BA9D]">
-                  <tr>
-                    <th className="px-6 py-3">Alert ID</th>
-                    <th className="px-6 py-3">Farm Name</th>
-                    <th className="px-6 py-3">Location</th>
-                    <th className="px-6 py-3">Issue</th>
-                    <th className="px-6 py-3">Severity</th>
-                    <th className="px-6 py-3">Timestamp</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-t border-[#3A4B3A]">
-                    <td className="px-6 py-4">AL-1024</td>
-                    <td className="px-6 py-4">Green Valley Farm</td>
-                    <td className="px-6 py-4">Odisha</td>
-                    <td className="px-6 py-4">Bird Flu</td>
-                    <td className="px-6 py-4 text-red-400 font-semibold">
-                      High
-                    </td>
-                    <td className="px-6 py-4">2025-09-21 10:45</td>
-                  </tr>
-                  <tr className="border-t border-[#3A4B3A]">
-                    <td className="px-6 py-4">AL-1025</td>
-                    <td className="px-6 py-4">Sunrise Farms</td>
-                    <td className="px-6 py-4">Bhubaneswar</td>
-                    <td className="px-6 py-4">Foot and Mouth</td>
-                    <td className="px-6 py-4 text-yellow-400 font-semibold">
-                      Medium
-                    </td>
-                    <td className="px-6 py-4">2025-09-21 09:30</td>
-                  </tr>
-                  <tr className="border-t border-[#3A4B3A]">
-                    <td className="px-6 py-4">AL-1026</td>
-                    <td className="px-6 py-4">Hilltop Dairy</td>
-                    <td className="px-6 py-4">Cuttack</td>
-                    <td className="px-6 py-4">Lumpy Skin</td>
-                    <td className="px-6 py-4 text-green-400 font-semibold">
-                      Low
-                    </td>
-                    <td className="px-6 py-4">2025-09-21 08:10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <table className="w-full text-sm text-left text-[#A9BA9D] min-w-[600px] md:min-w-full">
+              <thead className="text-xs uppercase bg-[#1A241A] text-[#A9BA9D]">
+                <tr>
+                  <th className="px-4 md:px-6 py-3">Alert ID</th>
+                  <th className="px-4 md:px-6 py-3">Farm Name</th>
+                  <th className="px-4 md:px-6 py-3">Location</th>
+                  <th className="px-4 md:px-6 py-3">Issue</th>
+                  <th className="px-4 md:px-6 py-3">Severity</th>
+                  <th className="px-4 md:px-6 py-3">Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-[#3A4B3A]">
+                  <td className="px-4 md:px-6 py-4">AL-1024</td>
+                  <td className="px-4 md:px-6 py-4">Green Valley Farm</td>
+                  <td className="px-4 md:px-6 py-4">Odisha</td>
+                  <td className="px-4 md:px-6 py-4">Bird Flu</td>
+                  <td className="px-4 md:px-6 py-4 text-red-400 font-semibold">
+                    High
+                  </td>
+                  <td className="px-4 md:px-6 py-4">2025-09-21 10:45</td>
+                </tr>
+                <tr className="border-t border-[#3A4B3A]">
+                  <td className="px-4 md:px-6 py-4">AL-1025</td>
+                  <td className="px-4 md:px-6 py-4">Sunrise Farms</td>
+                  <td className="px-4 md:px-6 py-4">Bhubaneswar</td>
+                  <td className="px-4 md:px-6 py-4">Foot and Mouth</td>
+                  <td className="px-4 md:px-6 py-4 text-yellow-400 font-semibold">
+                    Medium
+                  </td>
+                  <td className="px-4 md:px-6 py-4">2025-09-21 09:30</td>
+                </tr>
+                <tr className="border-t border-[#3A4B3A]">
+                  <td className="px-4 md:px-6 py-4">AL-1026</td>
+                  <td className="px-4 md:px-6 py-4">Hilltop Dairy</td>
+                  <td className="px-4 md:px-6 py-4">Cuttack</td>
+                  <td className="px-4 md:px-6 py-4">Lumpy Skin</td>
+                  <td className="px-4 md:px-6 py-4 text-green-400 font-semibold">
+                    Low
+                  </td>
+                  <td className="px-4 md:px-6 py-4">2025-09-21 08:10</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           {/* Send Notifications Form */}
-          <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm space-y-6">
+          <div className="bg-[#2C3B2C] p-4 md:p-6 rounded-xl shadow-sm space-y-6">
             <h3 className="text-lg font-bold text-white mb-4">
               Send Notifications
             </h3>
             <form
               onSubmit={handleSendNotification}
-              className="space-y-4 max-w-md"
+              className="space-y-4 max-w-full md:max-w-md"
             >
               <div>
                 <label className="block text-sm font-medium text-white mb-2">
@@ -270,7 +261,6 @@ export default function AdminAlerts() {
               </button>
             </form>
 
-            {/* Sent Notifications List */}
             {sentNotifications.length > 0 && (
               <div className="mt-6">
                 <h4 className="text-white font-semibold mb-2">

@@ -8,7 +8,6 @@ import {
   FileText,
   Bell,
   Users,
-  Settings,
   UserCircle,
 } from "lucide-react";
 
@@ -126,7 +125,7 @@ export default function AdminUsers() {
       >
         <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
           <h1
-            className={`text-xl font-bold text-white transition-all duration-300 ${
+            className={`text-xl font-bold text-white ${
               sidebarOpen ? "block" : "hidden"
             }`}
           >
@@ -144,7 +143,6 @@ export default function AdminUsers() {
           </button>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 px-4 py-6 space-y-2">
           <a
             onClick={() => navigate("/admin/dashboard")}
@@ -181,10 +179,9 @@ export default function AdminUsers() {
           </a>
           <a
             onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 text-white transition-colors"
           >
-            <UserCircle size={20} />
-            {sidebarOpen && <span>Profile</span>}
+            <UserCircle size={20} /> {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 
@@ -209,8 +206,7 @@ export default function AdminUsers() {
               Manage your users, assign roles and monitor activity.
             </p>
           </div>
-          {/* Search */}
-          <div>
+          <div className="flex flex-col md:flex-row md:items-center md:gap-4">
             <input
               type="text"
               placeholder="Search users..."
@@ -218,14 +214,14 @@ export default function AdminUsers() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full md:w-1/3 px-4 py-2 rounded-lg border border-[#2C3B2C] bg-[#0A100A] text-white placeholder-[#A9BA9D] focus:outline-none focus:ring-2 focus:ring-green-500"
             />
+            <button className="bg-green-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-600 transition mt-2 md:mt-0">
+              + Add User
+            </button>
           </div>
-          <button className="bg-green-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-600 transition">
-            + Add User
-          </button>
         </header>
 
         {/* Tabs */}
-        <div className="flex gap-4 px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-20 z-10">
+        <div className="flex gap-4 px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-24 z-10">
           {["All", "Farmers", "Vets"].map((tab) => (
             <button
               key={tab}
@@ -255,8 +251,8 @@ export default function AdminUsers() {
                 </tr>
               </thead>
               <tbody>
-                {filteredUsers.map((user, index) => (
-                  <tr key={index} className="border-b border-[#2C3B2C]">
+                {filteredUsers.map((user, idx) => (
+                  <tr key={idx} className="border-b border-[#2C3B2C]">
                     <td className="px-6 py-4 font-medium text-white">
                       {user.name}
                     </td>
@@ -289,25 +285,18 @@ export default function AdminUsers() {
 
           {/* Pagination */}
           <div className="flex justify-center mt-6 gap-2 text-[#A9BA9D]">
-            <button className="px-3 py-1 rounded-lg bg-[#2C3B2C] hover:bg-[#556B2F]/40">
-              {"<"}
-            </button>
-            <button className="px-3 py-1 rounded-lg bg-green-500 text-white">
-              1
-            </button>
-            <button className="px-3 py-1 rounded-lg bg-[#2C3B2C] hover:bg-[#556B2F]/40">
-              2
-            </button>
-            <button className="px-3 py-1 rounded-lg bg-[#2C3B2C] hover:bg-[#556B2F]/40">
-              3
-            </button>
-            <span className="px-3 py-1">...</span>
-            <button className="px-3 py-1 rounded-lg bg-[#2C3B2C] hover:bg-[#556B2F]/40">
-              10
-            </button>
-            <button className="px-3 py-1 rounded-lg bg-[#2C3B2C] hover:bg-[#556B2F]/40">
-              {">"}
-            </button>
+            {["<", 1, 2, 3, "...", 10, ">"].map((page, idx) => (
+              <button
+                key={idx}
+                className={`px-3 py-1 rounded-lg ${
+                  page === 1
+                    ? "bg-green-500 text-white"
+                    : "bg-[#2C3B2C] hover:bg-[#556B2F]/40"
+                }`}
+              >
+                {page}
+              </button>
+            ))}
           </div>
         </div>
       </main>
