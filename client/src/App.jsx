@@ -33,8 +33,6 @@ import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
 import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 import AnalyticsHeatmap from "./Pages/Admin/AnalyticsHeatmap.jsx";
 import ComplianceReports from "./Pages/Admin/ComplianceReports.jsx";
-import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
-import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
 import VetAppointment from "./Pages/Vet/VetAppointment.jsx";
 import VetHeatmap from "./Pages/Vet/VetHeatmap.jsx";
 import AdminAlerts from "./Pages/Admin/AdminAlerts.jsx";
