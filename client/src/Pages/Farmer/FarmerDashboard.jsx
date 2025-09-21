@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import VaccinesIcon from "@mui/icons-material/Vaccines";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -9,6 +9,18 @@ import ReportIcon from "@mui/icons-material/Report";
 import Sidebar from "../../Components/Farmer/SideBar";
 import { useNavigate } from "react-router-dom";
 import TickPlacementBars from "../../Components/Farmer/dashboard/RiskGraph.jsx";
+
+// React Leaflet imports
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Fix leaflet default marker issue
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+});
 
 export default function FarmerDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -182,18 +194,36 @@ export default function FarmerDashboard() {
 
               {/* Right column */}
               <div className="space-y-8">
-                {/* Vets Nearby */}
+                {/* Vets Nearby Map */}
                 <div>
                   <h2 className="text-lg sm:text-xl font-bold text-white mb-4">
                     Vets Nearby
                   </h2>
-                  <div
-                    className="aspect-video w-full bg-cover bg-center rounded-lg"
-                    style={{
-                      backgroundImage:
-                        'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0ttIhswWpVXyUHRUI87Lzb-TjDooi0mD3u1zgs4k4vyMXcXzpf9KndWzXKjvEwsFyg2k3fPESJy6AqH29NbAvNTU6nxF9q40olezq90Y7m32WFWRQExWhErmvXUhhVCRTOfbv5uKCpvVcH6S_-lV6FmJhQ4UXSM4r5D8I0NGm5fcCqfHO2Md8SW29DaNgb7OI2V_3ftn0Lt803H6gMJWij6uBMoV1PiMsnbBBtyzhUGeOsQejhdZq8m4YeX0sFHYQyYrV9oRBdOfM")',
-                    }}
-                  />
+                  <div className="aspect-video w-full rounded-lg overflow-hidden">
+                    <MapContainer
+                      center={[20.5937, 78.9629]} // Default India
+                      zoom={5}
+                      scrollWheelZoom={true}
+                      className="w-full h-full"
+                    >
+                      <TileLayer
+                        attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+
+                      <Marker position={[28.6139, 77.209]}>
+                        <Popup>
+                          Delhi Veterinary Hospital <br /> Open 24/7
+                        </Popup>
+                      </Marker>
+
+                      <Marker position={[19.076, 72.8777]}>
+                        <Popup>
+                          Mumbai Vet Clinic <br /> Contact: +91-123456789
+                        </Popup>
+                      </Marker>
+                    </MapContainer>
+                  </div>
                 </div>
 
                 {/* Risk Graph */}
