@@ -5,8 +5,10 @@ import {
   Stethoscope,
   SprayCan,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const RiskCard = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center py-5 px-4 ">
       {/* Title */}
@@ -76,8 +78,11 @@ const RiskCard = () => {
 
       {/* Buttons */}
       <div className="flex space-x-4 mt-10">
-        <button className="bg-green-500 hover:bg-green-600 text-black font-semibold px-11 py-2 rounded-md">
-          Talk to Vet
+        <button
+          onClick={() => navigate("/farmer/incident-report")}
+          className="bg-green-500 hover:bg-green-600 text-black font-semibold px-11 py-2 rounded-md"
+        >
+          Report to Vet
         </button>
         <button className="bg-[#111827] hover:bg-[#1f2937] text-white font-semibold px-11 py-2 rounded-md">
           Download SOP

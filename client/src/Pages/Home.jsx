@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
 
+  
+  const goToHome = () => {
+    navigate("/"); // replace "/" with your home route if different
+  };
+
   return (
     <div
       className="relative flex flex-col min-h-screen w-full bg-[#121212]"
@@ -21,40 +26,37 @@ const Home = () => {
       {/* Header */}
       <header className="flex items-center justify-between border-b border-b-[#29382f] px-10 py-3">
         <div className="flex items-center gap-4 text-white">
-          <div className="size-4">
-            {/* Logo */}
-            <svg
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <h2 className="text-lg font-bold">Livestock Health Insights</h2>
+          <img
+              
+              src="src\assets\pnhg.png"
+              alt=""
+              className="m-2 size-30 cursor-pointer"
+              onClick={goToHome}
+            />
         </div>
 
         <div className="flex flex-1 justify-end gap-8">
           <div className="flex items-center gap-9">
-            <a className="text-white text-sm font-medium" href="#home">
+            <a className="text-white text-sm font-medium group transition duration-300" href="#home">
               Home
+              <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#20df6c]"></span>
             </a>
-            <a className="text-white text-sm font-medium" href="#features">
+            <a className="text-white text-sm font-medium group transition duration-300" href="#features">
               Features
+              <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#20df6c]"></span>
             </a>
-            <a className="text-white text-sm font-medium" href="#about">
+            <a className="text-white text-sm font-medium group transition duration-300" href="#about">
               About Us
+              <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#20df6c]"></span>
             </a>
-            <a className="text-white text-sm font-medium" href="#contact">
+            <a className="text-white text-sm font-medium group transition duration-300" href="#contact">
               Contact
+              <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#20df6c]"></span>
             </a>
           </div>
           <button
             onClick={() => navigate("/ids")}
-            className="h-10 px-4 rounded-xl bg-[#20df6c] text-[#111714] text-sm font-bold cursor-pointer"
+            className="h-10 px-4 rounded-xl bg-[#20df6c] text-[#111714] text-sm font-bold cursor-pointer hover:bg-[#18b558] transition-colors"
           >
             Get Started
           </button>
@@ -82,7 +84,7 @@ const Home = () => {
             </h2>
             <button
               onClick={() => navigate("/ids")}
-              className="h-12 px-5 rounded-xl bg-[#20df6c] text-[#111714] text-base font-bold mt-4 cursor-pointer"
+              className="h-12 px-5 rounded-xl bg-[#20df6c] text-[#111714] text-base font-bold mt-4 cursor-pointer hover:bg-[#18b558] transition-colors"
             >
               Get Started
             </button>
@@ -99,16 +101,42 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+
               {/* Feature Cards */}
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
-                <h2 className="text-white font-bold">Real-time Monitoring</h2>
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
+                {/* Image on top */}
+                <div className="relative w-full h-40">
+                  <img
+                    src="src\assets\real-time-monitoring-in-traceability.png"
+                    alt="Real-time Monitoring"
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+                </div>
+
+                {/* Content below */}
+                <h2 className="text-white font-bold mt-2">Real-time Monitoring</h2>
                 <p className="text-[#9eb7a8] text-sm">
                   Track livestock health metrics in real-time with dashboards
                   and alerts.
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
+
+                {/* Image on top */}
+                <div className="relative w-full h-40">
+                  <img
+                    src="src\assets\risk-assessment-concept-with-form-and-magnifier-illustration-vector.jpg"
+                    alt="Real-time Monitoring"
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+                </div>
+
+
                 <h2 className="text-white font-bold">Risk Prediction</h2>
                 <p className="text-[#9eb7a8] text-sm">
                   Predict disease outbreaks using algorithms and historical
@@ -116,7 +144,20 @@ const Home = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
+
+                {/* Image on top */}
+                <div className="relative w-full h-40">
+                  <img
+                    src="src\assets\colab-platform.png"
+                    alt="Real-time Monitoring"
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/40 rounded-md"></div>
+                </div>
+
+
                 <h2 className="text-white font-bold">Collaborative Platform</h2>
                 <p className="text-[#9eb7a8] text-sm">
                   Seamless collaboration between veterinarians and extension
@@ -137,7 +178,7 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <p className="text-[#9eb7a8] text-sm">
                   We are a team of innovators building a Digital Biosecurity
                   Management Portal to protect pig and poultry farms from
@@ -166,7 +207,7 @@ const Home = () => {
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
-              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1c2620]">
+              <div className="flex flex-col gap-3 p-4 rounded-lg border border-[#3d5245] bg-[#1e1e1e]">
                 <p className="text-[#9eb7a8] text-sm">
                   “Have questions, feedback, or want to collaborate with us?
                   Reach out using the form below – whether you’re a farmer, vet,
@@ -179,21 +220,21 @@ const Home = () => {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="px-4 py-2 rounded-lg bg-[#111714] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
+                    className="px-4 py-2 rounded-lg bg-[#121212] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
                   />
 
                   {/* Email */}
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="px-4 py-2 rounded-lg bg-[#111714] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
+                    className="px-4 py-2 rounded-lg bg-[#121212] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c]"
                   />
 
                   {/* Message */}
                   <textarea
                     placeholder="Write your complaint or query..."
                     rows="5"
-                    className="px-4 py-2 rounded-lg bg-[#111714] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c] resize-none"
+                    className="px-4 py-2 rounded-lg bg-[#121212] text-white placeholder-[#9eb7a8] border border-[#3d5245] focus:outline-none focus:border-[#20df6c] resize-none"
                   ></textarea>
 
                   {/* Submit Button */}
@@ -219,7 +260,7 @@ const Home = () => {
             </p>
             <button
               onClick={() => navigate("/ids")}
-              className="h-12 px-5 rounded-xl bg-[#20df6c] text-[#111714] text-base font-bold cursor-pointer"
+              className="h-12 px-5 rounded-xl bg-[#20df6c] text-[#111714] text-base font-bold cursor-pointer hover:bg-[#18b558] transition-colors"
             >
               Get Started
             </button>

@@ -6,23 +6,19 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import ReportIcon from "@mui/icons-material/Report";
-import GridViewIcon from "@mui/icons-material/GridView";
-import EventNoteIcon from "@mui/icons-material/EventNote";
-import TaskAltIcon from "@mui/icons-material/TaskAlt";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import SchoolIcon from "@mui/icons-material/School";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import Sidebar from "../../Components/Farmer/SideBar";
 import { useNavigate } from "react-router-dom";
+import TickPlacementBars from "../../Components/Farmer/dashboard/RiskGraph.jsx";
+
 export default function FarmerDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
-  // Handle resize to show/hide sidebar at md breakpoint
 
   return (
     <div className="bg-background-dark font-display text-text-light flex min-h-screen">
       {/* Sidebar */}
       <Sidebar />
+
       {/* Main Content */}
       <div className="flex-1 flex flex-col md:ml-64 main-content">
         {/* Header */}
@@ -39,7 +35,7 @@ export default function FarmerDashboard() {
               <div className="flex-1" />
 
               <div className="flex items-center gap-3">
-                {/* Alert Button (left of notifications) */}
+                {/* Alert Button */}
                 <button className="flex items-center gap-2 rounded-md bg-red-900 px-3 py-1 text-red-300 hover:bg-red-800 transition text-sm">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +67,7 @@ export default function FarmerDashboard() {
             </div>
           </div>
         </header>
+
         {/* Main */}
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="max-w-7xl mx-auto">
@@ -84,7 +81,7 @@ export default function FarmerDashboard() {
                 <div className="bg-card-dark rounded-xl p-4 shadow-lg">
                   <h2 className="text-lg font-bold text-white mb-3">
                     Risk Overview
-                  </h2>
+                  </h2> 
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <div className="flex-1">
                       <p className="text-sm text-gray-400">
@@ -108,14 +105,22 @@ export default function FarmerDashboard() {
 
                 {/* Action buttons */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all">
+                  <button
+                    className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all"
+                    onClick={() => navigate("/farmer/survey")}
+                  >
                     <PlaylistAddCheckIcon />
                     <span>Take Survey</span>
                   </button>
-                  <button className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all">
+
+                  <button
+                    onClick={() => navigate("/farmer/alert")}
+                    className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all"
+                  >
                     <CampaignIcon />
                     <span>View Alerts</span>
                   </button>
+
                   <button
                     className="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all"
                     onClick={() => navigate("/farmer/incident-report")}
@@ -167,65 +172,37 @@ export default function FarmerDashboard() {
                   </div>
                 </div>
               </div>
-              {/* Right column */}{" "}
+
+              {/* Right column */}
               <div className="space-y-8">
-                {" "}
-                <div>
-                  {" "}
-                  <h2 className="text-xl font-bold text-white mb-4">
-                    {" "}
-                    Government Alerts{" "}
-                  </h2>{" "}
-                  <div
-                    className="relative bg-cover bg-center rounded-lg h-64 flex flex-col justify-end p-6 text-white"
-                    style={{
-                      backgroundImage:
-                        'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-sBkdz-hLr0R4-WnJY_YYRnbTrB9WhPf38mCgdKRzgZ6tEfswEksfftJB-9kDloFC9KZZGakbFjmLcAT5MM1G7JcLvhDad7buBVV820leZUIgzsXCTBnbBlPypHMrvCNy366rQwqBhDOkRV7j4d6Mi1hOfnTtGY0dutM_CeZeqeQ97W0HyZMPlWwa6n62_7CMWD_Or5RkibX0_KIo5vIcQFpl7lMNwEtGAYqNimZ3R9TWGIAFZ7y0UoBNDnc1yi6TMx7vLGnXKt11")',
-                    }}
-                  >
-                    {" "}
-                    <h3 className="text-lg font-bold">
-                      {" "}
-                      New Subsidy Program Announced{" "}
-                    </h3>{" "}
-                    <p className="text-sm text-gray-200">
-                      {" "}
-                      Learn more about the new subsidy program for small
-                      farmers.{" "}
-                    </p>{" "}
-                    <a
-                      href="#"
-                      className="text-sm font-bold text-primary mt-2 hover:underline"
-                    >
-                      {" "}
-                      Read More{" "}
-                    </a>{" "}
-                  </div>{" "}
-                </div>{" "}
-                <div>
-                  {" "}
-                  <h2 className="text-xl font-bold text-white mb-4">
-                    {" "}
-                    News Ticker{" "}
-                  </h2>{" "}
-                  <div className="bg-card-dark p-4 rounded-lg overflow-hidden">
-                    {" "}
-                    <div className="relative h-45">
-                      {" "}
-                      <p className="absolute animate-marquee text-sm text-gray-300 ">
-                        {" "}
-                        [State] Issues High Alert for Avian Influenza... | New
-                        Regulations for Organic Certification Effective Next
-                        Month... | Market Prices for Soybeans Surge...{" "}
-                      </p>{" "}
-                    </div>{" "}
-                  </div>{" "}
-                </div>{" "}
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
-        </main>{" "}
-      </div>{" "}
+                {/* Government Alerts */}
+                <div className="space-y-8">
+                  <div>
+                    <h2 className="text-xl font-bold text-white mb-4">
+                      Vets Nearby
+                    </h2>
+                    <div
+                      className="aspect-video w-full bg-cover bg-center rounded-lg"
+                      style={{
+                        backgroundImage:
+                          'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0ttIhswWpVXyUHRUI87Lzb-TjDooi0mD3u1zgs4k4vyMXcXzpf9KndWzXKjvEwsFyg2k3fPESJy6AqH29NbAvNTU6nxF9q40olezq90Y7m32WFWRQExWhErmvXUhhVCRTOfbv5uKCpvVcH6S_-lV6FmJhQ4UXSM4r5D8I0NGm5fcCqfHO2Md8SW29DaNgb7OI2V_3ftn0Lt803H6gMJWij6uBMoV1PiMsnbBBtyzhUGeOsQejhdZq8m4YeX0sFHYQyYrV9oRBdOfM")',
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Risk Graph */}
+                <div className="bg-[#1E1E1E] rounded-2xl p-2 shadow-lg">
+                  <h2 className="text-xl font-bold text-white mb-1 p-2">
+                    Risk Graph
+                  </h2>
+                  <TickPlacementBars />
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

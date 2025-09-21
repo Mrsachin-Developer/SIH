@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 const Ids = () => {
   const navigate = useNavigate();
 
+  const goToHome = () => {
+    navigate("/"); // replace "/" with your home route if different
+  };
+
   const [role, setRole] = useState("Veterinarian");
 
   const handleContinue = () => {
@@ -18,15 +22,27 @@ const Ids = () => {
 
   return (
     <div
-      className="relative flex min-h-screen w-full flex-col bg-[#111714] overflow-x-hidden"
+      className="relative flex min-h-screen w-full flex-col bg-[#121212] overflow-x-hidden"
       style={{
         fontFamily: "Inter, Noto Sans, sans-serif",
         "--radio-dot-svg":
           "url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e')",
       }}
     >
+      
+      
       <div className="flex flex-1 justify-center px-6 md:px-20 lg:px-40 py-5">
+        
         <div className="flex flex-col w-full max-w-[512px] py-5">
+          
+            <img
+              
+              src="src\assets\pnhg.png"
+              alt=""
+              className="m-2 size-30 cursor-pointer self-center"
+              onClick={goToHome}
+            />
+
           {/* Title */}
           <h2 className="text-white text-[28px] font-bold leading-tight text-center pb-3 pt-5">
             Select Your Role

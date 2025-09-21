@@ -8,7 +8,7 @@ export default function AlertsList() {
         <li className="text-gray-300">
           🌧 Heavy rain expected in your area tomorrow
         </li>
-        <li className="text-gray-300">🐛 Pest outbreak detected nearby</li>
+        <li className="text-gray-300">🐛 Pest Outbreak detected nearby</li>
       </ul>
     </div>
   );
