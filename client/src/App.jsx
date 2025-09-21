@@ -16,6 +16,9 @@ import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
 
 // Admin
 import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
+import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
+import AnalyticsHeatmap from "./Pages/Admin/AnalyticsHeatmap.jsx";
+import ComplianceReports from "./Pages/Admin/ComplianceReports.jsx";
 
 export default function App() {
   return (
@@ -24,11 +27,9 @@ export default function App() {
         {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/ids" element={<Ids />} />
-
         {/* Vet */}
         <Route path="/vet/login" element={<VetLogin />} />
         <Route path="/vet/dashboard" element={<VetDashboard />} />
-
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
@@ -36,9 +37,14 @@ export default function App() {
           path="/farmer/incident-report"
           element={<FarmerIncidentReport />}
         />
-
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/analytics-heatmap" element={<AnalyticsHeatmap />} />
+        <Route
+          path="/admin/ComplianceReports"
+          element={<ComplianceReports />}
+        />
       </Routes>
     </Router>
   );
