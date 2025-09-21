@@ -8,6 +8,8 @@ import {
   FileText,
   Bell,
   Users,
+  Settings,
+  UserCircle,
 } from "lucide-react";
 
 export default function AdminUsers() {
@@ -176,6 +178,13 @@ export default function AdminUsers() {
             className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#556B2F]/40 text-[#A9BA9D] font-bold cursor-pointer"
           >
             <Users size={20} /> {sidebarOpen && <span>Users</span>}
+          </a>
+          <a
+            onClick={() => navigate("/admin/admin-profile")}
+            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+          >
+            <UserCircle size={20} />
+            {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 

@@ -34,6 +34,8 @@ import AnalyticsHeatmap from "./Pages/Admin/AnalyticsHeatmap.jsx";
 import ComplianceReports from "./Pages/Admin/ComplianceReports.jsx";
 import AdminAlerts from "./Pages/Admin/AdminAlerts.jsx";
 import AdminUsers from "./Pages/Admin/AdminUsers.jsx";
+import AdminProfile from "./Pages/Admin/AdminProfile.jsx";
+import AdminProfileEdit from "./Pages/Admin/AdminProfileEdit.jsx";
 
 export default function App() {
   return (
@@ -78,6 +80,8 @@ export default function App() {
         />
         <Route path="/admin/alerts" element={<AdminAlerts />} />
         <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/admin-profile" element={<AdminProfile />} />
+        <Route path="/admin-profileEdit" element={<AdminProfileEdit />} />
       </Routes>
     </Router>
   );

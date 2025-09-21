@@ -12,8 +12,10 @@ import {
   Syringe,
   Activity,
   User,
+  UserCircle,
   Menu,
   X,
+  Settings,
 } from "lucide-react";
 
 export default function ComplianceReports() {
@@ -88,6 +90,13 @@ export default function ComplianceReports() {
           >
             <Users size={20} />
             {sidebarOpen && <span>Users</span>}
+          </a>
+          <a
+            onClick={() => navigate("/admin/admin-profile")}
+            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+          >
+            <UserCircle size={20} />
+            {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 
