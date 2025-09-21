@@ -18,14 +18,14 @@ const VetDashboard = () => {
 
 
       {/* Main content */}
-      <main className="flex-1 ml-64">
+      <main className="flex-1 ml-64 bg-[#121212]">
 
         <Nav title="Dashboard" />
 
 
 
         <div
-          className="relative flex h-auto min-h-screen w-full flex-col bg-[#111714] overflow-x-hidden"
+          className="relative flex h-auto min-h-screen w-full flex-col bg-[#121212] overflow-x-hidden"
           style={{ fontFamily: `Manrope, "Noto Sans", sans-serif` }}>
 
           <div className="layout-container flex h-full grow flex-col">
@@ -105,24 +105,27 @@ const VetDashboard = () => {
 
 
             <div className="px-4 py-3">
-              <div className="flex overflow-hidden rounded-lg border border-[#3d5245] bg-[#111714]">
-                <table className="flex-1">
+              <div className="overflow-hidden rounded-lg border border-[#3d5245] bg-[#111714]">
+                <table className="table-fixed w-full border-collapse">
                   <thead>
                     <tr className="bg-[#1c2620]">
-                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[400px]">
+                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[250px]">
                         Farm
                       </th>
-                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[400px]">
+                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[200px]">
                         Animal ID
                       </th>
-                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[400px]">
+                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[200px]">
                         Issue
                       </th>
-                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[400px]">
+                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[200px]">
                         Reported
                       </th>
-                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-60">
+                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[150px]">
                         Status
+                      </th>
+                      <th className="px-4 py-3 text-left text-white text-sm font-medium leading-normal w-[120px]">
+                        Action
                       </th>
                     </tr>
                   </thead>
@@ -148,22 +151,28 @@ const VetDashboard = () => {
                       },
                     ].map((caseItem, i) => (
                       <tr key={i} className="border-t border-t-[#3d5245]">
-                        <td className="h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal">
+                        <td className="h-[72px] px-4 py-2 text-white text-sm font-normal leading-normal">
                           {caseItem.farm}
                         </td>
-                        <td className="h-[72px] px-4 py-2 w-[400px] text-[#9eb7a8] text-sm font-normal leading-normal">
+                        <td className="h-[72px] px-4 py-2 text-[#9eb7a8] text-sm font-normal leading-normal">
                           {caseItem.animal}
                         </td>
-                        <td className="h-[72px] px-4 py-2 w-[400px] text-[#9eb7a8] text-sm font-normal leading-normal">
+                        <td className="h-[72px] px-4 py-2 text-[#9eb7a8] text-sm font-normal leading-normal">
                           {caseItem.issue}
                         </td>
-                        <td className="h-[72px] px-4 py-2 w-[400px] text-[#9eb7a8] text-sm font-normal leading-normal">
+                        <td className="h-[72px] px-4 py-2 text-[#9eb7a8] text-sm font-normal leading-normal">
                           {caseItem.reported}
                         </td>
-                        <td className="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <td className="h-[72px] px-4 py-2 text-sm font-normal leading-normal">
                           <button className="flex cursor-pointer items-center justify-center rounded-lg h-8 px-4 bg-[#29382f] text-white text-sm font-medium w-full">
                             <span className="truncate">Urgent</span>
                           </button>
+                        </td>
+                        <td
+                          className="px-4 py-2 h-[72px] text-sm font-bold text-[#9eb7a8] cursor-pointer hover:underline"
+                          onClick={() => navigate("/vet/vet-appointmentdetails")}
+                        >
+                          View
                         </td>
                       </tr>
                     ))}
@@ -171,6 +180,8 @@ const VetDashboard = () => {
                 </table>
               </div>
             </div>
+
+
 
             {/* Risk Analysis */}
             <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">

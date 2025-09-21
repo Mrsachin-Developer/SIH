@@ -32,6 +32,8 @@ import AnalyticsHeatmap from "./Pages/Admin/AnalyticsHeatmap.jsx";
 import ComplianceReports from "./Pages/Admin/ComplianceReports.jsx";
 import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
 import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
+import VetAppointment from "./Pages/Vet/VetAppointment.jsx";
+import VetHeatmap from "./Pages/Vet/VetHeatmap.jsx";
 
 export default function App() {
   return (
@@ -48,9 +50,11 @@ export default function App() {
         <Route path="/vet-alerts" element={<VetAlerts />} />
         <Route path="/vet-reports" element={<VetReports />} />
         <Route path="/vet-profile" element={<VetProfile />} />
+        <Route path="/vet-heatmap" element={<VetHeatmap />} />
         <Route path="/vet-profileEdit" element={<VetProfileEdit />} />
         <Route path="/vet/dashboard" element={<VetDashboard />} />
         <Route path="/vet/vet-farmDetails" element={<VetFarmDetails />} />
+        <Route path="/vet/vet-appointmentdetails" element={<VetAppointment />} />
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/record" element={<MyRecords />} />

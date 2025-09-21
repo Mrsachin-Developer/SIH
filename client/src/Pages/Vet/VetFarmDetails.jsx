@@ -9,7 +9,7 @@ const VetFarmDetails = () => {
 
 
                 {/* Main */}
-                <main className="flex flex-1 justify-center px-6 py-8 bg-[#111714]">
+                <main className="flex flex-1 justify-center px-6 py-8 bg-[#121212]">
                     <div className="flex w-full max-w-7xl">
                         {/* Main Content */}
                         <div className="flex flex-col flex-1">
@@ -54,7 +54,7 @@ const VetFarmDetails = () => {
 
                                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                                     {/* Card 1 - Overall Risk Score */}
-                                    <div className="bg-[#1b211e] flex flex-col gap-4 rounded-lg border border-gray-700 p-6 shadow-sm">
+                                    <div className="bg-[#1f1f1f] flex flex-col gap-4 rounded-lg border border-gray-700 p-6 shadow-sm">
                                         <div className="flex items-center justify-between">
                                             <p className="text-white text-base font-medium leading-normal text-secondary-700">
                                                 Overall Risk Score
@@ -113,7 +113,7 @@ const VetFarmDetails = () => {
                                     </div>
 
                                     {/* Card 2 - Risk Factors */}
-                                    <div className="bg-[#1b211e] flex flex-col gap-4 rounded-lg border border-gray-700 p-6 shadow-sm">
+                                    <div className="bg-[#1f1f1f] flex flex-col gap-4 rounded-lg border border-gray-700 p-6 shadow-sm">
                                         <div className="flex items-center justify-between">
                                             <p className="text-white text-base font-medium leading-normal text-secondary-700">
                                                 Risk Factors
@@ -134,7 +134,7 @@ const VetFarmDetails = () => {
                                         </p>
 
                                         {/* Bar Chart */}
-                                        <div className="grid h-[200px] grid-flow-col gap-4 items-end justify-items-center pt-4 bg-gray-900">
+                                        <div className="grid h-[200px] grid-flow-col gap-4 items-end justify-items-center pt-4">
                                             <div className="w-6 self-end rounded-t bg-green-400" style={{ height: "30%" }} />
                                             <div className="w-6 self-end rounded-t bg-green-400" style={{ height: "60%" }} />
                                             <div className="w-6 self-end rounded-t bg-green-400" style={{ height: "70%" }} />
@@ -158,7 +158,7 @@ const VetFarmDetails = () => {
 
                                 <div className="space-y-4">
                                     {/* Incident 1 */}
-                                    <div className="bg-[#1b211e] flex items-start justify-between gap-6 rounded-lg border border-gray-700 p-4 shadow-sm">
+                                    <div className="bg-[#1f1f1f] flex items-start justify-between gap-6 rounded-lg border border-gray-700 p-4 shadow-sm">
                                         <div className="flex flex-col gap-1.5">
                                             <p className="text-[#9eb7a8] text-sm font-medium leading-normal text-secondary-500">
                                                 Incident Report
@@ -181,7 +181,7 @@ const VetFarmDetails = () => {
                                     </div>
 
                                     {/* Incident 2 */}
-                                    <div className="bg-[#1b211e] flex items-start justify-between gap-6 rounded-lg border border-gray-700 p-4 shadow-sm">
+                                    <div className="bg-[#1f1f1f] flex items-start justify-between gap-6 rounded-lg border border-gray-700 p-4 shadow-sm">
                                         <div className="flex flex-col gap-1.5">
                                             <p className="text-[#9eb7a8] text-sm font-medium leading-normal text-secondary-500">
                                                 Incident Report
@@ -211,7 +211,7 @@ const VetFarmDetails = () => {
                                     Vaccination &amp; Compliance
                                 </h2>
 
-                                <div className="bg-[#1b211e] overflow-hidden rounded-lg border border-gray-700 shadow-sm">
+                                <div className="bg-[#1f1f1f] overflow-hidden rounded-lg border border-gray-700 shadow-sm">
                                     <table className="w-full">
                                         <thead className="bg-secondary-50">
                                             <tr>
@@ -282,7 +282,7 @@ const VetFarmDetails = () => {
 
                         {/* Sidebar */}
                         <aside className="w-[360px] flex-shrink-0 p-4 ">
-                            <div className="bg-[#1b211e] flex flex-col gap-6 rounded-lg border border-gray-700 p-6 shadow-sm">
+                            <div className="bg-[#1f1f1f] flex flex-col gap-6 rounded-lg border border-gray-700 p-6 shadow-sm">
                                 <div className="flex flex-col items-center gap-4">
                                     <div
                                         className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24"

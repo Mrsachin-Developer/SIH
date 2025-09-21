@@ -10,6 +10,11 @@ import cases from './cases.svg'
 import alerts from './alerts.svg'
 import reports from './reports.svg'
 import profile from './profile.svg'
+import heatmap from './heatmap.svg'
+import dropdown from './dropdown.svg'
+import search from './search.svg'
+import nearme from './nearme.svg'
+
 
 
 export const assets = {
@@ -24,5 +29,9 @@ export const assets = {
     cases,
     alerts,
     reports,
-    profile
+    profile,
+    heatmap,
+    dropdown,
+    search,
+    nearme
 }

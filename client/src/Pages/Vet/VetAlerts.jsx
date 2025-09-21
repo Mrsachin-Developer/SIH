@@ -8,7 +8,7 @@ const VetAlerts = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex">
+        <div className="flex bg-[#121212]">
             {/* Sidebar */}
             <Sidebar />
 
@@ -16,9 +16,9 @@ const VetAlerts = () => {
             <main className="flex-1 ml-64">
                 <Nav title="Alerts" />
 
-                <div className="flex-1 px-4 py-8 sm:px-6 md:px-8 bg-[#111714] min-h-screen">
+                <div className="flex-1 px-4 py-8 sm:px-6 md:px-8 bg-[#121212] min-h-screen">
                     <div className="mx-auto max-w-2xl">
-                        <div className="space-y-6 rounded-lg bg-[#1b211e] p-6 shadow-sm">
+                        <div className="space-y-6 rounded-lg bg-[#1f1f1f] p-6 shadow-sm">
                             {/* Header */}
                             <div className="space-y-2">
                                 <h1 className="text-2xl font-bold text-white">
@@ -42,7 +42,7 @@ const VetAlerts = () => {
                                     <select
                                         id="recipient"
                                         name="recipient"
-                                        className="form-select w-full rounded-md border-gray-700 bg-[#111714] text-white shadow-sm focus:border-green-500 focus:ring-green-500"
+                                        className="form-select w-full rounded-md bg-[#292e2b] border-gray-700 text-white shadow-sm focus:border-green-500 focus:ring-green-500"
                                     >
                                         <option disabled selected>
                                             Select a farmer
@@ -66,7 +66,7 @@ const VetAlerts = () => {
                                         id="Text"
                                         name="subject"
                                         placeholder="e.g., New Biosecurity SOP"
-                                        className="form-select w-full rounded-md border-gray-700 bg-[#111714] text-white shadow-sm focus:border-green-500 focus:ring-green-500"
+                                        className="form-select w-full rounded-md bg-[#292e2b] border-gray-700 text-white shadow-sm focus:border-green-500 focus:ring-green-500"
                                     />
                                 </div>
 
@@ -83,7 +83,7 @@ const VetAlerts = () => {
                                         name="message"
                                         rows="6"
                                         placeholder="Enter your message or SOP details here..."
-                                        className="form-select w-full rounded-md border-gray-700 bg-[#111714] text-white shadow-sm focus:border-green-500 focus:ring-green-500"
+                                        className="form-select w-full rounded-md bg-[#292e2b] border-gray-700 text-white shadow-sm focus:border-green-500 focus:ring-green-500"
                                     ></textarea>
                                 </div>
 

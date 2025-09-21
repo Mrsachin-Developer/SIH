@@ -1,7 +1,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg fill="#ffffff" width="256px" height="256px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" transform="rotate(45)" stroke="#ffffff" stroke-width="42.239999999999995">
+<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="800px" height="800px" viewBox="0 0 24 24" stroke="#ffffff">
 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier"> <path d="M1298.824 1581.176c0 186.805-152.02 338.824-338.824 338.824-186.805 0-338.824-152.019-338.824-338.824h677.648ZM1016.47 0v115.765c378.465 29.026 677.647 345.6 677.647 731.294v282.353c0 124.574 101.308 225.882 225.882 225.882v112.941H0v-112.94c124.574 0 225.882-101.31 225.882-225.883V847.059c0-385.694 299.182-702.268 677.647-731.294V0h112.942Z" fill-rule="evenodd"/> </g>
+<g id="SVGRepo_iconCarrier">
+<path d="M10.01 21.01c0 1.1.89 1.99 1.99 1.99s1.99-.89 1.99-1.99h-3.98zm8.87-4.19V11c0-3.25-2.25-5.97-5.29-6.69v-.72C13.59 2.71 12.88 2 12 2s-1.59.71-1.59 1.59v.72C7.37 5.03 5.12 7.75 5.12 11v5.82L3 18.94V20h18v-1.06l-2.12-2.12zM16 13.01h-3v3h-2v-3H8V11h3V8h2v3h3v2.01z"/>
+</g>
 </svg>

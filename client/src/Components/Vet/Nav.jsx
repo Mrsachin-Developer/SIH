@@ -7,7 +7,9 @@ const Nav = ({ title }) => {   // accept `title` as a prop
 
   return (
     
-      <nav className="sticky top-0 z-50 flex items-center justify-between bg-[#111714] px-6 py-6 border-b border-[#3d5245]">
+      <nav className="sticky top-0 z-50 flex items-center justify-between 
+                 bg-[#121212]/40 backdrop-blur-md 
+                 px-6 py-6 border-b border-[#3d5245]/50">
         {/* Left: Page Title */}
         <div>
           <p className="text-white text-2xl font-bold">{title}</p>
@@ -20,7 +22,7 @@ const Nav = ({ title }) => {   // accept `title` as a prop
             onClick={() => navigate("/vet-cases")}
             className="relative text-white hover:text-green-400"
           >
-            <img src={assets.alerts} alt="" className="size-7" />
+            <img src={assets.cases} alt="" className="size-7" />
             <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
           </button>
 

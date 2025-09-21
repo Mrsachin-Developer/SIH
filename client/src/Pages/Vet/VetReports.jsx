@@ -8,7 +8,7 @@ const VetReports = () => {
          const navigate = useNavigate();
     
     return (
-        <div className="flex">
+        <div className="flex bg-[#121212]">
             {/* Sidebar */}
             <Sidebar />
 
@@ -18,7 +18,7 @@ const VetReports = () => {
                 <Nav title="Reports"/>
 
                 <div
-                    className="relative flex h-auto min-h-screen w-full flex-col bg-[#111714] overflow-x-hidden"
+                    className="relative flex h-auto min-h-screen w-full flex-col bg-[#121212] overflow-x-hidden"
                     style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
                 >
                     <div className="layout-container flex h-full grow flex-col">
@@ -46,13 +46,13 @@ const VetReports = () => {
                                     Report Preview
                                 </h2>
 
-                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
+                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#1f1f1f]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
                                         <div
                                             className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                                             style={{
                                                 backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZPpsKk8Wbm1zCq-SVmBGy_tYZvVOfTs5bssTsFejaEhRw6XIMhbR8yRuw5ShSwQ_03gGnkc9bT7fPtATn2JTNR2i5sW4J-CqteLpzPSLGtt8gF1EwRy9pRQUl_VA7ey04xxFk25XzJD6OIpqnZNhTT3gngA3KukDw6EhQ4JXbdTh4lM6_csxNAeR6hKKWNAhbWbHmQEdq4mPyHpPXwRv2iYsD3RoQtOu6BDjHSG28vgluTmETd8lGxBhS0IqoPObgNDn1U23lhJA")',
+                                                    'url("src/assets/ireland-1985088.jpg")',
                                             }}
                                         ></div>
 
@@ -76,13 +76,13 @@ const VetReports = () => {
 
                                 {/* Report Preview */}
 
-                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
+                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#1f1f1f]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
                                         <div
                                             className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                                             style={{
                                                 backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZPpsKk8Wbm1zCq-SVmBGy_tYZvVOfTs5bssTsFejaEhRw6XIMhbR8yRuw5ShSwQ_03gGnkc9bT7fPtATn2JTNR2i5sW4J-CqteLpzPSLGtt8gF1EwRy9pRQUl_VA7ey04xxFk25XzJD6OIpqnZNhTT3gngA3KukDw6EhQ4JXbdTh4lM6_csxNAeR6hKKWNAhbWbHmQEdq4mPyHpPXwRv2iYsD3RoQtOu6BDjHSG28vgluTmETd8lGxBhS0IqoPObgNDn1U23lhJA")',
+                                                    'url("src/assets/cows-1029077.jpg")',
                                             }}
                                         ></div>
 
@@ -107,13 +107,13 @@ const VetReports = () => {
                                 {/* Report Preview */}
 
 
-                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
+                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#1f1f1f]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
                                         <div
                                             className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                                             style={{
                                                 backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZPpsKk8Wbm1zCq-SVmBGy_tYZvVOfTs5bssTsFejaEhRw6XIMhbR8yRuw5ShSwQ_03gGnkc9bT7fPtATn2JTNR2i5sW4J-CqteLpzPSLGtt8gF1EwRy9pRQUl_VA7ey04xxFk25XzJD6OIpqnZNhTT3gngA3KukDw6EhQ4JXbdTh4lM6_csxNAeR6hKKWNAhbWbHmQEdq4mPyHpPXwRv2iYsD3RoQtOu6BDjHSG28vgluTmETd8lGxBhS0IqoPObgNDn1U23lhJA")',
+                                                    'url("src/assets/calf.jpg")',
                                             }}
                                         ></div>
 
@@ -142,13 +142,13 @@ const VetReports = () => {
                                 {/* Report Preview */}
 
 
-                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#111714]">
+                                <div className="p-4 m-4 overflow-hidden rounded-xl border border-[#3d5245] bg-[#1f1f1f]">
                                     <div className="flex flex-col items-stretch justify-start rounded-xl xl:flex-row xl:items-start">
                                         <div
                                             className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
                                             style={{
                                                 backgroundImage:
-                                                    'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZPpsKk8Wbm1zCq-SVmBGy_tYZvVOfTs5bssTsFejaEhRw6XIMhbR8yRuw5ShSwQ_03gGnkc9bT7fPtATn2JTNR2i5sW4J-CqteLpzPSLGtt8gF1EwRy9pRQUl_VA7ey04xxFk25XzJD6OIpqnZNhTT3gngA3KukDw6EhQ4JXbdTh4lM6_csxNAeR6hKKWNAhbWbHmQEdq4mPyHpPXwRv2iYsD3RoQtOu6BDjHSG28vgluTmETd8lGxBhS0IqoPObgNDn1U23lhJA")',
+                                                    'url("src/assets/chick.jpg")',
                                             }}
                                         ></div>
 
@@ -158,7 +158,7 @@ const VetReports = () => {
                                             </p>
                                             <div className="flex items-end gap-3 justify-between">
                                                 <p className="text-[#9eb7a8] text-base font-normal leading-normal">
-                                                    Submitted on July 15, 2024
+                                                    Pending Submission from July 15, 2024
                                                 </p>
                                             </div>
                                             <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-xl h-8 px-4 bg-[#20df6c] text-[#111714] text-sm font-medium leading-normal mt-4">
