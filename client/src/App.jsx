@@ -39,6 +39,7 @@ import AdminAlerts from "./Pages/Admin/AdminAlerts.jsx";
 import AdminUsers from "./Pages/Admin/AdminUsers.jsx";
 import AdminProfile from "./Pages/Admin/AdminProfile.jsx";
 import AdminProfileEdit from "./Pages/Admin/AdminProfileEdit.jsx";
+import FarmerProfile from "./Pages/Farmer/FarmerProfile.jsx";
 
 export default function App() {
   return (
@@ -64,6 +65,7 @@ export default function App() {
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/record" element={<MyRecords />} />
         <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
+        <Route path="/farmer/profile" element={<FarmerProfile />} />
         <Route
           path="/farmer/incident-report"
           element={<FarmerIncidentReport />}
