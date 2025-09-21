@@ -26,10 +26,7 @@
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1",
     "recharts": "^3.2.1",
-<<<<<<< HEAD
-=======
     "sonner": "^2.0.7",
->>>>>>> 5aae984314ce1cd2eb654b2195923af54f0fe421
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

@@ -27,14 +27,11 @@ import MyRecords from "./Pages/Farmer/Record.jsx";
 
 // Admin
 import AdminLogin from "./Pages/Admin/AdminLogin.jsx";
-<<<<<<< HEAD
 import AdminDashboard from "./Pages/Admin/AdminDashboard.jsx";
 import AnalyticsHeatmap from "./Pages/Admin/AnalyticsHeatmap.jsx";
 import ComplianceReports from "./Pages/Admin/ComplianceReports.jsx";
-=======
 import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
 import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
->>>>>>> 5aae984314ce1cd2eb654b2195923af54f0fe421
 
 export default function App() {
   return (
@@ -53,10 +50,7 @@ export default function App() {
         <Route path="/vet-profile" element={<VetProfile />} />
         <Route path="/vet-profileEdit" element={<VetProfileEdit />} />
         <Route path="/vet/dashboard" element={<VetDashboard />} />
-<<<<<<< HEAD
-=======
         <Route path="/vet/vet-farmDetails" element={<VetFarmDetails />} />
->>>>>>> 5aae984314ce1cd2eb654b2195923af54f0fe421
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/record" element={<MyRecords />} />
@@ -65,8 +59,6 @@ export default function App() {
           path="/farmer/incident-report"
           element={<FarmerIncidentReport />}
         />
-<<<<<<< HEAD
-=======
         <Route path="/farmer/survey" element={<RiskAssessmentSurvey />} />{" "}
         <Route path="/farmer/alert" element={<AlertsPage />}></Route>
         <Route path="/farmer/riskalert" element={<FarmerRiskResult />}>
@@ -74,7 +66,6 @@ export default function App() {
         </Route>
         <Route path="/farmer/training" element={<TrainingGuides />} />
         {/* ✅ Added */}
->>>>>>> 5aae984314ce1cd2eb654b2195923af54f0fe421
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
