@@ -1,5 +1,6 @@
 // App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "leaflet/dist/leaflet.css";
 
 // Pages
 import Home from "./Pages/Home.jsx";
@@ -23,6 +24,8 @@ import FarmerIncidentReport from "./Pages/Farmer/FarmerIncidentReport.jsx";
 import RiskAssessmentSurvey from "./Pages/Farmer/Survey.jsx";
 import TrainingGuides from "./Pages/Farmer/TrainingAndGuide.jsx";
 import MyRecords from "./Pages/Farmer/Record.jsx";
+import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
+import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
 // ✅ Import Survey page
 
 // Admin
@@ -34,6 +37,10 @@ import AlertsPage from "./Pages/Farmer/AlertsPage.jsx";
 import FarmerRiskResult from "./Pages/Farmer/FarmerRiskResult.jsx";
 import VetAppointment from "./Pages/Vet/VetAppointment.jsx";
 import VetHeatmap from "./Pages/Vet/VetHeatmap.jsx";
+import AdminAlerts from "./Pages/Admin/AdminAlerts.jsx";
+import AdminUsers from "./Pages/Admin/AdminUsers.jsx";
+import AdminProfile from "./Pages/Admin/AdminProfile.jsx";
+import AdminProfileEdit from "./Pages/Admin/AdminProfileEdit.jsx";
 
 export default function App() {
   return (
@@ -78,6 +85,10 @@ export default function App() {
           path="/admin/ComplianceReports"
           element={<ComplianceReports />}
         />
+        <Route path="/admin/alerts" element={<AdminAlerts />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/admin-profile" element={<AdminProfile />} />
+        <Route path="/admin-profileEdit" element={<AdminProfileEdit />} />
       </Routes>
     </Router>
   );

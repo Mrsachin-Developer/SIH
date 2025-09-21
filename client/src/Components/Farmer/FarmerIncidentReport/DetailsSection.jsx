@@ -8,8 +8,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import dayjs from "dayjs";
 
-import "../../../index.css";
-
 export default function DetailsSection() {
   const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState("14:35");
@@ -40,19 +38,15 @@ export default function DetailsSection() {
   };
 
   return (
-    <div className="space-y-4 relative">
+    <div className="space-y-6 relative">
       <h2 className="text-2xl font-bold text-white">Details</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* DATE */}
         <div className="relative">
-          <label
-            htmlFor="date"
-            className="block text-sm font-medium text-gray-300 mb-1"
-          >
+          <label className="block text-sm font-medium text-gray-300 mb-1">
             Date
           </label>
           <input
-            id="date"
             type="text"
             value={date ? date.format("YYYY-MM-DD") : ""}
             readOnly
@@ -64,7 +58,7 @@ export default function DetailsSection() {
             className="absolute top-14 right-2 -translate-y-1/2 text-white hover:text-primary cursor-pointer"
           />
           {showDatePicker && (
-            <div className="absolute top-full right-0 mt-1 w-full md:w-72 bg-black text-white p-3 rounded-xl shadow-lg z-10">
+            <div className="absolute top-full right-0 mt-2 w-full md:w-72 bg-black text-white p-3 rounded-xl shadow-lg z-20">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateCalendar
                   value={date}
@@ -72,7 +66,7 @@ export default function DetailsSection() {
                     setDate(newValue);
                     setShowDatePicker(false);
                   }}
-                  className="bg-black  text-white rounded-lg [&_button]:text-white [&_button.Mui-selected]:bg-primary [&_button.Mui-selected]:text-white [&_button:hover]:bg-gray-700"
+                  className="bg-black text-white rounded-lg [&_button]:text-white [&_button.Mui-selected]:bg-primary [&_button.Mui-selected]:text-white [&_button:hover]:bg-gray-700"
                 />
               </LocalizationProvider>
             </div>
@@ -81,14 +75,10 @@ export default function DetailsSection() {
 
         {/* TIME */}
         <div className="relative">
-          <label
-            htmlFor="time"
-            className="block text-sm font-medium text-gray-300 mb-1"
-          >
+          <label className="block text-sm font-medium text-gray-300 mb-1">
             Time
           </label>
           <input
-            id="time"
             type="text"
             value={time}
             readOnly
@@ -106,8 +96,8 @@ export default function DetailsSection() {
             className="absolute top-14 right-2 -translate-y-1/2 text-gray-400 hover:text-primary cursor-pointer"
           />
           {showTimePicker && (
-            <div className="absolute top-full right-0 mt-1 bg-black text-white p-4 rounded-xl shadow-lg z-10">
-              <div className="flex gap-2 items-center">
+            <div className="absolute top-full right-0 mt-2 bg-black text-white p-4 rounded-xl shadow-lg z-20">
+              <div className="flex flex-col sm:flex-row gap-2 items-center">
                 <select
                   className="bg-black text-white border border-gray-600 rounded-lg p-2 text-lg w-20"
                   value={time.split(":")[0]}
@@ -121,9 +111,7 @@ export default function DetailsSection() {
                     </option>
                   ))}
                 </select>
-
                 <span className="text-xl font-bold">:</span>
-
                 <select
                   className="bg-black text-white border border-gray-600 rounded-lg p-2 text-lg w-20"
                   value={time.split(":")[1]}
@@ -140,7 +128,6 @@ export default function DetailsSection() {
                     );
                   })}
                 </select>
-
                 <button
                   className="bg-primary text-black px-3 py-1 rounded-lg ml-2 hover:bg-primary/70"
                   onClick={() => setShowTimePicker(false)}
@@ -153,15 +140,11 @@ export default function DetailsSection() {
         </div>
 
         {/* LOCATION */}
-        <div className="md:col-span-2 relative ">
-          <label
-            htmlFor="location"
-            className="block text-sm font-medium text-gray-300 mb-1"
-          >
+        <div className="md:col-span-2 relative">
+          <label className="block text-sm font-medium text-gray-300 mb-1">
             GPS Location
           </label>
           <input
-            id="location"
             type="text"
             value={location}
             readOnly
@@ -175,15 +158,11 @@ export default function DetailsSection() {
 
         {/* ANIMALS */}
         <div className="md:col-span-2">
-          <label
-            htmlFor="animals-affected"
-            className="block text-sm font-medium text-gray-300 mb-3"
-          >
+          <label className="block text-sm font-medium text-gray-300 mb-3">
             Number of Animals Affected
           </label>
           <div className="flex items-center gap-4">
             <input
-              id="animals-affected"
               type="range"
               min="0"
               max="100"
@@ -212,8 +191,6 @@ export default function DetailsSection() {
             className="hidden"
             onChange={handleFileChange}
           />
-
-          {/* Preview selected files */}
           {files.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-3">
               {files.map((file, idx) => (

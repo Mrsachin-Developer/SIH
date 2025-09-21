@@ -1,11 +1,11 @@
-import React from 'react'
-import RiskCard from '../../Components/Farmer/RiskResult/RiskCard'
+import React from "react";
+import RiskCard from "../../Components/Farmer/RiskResult/RiskCard";
 const FarmerRiskResult = () => {
   return (
     <div>
-      <RiskCard/>
+      <RiskCard />
     </div>
-  )
-}
+  );
+};
 
-export default FarmerRiskResult
+export default FarmerRiskResult;

@@ -24,15 +24,12 @@ export default function FarmerLoginPage() {
     e.preventDefault();
     const payload = { phone, otp, name, farmType, location, language };
     console.log("Signup Data:", payload);
-
-    // here you’d do your real signup API call
-    // on success navigate to dashboard:
     navigate("/farmer/dashboard");
   };
 
   return (
     <div className="font-display bg-[#0A100B] text-[#f8f8f8]">
-      <div className="flex flex-col items-center justify-center h-screen p-4 overflow-y-auto">
+      <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 overflow-y-auto">
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="flex justify-center mb-6">
@@ -49,32 +46,34 @@ export default function FarmerLoginPage() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                ></path>
+                />
                 <path
                   d="M2 7L12 12L22 7"
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                ></path>
+                />
                 <path
                   d="M12 22V12"
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                ></path>
+                />
               </svg>
-              <h1 className="text-3xl font-bold tracking-tight">AgriTrack</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+                AgriTrack
+              </h1>
             </div>
           </div>
 
           {/* Form */}
-          <div className="bg-[#111912] p-6 rounded-xl shadow-2xl border border-[#333]">
-            <h2 className="text-xl font-bold text-center mb-1">
+          <div className="bg-[#111912] p-5 sm:p-6 rounded-xl shadow-2xl border border-[#333]">
+            <h2 className="text-lg sm:text-xl font-bold text-center mb-1">
               Create your account
             </h2>
-            <p className="text-center text-gray-400 mb-4 text-sm">
+            <p className="text-center text-gray-400 mb-4 text-xs sm:text-sm">
               Let's get started with your farm
             </p>
 
@@ -97,7 +96,7 @@ export default function FarmerLoginPage() {
                     onChange={(e) => setPhone(e.target.value)}
                   />
                   <button
-                    className="absolute inset-y-0 right-0 flex items-center px-3 text-sm font-semibold text-green-400"
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-xs sm:text-sm font-semibold text-green-400"
                     type="button"
                     onClick={handleSendOtp}
                   >
@@ -192,9 +191,9 @@ export default function FarmerLoginPage() {
           {/* Footer / language selection */}
           <div className="mt-6 flex flex-col items-center space-y-4">
             <div className="relative w-full flex items-center">
-              <div className="flex-grow border-t border-[#333]"></div>
+              <div className="flex-grow border-t border-[#333]" />
               <span className="flex-shrink mx-2 text-gray-400 text-xs">Or</span>
-              <div className="flex-grow border-t border-[#333] "></div>
+              <div className="flex-grow border-t border-[#333]" />
             </div>
 
             <div className="w-full">

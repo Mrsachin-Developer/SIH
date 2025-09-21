@@ -13,6 +13,7 @@ import {
   Syringe,
   Activity,
   User,
+  UserCircle,
 } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -73,13 +74,26 @@ export default function AdminDashboard() {
             <FileText size={20} />
             {sidebarOpen && <span>Compliance & Reports</span>}
           </a>
-          <a className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white">
+          <a
+            onClick={() => navigate("/admin/alerts")}
+            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+          >
             <Bell size={20} />
             {sidebarOpen && <span>Alerts & Outbreaks</span>}
           </a>
-          <a className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white">
+          <a
+            onClick={() => navigate("/admin/users")}
+            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+          >
             <Users size={20} />
             {sidebarOpen && <span>Users</span>}
+          </a>
+          <a
+            onClick={() => navigate("/admin/admin-profile")}
+            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+          >
+            <UserCircle size={20} />
+            {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 

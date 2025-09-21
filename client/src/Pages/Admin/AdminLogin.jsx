@@ -1,5 +1,3 @@
-// client/src/Pages/Admin/AdminLogin.jsx
-
 import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
@@ -43,7 +41,7 @@ export default function AdminLogin() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex items-center justify-center py-12 px-4">
+      <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
             <h2 className="text-center text-3xl font-bold tracking-tight text-white">

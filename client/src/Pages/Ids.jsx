@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const Ids = () => {
   const navigate = useNavigate();
+  const [role, setRole] = useState("Veterinarian");
 
   const goToHome = () => {
-    navigate("/"); // replace "/" with your home route if different
+    navigate("/"); // home route
   };
-
-  const [role, setRole] = useState("Veterinarian");
 
   const handleContinue = () => {
     if (role === "Veterinarian") {
@@ -29,29 +28,25 @@ const Ids = () => {
           "url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e')",
       }}
     >
-      
-      
-      <div className="flex flex-1 justify-center px-6 md:px-20 lg:px-40 py-5">
-        
+      <div className="flex flex-1 justify-center px-4 sm:px-6 md:px-20 lg:px-40 py-5">
         <div className="flex flex-col w-full max-w-[512px] py-5">
-          
-            <img
-              
-              src="src\assets\pnhg.png"
-              alt=""
-              className="m-2 size-30 cursor-pointer self-center"
-              onClick={goToHome}
-            />
+          {/* Logo */}
+          <img
+            src="src/assets/pnhg.png"
+            alt="Logo"
+            className="m-2 w-20 h-20 sm:w-24 sm:h-24 cursor-pointer self-center"
+            onClick={goToHome}
+          />
 
           {/* Title */}
-          <h2 className="text-white text-[28px] font-bold leading-tight text-center pb-3 pt-5">
+          <h2 className="text-white text-2xl sm:text-3xl font-bold leading-tight text-center pb-3 pt-5">
             Select Your Role
           </h2>
 
           {/* Radio Options */}
           <div className="flex flex-col gap-3 p-4">
             {/* Veterinarian */}
-            <label className="flex items-center gap-4 rounded-xl border border-[#3d5245] p-[15px] cursor-pointer">
+            <label className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-[#3d5245] p-4 cursor-pointer">
               <input
                 type="radio"
                 className="h-5 w-5 border-2 border-[#3d5245] bg-transparent text-transparent
@@ -63,8 +58,10 @@ const Ids = () => {
                 onChange={(e) => setRole(e.target.value)}
               />
               <div className="flex flex-col">
-                <p className="text-white text-sm font-medium">Veterinarian</p>
-                <p className="text-[#9eb7a8] text-sm">
+                <p className="text-white text-sm sm:text-base font-medium">
+                  Veterinarian
+                </p>
+                <p className="text-[#9eb7a8] text-xs sm:text-sm">
                   Manage animal health records, diagnose diseases, and provide
                   treatment plans.
                 </p>
@@ -72,7 +69,7 @@ const Ids = () => {
             </label>
 
             {/* Admin */}
-            <label className="flex items-center gap-4 rounded-xl border border-[#3d5245] p-[15px] cursor-pointer">
+            <label className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-[#3d5245] p-4 cursor-pointer">
               <input
                 type="radio"
                 className="h-5 w-5 border-2 border-[#3d5245] bg-transparent text-transparent
@@ -84,8 +81,10 @@ const Ids = () => {
                 onChange={(e) => setRole(e.target.value)}
               />
               <div className="flex flex-col">
-                <p className="text-white text-sm font-medium">Admin</p>
-                <p className="text-[#9eb7a8] text-sm">
+                <p className="text-white text-sm sm:text-base font-medium">
+                  Admin
+                </p>
+                <p className="text-[#9eb7a8] text-xs sm:text-sm">
                   Oversee platform operations, manage user accounts, and handle
                   system settings.
                 </p>
@@ -93,7 +92,7 @@ const Ids = () => {
             </label>
 
             {/* Farmer */}
-            <label className="flex items-center gap-4 rounded-xl border border-[#3d5245] p-[15px] cursor-pointer">
+            <label className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-[#3d5245] p-4 cursor-pointer">
               <input
                 type="radio"
                 className="h-5 w-5 border-2 border-[#3d5245] bg-transparent text-transparent
@@ -105,8 +104,10 @@ const Ids = () => {
                 onChange={(e) => setRole(e.target.value)}
               />
               <div className="flex flex-col">
-                <p className="text-white text-sm font-medium">Farmer</p>
-                <p className="text-[#9eb7a8] text-sm">
+                <p className="text-white text-sm sm:text-base font-medium">
+                  Farmer
+                </p>
+                <p className="text-[#9eb7a8] text-xs sm:text-sm">
                   Monitor livestock health, report disease outbreaks, and access
                   health insights.
                 </p>
@@ -117,8 +118,8 @@ const Ids = () => {
           {/* Continue Button */}
           <div className="flex justify-center px-4 py-3">
             <button
-              className="flex min-w-[84px] max-w-[480px] items-center justify-center rounded-xl 
-              h-10 px-4 bg-[#20df6c] text-[#111714] text-sm font-bold"
+              className="flex w-full sm:w-auto min-w-[84px] max-w-[480px] items-center justify-center rounded-xl 
+              h-10 px-4 bg-[#20df6c] text-[#111714] text-sm font-bold hover:bg-[#18b558] transition-colors"
               onClick={handleContinue}
             >
               Continue

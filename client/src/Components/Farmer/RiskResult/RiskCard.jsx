@@ -10,12 +10,12 @@ import { useNavigate } from "react-router-dom";
 const RiskCard = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-5 px-4 ">
+    <div className="min-h-screen bg-black text-white flex flex-col items-center py-5 px-4">
       {/* Title */}
-      <h1 className="text-3xl font-bold mb-8">Risk Result</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Risk Result</h1>
 
       {/* Risk Card */}
-      <div className="bg-[#111111] border border-red-600 rounded-md p-6 text-center w-[450px] mx-auto mb-10">
+      <div className="bg-[#111111] border border-red-600 rounded-md p-6 text-center w-full max-w-md mx-auto mb-10">
         <div className="flex flex-col items-center">
           <AlertTriangle className="text-red-500 w-10 h-10 mb-2" />
           <h2 className="text-red-500 font-bold text-xl">High Risk</h2>
@@ -28,7 +28,7 @@ const RiskCard = () => {
       </div>
 
       {/* Recommendations Section */}
-      <div className="w-130 max-w-[450px]">
+      <div className="w-full max-w-md">
         <h2 className="text-xl font-bold mb-4">Recommendations</h2>
 
         <div className="space-y-5">
@@ -77,14 +77,14 @@ const RiskCard = () => {
       </div>
 
       {/* Buttons */}
-      <div className="flex space-x-4 mt-10">
+      <div className="flex flex-wrap justify-center gap-4 mt-10">
         <button
           onClick={() => navigate("/farmer/incident-report")}
-          className="bg-green-500 hover:bg-green-600 text-black font-semibold px-11 py-2 rounded-md"
+          className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-md"
         >
           Report to Vet
         </button>
-        <button className="bg-[#111827] hover:bg-[#1f2937] text-white font-semibold px-11 py-2 rounded-md">
+        <button className="bg-[#111827] hover:bg-[#1f2937] text-white font-semibold px-6 py-2 rounded-md">
           Download SOP
         </button>
       </div>
