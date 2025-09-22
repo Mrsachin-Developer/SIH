@@ -3,6 +3,9 @@ import BiosecurityCard from "./BiosecurityCard";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import paultry1 from "../../../assets/paultry1.jpg";
+import paultry2 from "../../../assets/paultry2.webp"
+import paultry3 from "../../../assets/paultry3.webp"
 
 const BiosecuritySection = ({ activeTab }) => {
   const data = {
@@ -11,7 +14,7 @@ const BiosecuritySection = ({ activeTab }) => {
         title: "Biosecurity Tips for Poultry",
         description:
           "Watch a short video on essential poultry biosecurity practices.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Poultry+Tips",
+        imgSrc: paultry1,
         buttonText: "Watch Video",
         buttonIcon: <PlayArrowIcon />,
         buttonLink: "https://www.youtube.com/watch?v=qyKdLM1t2Zc",
@@ -20,16 +23,16 @@ const BiosecuritySection = ({ activeTab }) => {
         title: "Poultry Biosecurity Infographic",
         description:
           "Visual summary of key biosecurity measures for your farm.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Poultry+Infographic",
+        imgSrc: paultry2,
         buttonText: "View Infographic",
         buttonIcon: <RemoveRedEyeIcon />,
-        buttonLink: "https://www.canva.com/poultry-biosecurity-infographic",
+        buttonLink: "https://www.poultrydvm.com/featured-infographic/biosecurity-backyard-poultry",
       },
       {
         title: "Poultry Biosecurity Guide",
         description:
           "Detailed guide to keep your poultry healthy and disease-free.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Poultry+Guide",
+        imgSrc: paultry3,
         buttonText: "Read Guide",
         buttonIcon: <AutoStoriesIcon />,
         buttonLink: "https://en.wikipedia.org/wiki/Poultry_farming",
@@ -39,7 +42,7 @@ const BiosecuritySection = ({ activeTab }) => {
       {
         title: "Pig Biosecurity Practices",
         description: "Learn best practices for pig farm biosecurity via video.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Pig+Tips",
+        imgSrc: paultry3,
         buttonText: "Watch Video",
         buttonIcon: <PlayArrowIcon />,
         buttonLink: "https://www.youtube.com/watch?v=VIOwydNgAVY",
@@ -47,16 +50,16 @@ const BiosecuritySection = ({ activeTab }) => {
       {
         title: "Pig Biosecurity Infographic",
         description: "Quick visual guide to pig farm safety measures.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Pig+Infographic",
+        imgSrc: paultry2,
         buttonText: "View Infographic",
         buttonIcon: <RemoveRedEyeIcon />,
-        buttonLink: "https://www.canva.com/pig-biosecurity-infographic",
+        buttonLink: "https://www.poultrydvm.com/featured-infographic/biosecurity-backyard-poultry",
       },
       {
         title: "Pig Biosecurity Guide",
         description:
           "Comprehensive instructions to protect pigs from diseases.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Pig+Guide",
+        imgSrc: paultry1,
         buttonText: "Read Guide",
         buttonIcon: <AutoStoriesIcon />,
         buttonLink:
@@ -67,7 +70,7 @@ const BiosecuritySection = ({ activeTab }) => {
       {
         title: "Hygiene & Waste Management",
         description: "Watch a video on maintaining farm hygiene effectively.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Hygiene+Tips",
+        imgSrc: paultry2,
         buttonText: "Watch Video",
         buttonIcon: <PlayArrowIcon />,
         buttonLink: "https://www.youtube.com/watch?v=jXHanV7ge6E",
@@ -75,7 +78,7 @@ const BiosecuritySection = ({ activeTab }) => {
       {
         title: "Waste Management Infographic",
         description: "Visual overview of proper waste disposal practices.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Waste+Infographic",
+        imgSrc: paultry3,
         buttonText: "View Infographic",
         buttonIcon: <RemoveRedEyeIcon />,
         buttonLink:
@@ -85,7 +88,7 @@ const BiosecuritySection = ({ activeTab }) => {
         title: "Hygiene & Waste Guide",
         description:
           "Step-by-step guide for safe hygiene and waste management.",
-        imgSrc: "https://via.placeholder.com/400x250?text=Hygiene+Guide",
+        imgSrc: paultry1,
         buttonText: "Read Guide",
         buttonIcon: <AutoStoriesIcon />,
         buttonLink:
