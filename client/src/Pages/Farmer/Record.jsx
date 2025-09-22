@@ -5,7 +5,7 @@ export default function MyRecords() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="bg-background-dark font-display text-text-light flex flex-col md:flex-row min-h-screen">
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} />
 

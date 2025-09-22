@@ -107,33 +107,37 @@ export default function AdminUsers() {
   const filteredUsers =
     activeTab === "All"
       ? users.filter((user) =>
-          user.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
       : users
-          .filter((user) => user.role === activeTab.slice(0, -1))
-          .filter((user) =>
-            user.name.toLowerCase().includes(searchTerm.toLowerCase())
-          );
+        .filter((user) => user.role === activeTab.slice(0, -1))
+        .filter((user) =>
+          user.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
 
   return (
     <div className="flex h-screen bg-[#0A100A]">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        className={`${sidebarOpen ? "w-64" : "w-16"
+          } bg-[#050505] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
       >
+        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
-          <h1
-            className={`text-xl font-bold text-white ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            AgriTrack
-          </h1>
+          {/* Show logo only if sidebar expanded */}
+          {sidebarOpen && (
+            <img
+              onClick={() => navigate("/farmer/dashboard")}
+              className="w-32 cursor-pointer"
+              src="\src\assets\pnhg.png"
+              alt="Logo"
+            />
+          )}
+
+          {/* Toggle Button */}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-lg hover:bg-[#2C3B2C]"
+            className="p-2 rounded-lg hover:bg-[#2C3B2C] ml-auto"
           >
             {sidebarOpen ? (
               <X size={20} className="text-white" />
@@ -143,63 +147,70 @@ export default function AdminUsers() {
           </button>
         </div>
 
-        <nav className="flex-1 px-4 py-6 space-y-2">
+        {/* Navigation */}
+        <nav className="flex-1 px-2 py-6 space-y-2">
           <a
             onClick={() => navigate("/admin/dashboard")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/40 text-[#A9BA9D] cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
           >
-            <LayoutDashboard size={20} />{" "}
+            <LayoutDashboard size={20} />
             {sidebarOpen && <span>Dashboard</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/analytics-heatmap")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/40 text-[#A9BA9D] cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
           >
-            <BarChart3 size={20} />{" "}
+            <BarChart3 size={20} />
             {sidebarOpen && <span>Analysis & Heatmap</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/ComplianceReports")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/40 text-[#A9BA9D] cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
           >
-            <FileText size={20} />{" "}
+            <FileText size={20} />
             {sidebarOpen && <span>Compliance & Reports</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/alerts")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/40 text-[#A9BA9D] cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
           >
-            <Bell size={20} /> {sidebarOpen && <span>Alerts & Outbreaks</span>}
+            <Bell size={20} />
+            {sidebarOpen && <span>Alerts & Outbreaks</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/users")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#556B2F]/40 text-[#A9BA9D] font-bold cursor-pointer"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/20 text-primary shadow-inner font-bold cursor-pointer"
           >
-            <Users size={20} /> {sidebarOpen && <span>Users</span>}
+            <Users size={20} />
+            {sidebarOpen && <span>Users</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 text-white transition-colors"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
           >
-            <UserCircle size={20} /> {sidebarOpen && <span>Profile</span>}
+            <UserCircle size={20} />
+            {sidebarOpen && <span>Profile</span>}
           </a>
         </nav>
 
+        {/* Footer */}
         <div className="p-6 border-t border-[#2C3B2C]">
-          <p
-            className={`text-sm text-[#A9BA9D] ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            © 2024 AgriTrack
-          </p>
+          {sidebarOpen && (
+            <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>
+          )}
         </div>
       </aside>
 
+
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 overflow-y-auto bg-[#121212]">
         {/* Header */}
-        <header className="flex flex-col gap-4 px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10">
+        <header className="flex flex-col gap-4 px-8 py-4  bg-[#1f1f1f] border-b border-[#2C3B2C] sticky top-0 z-10">
           <div>
             <h2 className="text-2xl font-bold text-white">Users</h2>
             <p className="text-[#A9BA9D]">
@@ -212,24 +223,23 @@ export default function AdminUsers() {
               placeholder="Search users..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full md:w-1/3 px-4 py-2 rounded-lg border border-[#2C3B2C] bg-[#0A100A] text-white placeholder-[#A9BA9D] focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full md:w-1/3 px-4 py-2 rounded-lg border border-[#2C3B2C] bg-[#292e2b] text-white placeholder-gray focus:outline-none focus:ring-2 focus:ring-green-500"
             />
-            <button className="bg-green-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-600 transition mt-2 md:mt-0">
+            <button className="bg-[#20df6c] text-white px-4 py-2 rounded-lg font-bold hover:bg-green-600 transition mt-2 md:mt-0">
               + Add User
             </button>
           </div>
         </header>
 
         {/* Tabs */}
-        <div className="flex gap-4 px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-24 z-10">
+        <div className="flex gap-4 px-8 py-4  bg-[#1f1f1f] border-b border-[#2C3B2C] sticky top-24 z-10">
           {["All", "Farmers", "Vets"].map((tab) => (
             <button
               key={tab}
-              className={`px-4 py-2 rounded-lg font-medium ${
-                activeTab === tab
-                  ? "bg-[#556B2F]/40 text-white"
+              className={`px-4 py-2 rounded-lg font-medium ${activeTab === tab
+                  ? "bg-[#1eb55d] text-white"
                   : "text-[#A9BA9D] hover:bg-[#2C3B2C]"
-              }`}
+                }`}
               onClick={() => setActiveTab(tab)}
             >
               {tab}
@@ -239,9 +249,9 @@ export default function AdminUsers() {
 
         {/* Users Table */}
         <div className="p-8">
-          <div className="overflow-x-auto bg-[#1A241A] rounded-xl shadow-sm">
+          <div className="overflow-x-auto bg-[#1f1f1f] rounded-xl shadow-sm">
             <table className="w-full text-sm text-left text-[#A9BA9D]">
-              <thead className="text-xs uppercase bg-[#0A100A] text-[#A9BA9D]">
+              <thead className="text-xs uppercase bg-[#292e2b] text-white">
                 <tr>
                   <th className="px-6 py-3">Name</th>
                   <th className="px-6 py-3">Role</th>
@@ -259,11 +269,10 @@ export default function AdminUsers() {
                     <td className="px-6 py-4">{user.role}</td>
                     <td className="px-6 py-4">
                       <span
-                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                          user.status === "Active"
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${user.status === "Active"
                             ? "bg-[#556B2F]/40 text-white"
                             : "bg-[#2C3B2C]/40 text-[#A9BA9D]"
-                        }`}
+                          }`}
                       >
                         {user.status}
                       </span>
@@ -271,7 +280,7 @@ export default function AdminUsers() {
                     <td className="px-6 py-4">{user.lastActive}</td>
                     <td className="px-6 py-4 text-right">
                       <a
-                        className="font-medium text-[#556B2F] hover:underline"
+                        className="font-medium text-white hover:underline"
                         href="#"
                       >
                         View
@@ -288,11 +297,10 @@ export default function AdminUsers() {
             {["<", 1, 2, 3, "...", 10, ">"].map((page, idx) => (
               <button
                 key={idx}
-                className={`px-3 py-1 rounded-lg ${
-                  page === 1
+                className={`px-3 py-1 rounded-lg ${page === 1
                     ? "bg-green-500 text-white"
-                    : "bg-[#2C3B2C] hover:bg-[#556B2F]/40"
-                }`}
+                    : "bg-[#1f1f1f] hover:bg-[#556B2F]/40"
+                  }`}
               >
                 {page}
               </button>

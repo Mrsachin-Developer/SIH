@@ -34,7 +34,7 @@ const Ids = () => {
           <img
             src="src/assets/pnhg.png"
             alt="Logo"
-            className="m-2 w-20 h-20 sm:w-24 sm:h-24 cursor-pointer self-center"
+            className="m-2 w-30 cursor-pointer self-center"
             onClick={goToHome}
           />
 

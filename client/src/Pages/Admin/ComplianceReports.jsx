@@ -18,21 +18,22 @@ export default function ComplianceReports() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#0A100A]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#121212]">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300 flex-shrink-0`}
+        className={`${sidebarOpen ? "w-64" : "w-16"
+          } bg-[#050505] border-r border-[#2C3B2C] flex flex-col transition-all duration-300 flex-shrink-0`}
       >
+        {/* Header */}
         <div className="flex items-center justify-between p-4 md:p-6 border-b border-[#2C3B2C]">
-          <h1
-            className={`text-xl font-bold text-white transition-all duration-300 ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            AgriTrack
-          </h1>
+          {sidebarOpen && (
+            <img
+              onClick={() => navigate("/farmer/dashboard")}
+              className="w-32 cursor-pointer"
+              src="\src\assets\pnhg.png"
+              alt="Logo"
+            />
+          )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-2 rounded-lg hover:bg-[#2C3B2C]"
@@ -48,22 +49,9 @@ export default function ComplianceReports() {
         {/* Navigation */}
         <nav className="flex-1 px-2 md:px-4 py-4 space-y-2">
           {[
-            {
-              name: "Dashboard",
-              icon: LayoutDashboard,
-              path: "/admin/dashboard",
-            },
-            {
-              name: "Analysis & Heatmap",
-              icon: BarChart3,
-              path: "/admin/analytics-heatmap",
-            },
-            {
-              name: "Compliance & Reports",
-              icon: FileText,
-              path: "/admin/ComplianceReports",
-              active: true,
-            },
+            { name: "Dashboard", icon: LayoutDashboard, path: "/admin/dashboard" },
+            { name: "Analysis & Heatmap", icon: BarChart3, path: "/admin/analytics-heatmap" },
+            { name: "Compliance & Reports", icon: FileText, path: "/admin/ComplianceReports", active: true },
             { name: "Alerts & Outbreaks", icon: Bell, path: "/admin/alerts" },
             { name: "Users", icon: Users, path: "/admin/users" },
             { name: "Profile", icon: UserCircle, path: "/admin/admin-profile" },
@@ -71,33 +59,33 @@ export default function ComplianceReports() {
             <a
               key={item.name}
               onClick={() => navigate(item.path)}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer ${
-                item.active
-                  ? "bg-[#556B2F]/40 text-[#A9BA9D] font-bold"
-                  : "hover:bg-[#556B2F]/30 text-white"
-              } transition-colors`}
+              className={`flex items-center ${sidebarOpen ? "gap-3 justify-start px-3" : "justify-center"
+                } py-2 rounded-lg cursor-pointer ${item.active
+                  ? "bg-primary/20 text-primary shadow-inner"
+                  : "text-gray-300 hover:text-white hover:bg-white/10"
+                } transition-colors`}
             >
-              <item.icon size={20} />
+              {/* Icon always visible */}
+              <item.icon size={22} className="shrink-0" />
+
+              {/* Only show label when open */}
               {sidebarOpen && <span className="truncate">{item.name}</span>}
             </a>
           ))}
         </nav>
 
+        {/* Footer */}
         <div className="p-4 md:p-6 border-t border-[#2C3B2C]">
-          {sidebarOpen && (
-            <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>
-          )}
+          {sidebarOpen && <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>}
         </div>
       </aside>
 
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10 gap-3 md:gap-0">
-          <h2 className="text-2xl font-bold text-white">
-            Compliance & Reports
-          </h2>
-          <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto justify-between md:justify-end">
+        <header className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 py-4 bg-[#121212] border-b border-[#2C3B2C] sticky top-0 z-10 space-y-2 md:space-y-0">
+          <h2 className="text-2xl font-bold text-white">Compliance & Reports</h2>
+          <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-full hover:bg-[#2C3B2C]">
               <Bell className="text-[#A9BA9D]" />
               <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
@@ -107,11 +95,13 @@ export default function ComplianceReports() {
                 alt="User avatar"
                 className="w-10 h-10 rounded-full border"
                 src="https://i.pravatar.cc/40"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                }}
               />
-              <User className="w-8 h-8 text-[#A9BA9D]" />
+
               <div className="hidden md:block">
-                <p className="font-semibold text-white">Admin User</p>
-                <p className="text-sm text-[#A9BA9D]">admin@agritrack.com</p>
+
               </div>
             </div>
           </div>
@@ -124,14 +114,14 @@ export default function ComplianceReports() {
             <h2 className="text-xl font-bold text-white mb-4">
               Farm Compliance Overview
             </h2>
-            <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4 md:p-6">
+            <div className="rounded-lg border border-[#2C3B2C] bg-[#1f1f1f] p-4 md:p-6">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                 <p className="font-medium text-white">Overall Compliance</p>
                 <p className="text-lg font-bold text-white mt-2 sm:mt-0">85%</p>
               </div>
               <div className="mt-2 h-2.5 w-full rounded-full bg-[#556B2F]/40">
                 <div
-                  className="h-2.5 rounded-full bg-[#A9BA9D]"
+                  className="h-2.5 rounded-full bg-[#20df6c]"
                   style={{ width: "85%" }}
                 ></div>
               </div>
@@ -141,34 +131,34 @@ export default function ComplianceReports() {
             </div>
 
             {/* Categories */}
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
               {[
                 {
                   name: "Biosecurity",
                   value: "90%",
                   change: "+5%",
-                  color: "green-400",
+                  color: "#20df6c",
                 },
                 {
                   name: "Environmental",
                   value: "75%",
                   change: "-10%",
-                  color: "red-400",
+                  color: "#db2525",
                 },
                 {
                   name: "Animal Welfare",
                   value: "90%",
                   change: "+5%",
-                  color: "green-400",
+                  color: "#20df6c",
                 },
               ].map((cat) => (
                 <div
                   key={cat.name}
-                  className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4"
+                  className="rounded-lg border border-[#2C3B2C] bg-[#1f1f1f] p-4"
                 >
                   <p className="font-medium text-white">{cat.name}</p>
                   <p className="text-3xl font-bold text-white">{cat.value}</p>
-                  <p className={`text-sm font-medium text-${cat.color}`}>
+                  <p className={`text-sm font-medium text-[${cat.color}]`}>
                     {cat.change}
                   </p>
                 </div>
@@ -180,13 +170,13 @@ export default function ComplianceReports() {
           <section>
             <h2 className="text-xl font-bold text-white mb-4">Reports</h2>
             <div className="flex flex-wrap gap-3">
-              <button className="flex items-center justify-center gap-2 rounded-lg bg-[#556B2F]/40 px-3 py-2 text-sm font-bold text-white hover:bg-[#556B2F]/60">
+              <button className="bg-[#20df6c] hover:bg-[#18b858] text-[#111714] px-6 py-2 rounded-xl font-semibold shadow-md">
                 <span className="material-symbols-outlined text-base">
                   description
                 </span>
                 <span>Export CSV</span>
               </button>
-              <button className="flex items-center justify-center gap-2 rounded-lg bg-[#556B2F]/40 px-3 py-2 text-sm font-bold text-white hover:bg-[#556B2F]/60">
+              <button className="bg-[#20df6c] hover:bg-[#18b858] text-[#111714] px-6 py-2 rounded-xl font-semibold shadow-md">
                 <span className="material-symbols-outlined text-base">
                   table_view
                 </span>
@@ -198,7 +188,7 @@ export default function ComplianceReports() {
           {/* Certificates */}
           <section>
             <h2 className="text-xl font-bold text-white mb-4">Certificates</h2>
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6 rounded-lg border border-[#2C3B2C] bg-[#2C3B2C] p-4 md:p-6">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6 rounded-lg border border-[#2C3B2C] bg-[#1f1f1f] p-4 md:p-6">
               <div className="flex flex-col flex-[2_2_0%] justify-center">
                 <h3 className="text-lg font-bold text-white">
                   Biosecure Farm Certificate
@@ -207,7 +197,7 @@ export default function ComplianceReports() {
                   Generate a certificate to demonstrate your farm&apos;s
                   biosecurity compliance.
                 </p>
-                <button className="mt-4 flex w-fit items-center justify-center gap-2 rounded-lg bg-[#A9BA9D] px-5 py-2.5 text-sm font-bold text-[#0A100A] hover:opacity-90">
+                <button className="bg-[#20df6c] hover:bg-[#18b858] text-[#111714] px-3 py-2 w-60 rounded-xl font-semibold shadow-md">
                   <span className="material-symbols-outlined"> badge </span>
                   <span>Generate Certificate</span>
                 </button>
@@ -225,7 +215,7 @@ export default function ComplianceReports() {
           {/* Audit History */}
           <section>
             <h2 className="text-xl font-bold text-white mb-4">Audit History</h2>
-            <div className="rounded-lg border border-[#2C3B2C] bg-[#2C3B2C]">
+            <div className="rounded-lg border border-[#2C3B2C] bg-[#1f1f1f]">
               <div className="grid grid-cols-1 md:grid-cols-4 text-white">
                 <div className="px-4 py-2 font-bold">Date</div>
                 <div className="px-4 py-2 font-bold">Type</div>

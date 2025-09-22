@@ -22,7 +22,7 @@ const Home = () => {
           <img
             src="src/assets/pnhg.png"
             alt=""
-            className="m-2 w-14 h-14 md:w-24 md:h-24 cursor-pointer"
+            className="m-2 w-30 cursor-pointer"
             onClick={goToHome}
           />
 
@@ -89,7 +89,7 @@ const Home = () => {
           <div
             className="flex min-h-[320px] md:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-4 md:px-10 pb-10"
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url("src/assets/veterinary-farm-walking-cowshed-checking-cows.jpg")`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url("src/assets/photorealistic-scene-poultry-farm-with-people-chickens.jpg")`,
             }}
           >
             <h1 className="text-white text-3xl md:text-5xl font-black">
@@ -113,7 +113,7 @@ const Home = () => {
               <h1 className="text-white text-3xl md:text-4xl font-black">
                 Key Features
               </h1>
-              <p className="text-white text-sm md:text-base max-w-[720px]">
+              <p className="text-[#9eb7a8] text-sm md:text-base max-w-[720px]">
                 Our platform offers a comprehensive suite of tools designed to
                 enhance livestock health management.
               </p>
@@ -161,7 +161,7 @@ const Home = () => {
               <h1 className="text-white text-3xl md:text-4xl font-black">
                 About Us
               </h1>
-              <p className="text-white text-sm md:text-base max-w-[720px]">
+              <p className="text-[#9eb7a8] text-sm md:text-base max-w-[720px]">
                 Experience the benefits of a data-driven approach to livestock
                 health.
               </p>
@@ -184,7 +184,7 @@ const Home = () => {
               <h1 className="text-white text-3xl md:text-4xl font-black">
                 Contact Us
               </h1>
-              <p className="text-white text-sm md:text-base max-w-[720px]">
+              <p className="text-[#9eb7a8] text-sm md:text-base max-w-[720px]">
                 Write feedbacks or reviews to improvise your Experience
               </p>
             </div>

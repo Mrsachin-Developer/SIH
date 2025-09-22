@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GridViewIcon from "@mui/icons-material/GridView";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
@@ -8,76 +8,69 @@ import SchoolIcon from "@mui/icons-material/School";
 
 export default function Sidebar({ sidebarOpen }) {
   const navigate = useNavigate();
+  const location = useLocation(); // Get current path
+
+  // Check if the link is active
+  const isActive = (path) => location.pathname === path;
+
+  const navItems = [
+    { name: "Dashboard", path: "/farmer/dashboard", icon: <GridViewIcon /> },
+    { name: "Survey", path: "/farmer/survey", icon: <TaskAltIcon /> },
+    { name: "Record", path: "/farmer/record", icon: <EventNoteIcon /> },
+    {
+      name: "Incident Report",
+      path: "/farmer/incident-report",
+      icon: <ErrorOutlineIcon />,
+    },
+    {
+      name: "Training & Guide",
+      path: "/farmer/training",
+      icon: <SchoolIcon />,
+    },
+  ];
 
   return (
-    <>
-      {/* Overlay for mobile */}
-      <div
-        className={`fixed inset-0 bg-black/50 z-30 transition-opacity duration-300 md:hidden ${
-          sidebarOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      ></div>
+    <aside
+      className={`fixed top-0 left-0 z-40 w-64 h-screen bg-[#050505] text-white transform transition-transform duration-300 ease-in-out ${
+        sidebarOpen ? "translate-x-0" : "-translate-x-full"
+      } md:translate-x-0`}
+    >
+      {/* Logo */}
+      <div className="flex items-center justify-center h-20 border-b border-[#333] px-3">
+        <img
+          onClick={() => navigate("/farmer/dashboard")}
+          className="w-35 cursor-pointer"
+          src="\src\assets\pnhg.png"
+          alt=""
+        />
+      </div>
 
-      <aside
-        className={`fixed top-0 left-0 z-40 w-64 h-screen bg-[#050505] text-white transform transition-transform duration-300 ease-in-out overflow-y-auto ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0`}
-      >
-        {/* Logo */}
-        <div className="flex items-center justify-center h-20 border-b border-[#333] px-3">
-          <img
-            onClick={() => navigate("/farmer/dashboard")}
-            className="w-32 sm:w-36 cursor-pointer"
-            src="\src\assets\pnhg.png"
-            alt="Logo"
-          />
-        </div>
+      {/* Navigation */}
+      <nav className="flex flex-col p-3 space-y-2">
+        {navItems.map((item) => {
+          let activeClasses = "bg-green-400/20 text-green-400"; // Default active style
 
-        {/* Navigation */}
-        <nav className="flex flex-col p-3 space-y-2">
-          <Link
-            to="/farmer/dashboard"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium bg-green-400/20 text-green-400"
-          >
-            <GridViewIcon />
-            <span>Dashboard</span>
-          </Link>
+          // Make Incident Report red when active
+          if (isActive(item.path) && item.name === "Incident Report") {
+            activeClasses = "bg-red-500/20 text-red-500";
+          }
 
-          <Link
-            to="/farmer/survey"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 transition-colors"
-          >
-            <TaskAltIcon />
-            <span>Survey</span>
-          </Link>
-
-          <Link
-            to="/farmer/record"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 transition-colors"
-          >
-            <EventNoteIcon />
-            <span>Record</span>
-          </Link>
-
-          <Link
-            to="/farmer/incident-report"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 transition-colors"
-          >
-            <ErrorOutlineIcon />
-            <span>Incident Report</span>
-          </Link>
-
-          <Link
-            to="/farmer/training"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 transition-colors"
-          >
-            <SchoolIcon />
-            <span>Training & Guide</span>
-          </Link>
-        </nav>
-      </aside>
-    </>
+          return (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isActive(item.path)
+                  ? activeClasses
+                  : "text-gray-300 hover:bg-white/10"
+              }`}
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </Link>
+          );
+        })}
+      </nav>
+    </aside>
   );
 }
