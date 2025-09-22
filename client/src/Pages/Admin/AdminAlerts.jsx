@@ -38,24 +38,25 @@ export default function AdminAlerts() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#0A100A]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#121212]">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-full md:w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        className={`${sidebarOpen ? "w-full md:w-64" : "w-16"
+          } bg-[#050505] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
       >
+        {/* Header */}
         <div className="flex items-center justify-between p-4 md:p-6 border-b border-[#2C3B2C]">
-          <h1
-            className={`text-xl font-bold text-white transition-all duration-300 ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            AgriTrack
-          </h1>
+          {sidebarOpen && (
+            <img
+              onClick={() => navigate("/farmer/dashboard")}
+              className="w-32 cursor-pointer"
+              src="\src\assets\pnhg.png"
+              alt="Logo"
+            />
+          )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-lg hover:bg-[#2C3B2C]"
+            className="p-2 rounded-lg hover:bg-[#2C3B2C] ml-auto"
           >
             {sidebarOpen ? (
               <X size={20} className="text-white" />
@@ -69,63 +70,68 @@ export default function AdminAlerts() {
         <nav className="flex-1 px-2 md:px-4 py-4 md:py-6 space-y-2">
           <a
             onClick={() => navigate("/admin/dashboard")}
-            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center px-4 py-2 rounded-lg hover:text-white hover:bg-white/10 text-white cursor-pointer"
           >
-            <LayoutDashboard size={20} />
-            {sidebarOpen && <span>Dashboard</span>}
+            <LayoutDashboard size={20} className="shrink-0" />
+            {sidebarOpen && <span className="ml-3">Dashboard</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/analytics-heatmap")}
-            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center px-4 py-2 rounded-lg hover:text-white hover:bg-white/10 text-white cursor-pointer"
           >
-            <BarChart3 size={20} />
-            {sidebarOpen && <span>Analysis & Heatmap</span>}
+            <BarChart3 size={20} className="shrink-0" />
+            {sidebarOpen && <span className="ml-3">Analysis & Heatmap</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/ComplianceReports")}
-            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center px-4 py-2 rounded-lg hover:text-white hover:bg-white/10 text-white cursor-pointer"
           >
-            <FileText size={20} />
-            {sidebarOpen && <span>Compliance & Reports</span>}
+            <FileText size={20} className="shrink-0" />
+            {sidebarOpen && <span className="ml-3">Compliance & Reports</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/alerts")}
-            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg bg-red-900/40 text-red-400 font-bold cursor-pointer"
+            className="flex items-center px-4 py-2 rounded-lg bg-red-900/40 text-red-400 font-bold cursor-pointer"
           >
-            <AlertTriangle size={20} className="text-red-400" />
-            {sidebarOpen && <span>Alerts & Outbreaks</span>}
+            <AlertTriangle size={20} className="text-[#db2525] shrink-0" />
+            {sidebarOpen && (
+              <span className="ml-3 text-[#db2525]">Alerts & Outbreaks</span>
+            )}
           </a>
+
           <a
             onClick={() => navigate("/admin/users")}
-            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
+            className="flex items-center px-4 py-2 rounded-lg hover:text-white hover:bg-white/10 text-white cursor-pointer"
           >
-            <Users size={20} />
-            {sidebarOpen && <span>Users</span>}
+            <Users size={20} className="shrink-0" />
+            {sidebarOpen && <span className="ml-3">Users</span>}
           </a>
+
           <a
             onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-2 md:px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
+            className="flex items-center px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] text-white"
           >
-            <UserCircle size={20} />
-            {sidebarOpen && <span>Profile</span>}
+            <UserCircle size={20} className="shrink-0" />
+            {sidebarOpen && <span className="ml-3">Profile</span>}
           </a>
         </nav>
 
+        {/* Footer */}
         <div className="p-4 md:p-6 border-t border-[#2C3B2C]">
-          <p
-            className={`text-sm text-[#A9BA9D] ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            © 2024 AgriTrack
-          </p>
+          {sidebarOpen && (
+            <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>
+          )}
         </div>
       </aside>
+
 
       {/* Main */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10 space-y-2 md:space-y-0">
+        <header className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-8 py-4 bg-[#121212] border-b border-[#2C3B2C] sticky top-0 z-10 space-y-2 md:space-y-0">
           <h2 className="text-2xl font-bold text-white">Alerts & Outbreaks</h2>
           <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-full hover:bg-[#2C3B2C]">
@@ -141,10 +147,9 @@ export default function AdminAlerts() {
                   e.target.style.display = "none";
                 }}
               />
-              <User className="w-8 h-8 text-[#A9BA9D]" />
+
               <div className="hidden md:block">
-                <p className="font-semibold text-white">Admin User</p>
-                <p className="text-sm text-[#A9BA9D]">admin@agritrack.com</p>
+
               </div>
             </div>
           </div>
@@ -153,12 +158,12 @@ export default function AdminAlerts() {
         {/* Alerts Content */}
         <div className="p-4 md:p-8 space-y-12">
           {/* Recent Alerts */}
-          <div className="bg-[#2C3B2C] p-4 md:p-6 rounded-xl shadow-sm overflow-x-auto">
-            <h3 className="text-lg font-bold text-red-400 mb-4">
+          <div className="bg-[#1f1f1f] p-4 md:p-6 rounded-xl shadow-sm overflow-x-auto">
+            <h3 className="text-lg font-bold text-[#db2525] mb-4">
               Recent Alerts
             </h3>
             <table className="w-full text-sm text-left text-[#A9BA9D] min-w-[600px] md:min-w-full">
-              <thead className="text-xs uppercase bg-[#1A241A] text-[#A9BA9D]">
+              <thead className="text-xs uppercase bg-[#292e2b] text-white">
                 <tr>
                   <th className="px-4 md:px-6 py-3">Alert ID</th>
                   <th className="px-4 md:px-6 py-3">Farm Name</th>
@@ -174,7 +179,7 @@ export default function AdminAlerts() {
                   <td className="px-4 md:px-6 py-4">Green Valley Farm</td>
                   <td className="px-4 md:px-6 py-4">Odisha</td>
                   <td className="px-4 md:px-6 py-4">Bird Flu</td>
-                  <td className="px-4 md:px-6 py-4 text-red-400 font-semibold">
+                  <td className="px-4 md:px-6 py-4 text-[#db2525] font-semibold">
                     High
                   </td>
                   <td className="px-4 md:px-6 py-4">2025-09-21 10:45</td>
@@ -204,7 +209,7 @@ export default function AdminAlerts() {
           </div>
 
           {/* Send Notifications Form */}
-          <div className="bg-[#2C3B2C] p-4 md:p-6 rounded-xl shadow-sm space-y-6">
+          <div className="bg-[#1f1f1f] p-4 md:p-6 rounded-xl shadow-sm space-y-6">
             <h3 className="text-lg font-bold text-white mb-4">
               Send Notifications
             </h3>
@@ -220,7 +225,7 @@ export default function AdminAlerts() {
                   type="number"
                   value={reports}
                   onChange={(e) => setReports(e.target.value)}
-                  className="w-full p-2 rounded-md bg-[#1A241A] border border-[#2C3B2C] text-white"
+                  className="w-full p-2 rounded-md bg-[#292e2b] border border-[#2C3B2C] text-white"
                   required
                 />
               </div>
@@ -234,7 +239,7 @@ export default function AdminAlerts() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="Enter affected locations"
-                  className="w-full p-2 rounded-md bg-[#1A241A] border border-[#2C3B2C] text-white"
+                  className="w-full p-2 rounded-md bg-[#292e2b] border border-[#2C3B2C] text-white"
                   required
                 />
               </div>
@@ -247,7 +252,7 @@ export default function AdminAlerts() {
                   value={message}
                   placeholder="Enter a message"
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full p-2 rounded-md bg-[#1A241A] border border-[#2C3B2C] text-white"
+                  className="w-full p-2 rounded-md bg-[#292e2b] border border-[#2C3B2C] text-white"
                   rows={4}
                   required
                 />
@@ -255,7 +260,7 @@ export default function AdminAlerts() {
 
               <button
                 type="submit"
-                className="px-4 py-2 bg-[#556B2F] rounded-md text-white font-semibold hover:bg-[#6B8B3F]"
+                className="px-4 py-2 bg-[#21c45d] rounded-md  font-semibold hover:bg-[#18b858] text-[#111714]"
               >
                 Send Notification
               </button>

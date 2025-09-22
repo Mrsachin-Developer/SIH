@@ -33,21 +33,22 @@ export default function AnalyticsHeatmap() {
   const farmTypes = ["Dairy", "Poultry", "Crop Farm"];
 
   return (
-    <div className="flex h-screen bg-[#0A100A]">
+    <div className="flex h-screen bg-[#121212]">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        className={`${sidebarOpen ? "w-64" : "w-16"
+          } bg-[#050505] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
       >
+        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
-          <h1
-            className={`text-xl font-bold text-white transition-all duration-300 ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            AgriTrack
-          </h1>
+          {sidebarOpen && (
+            <img
+              onClick={() => navigate("/farmer/dashboard")}
+              className="w-32 cursor-pointer"
+              src="\src\assets\pnhg.png"
+              alt="Logo"
+            />
+          )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-2 rounded-lg hover:bg-[#2C3B2C]"
@@ -61,71 +62,48 @@ export default function AnalyticsHeatmap() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-4 py-6 space-y-2">
-          <a
-            onClick={() => navigate("/admin/dashboard")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
-          >
-            <LayoutDashboard size={20} />
-            {sidebarOpen && <span>Dashboard</span>}
-          </a>
+        <nav className="flex-1 px-2 py-6 space-y-2">
+          {[
+            { label: "Dashboard", icon: LayoutDashboard, path: "/admin/dashboard" },
+            {
+              label: "Analysis & Heatmap",
+              icon: BarChart3,
+              path: "/admin/analytics-heatmap",
+              active: true,
+            },
+            { label: "Compliance & Reports", icon: FileText, path: "/admin/ComplianceReports" },
+            { label: "Alerts & Outbreaks", icon: Bell, path: "/admin/alerts" },
+            { label: "Users", icon: Users, path: "/admin/users" },
+            { label: "Profile", icon: UserCircle, path: "/admin/admin-profile" },
+          ].map((item) => (
+            <a
+              key={item.label}
+              onClick={() => navigate(item.path)}
+              className={`flex items-center ${sidebarOpen ? "gap-3 justify-start px-4" : "justify-center"
+                } py-2 rounded-lg cursor-pointer transition-colors ${item.active
+                  ? "bg-primary/20 text-primary shadow-inner font-bold"
+                  : "text-gray-300 hover:text-white hover:bg-white/10"
+                }`}
+            >
+              {/* Always show icon */}
+              <item.icon size={22} className="shrink-0" />
 
-          <a
-            onClick={() => navigate("/admin/analytics-heatmap")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#556B2F]/40 text-[#A9BA9D] font-bold cursor-pointer"
-          >
-            <BarChart3 size={20} />
-            {sidebarOpen && <span>Analysis & Heatmap</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/ComplianceReports")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <FileText size={20} />
-            {sidebarOpen && <span>Compliance & Reports</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/alerts")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <Bell size={20} />
-            {sidebarOpen && <span>Alerts & Outbreaks</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/users")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <Users size={20} />
-            {sidebarOpen && <span>Users</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <UserCircle size={20} />
-            {sidebarOpen && <span>Profile</span>}
-          </a>
+              {/* Only show text when expanded */}
+              {sidebarOpen && <span className="truncate">{item.label}</span>}
+            </a>
+          ))}
         </nav>
 
+        {/* Footer */}
         <div className="p-6 border-t border-[#2C3B2C]">
-          <p
-            className={`text-sm text-[#A9BA9D] ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            © 2024 AgriTrack
-          </p>
+          {sidebarOpen && <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>}
         </div>
       </aside>
 
       {/* Main */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex items-center justify-between px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10">
+        <header className="flex items-center justify-between px-8 py-4 bg-[#121212] border-b border-[#2C3B2C] sticky top-0 z-10">
           <h2 className="text-2xl font-bold text-white">Analytics & Heatmap</h2>
           <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-full hover:bg-[#2C3B2C]">
@@ -138,10 +116,9 @@ export default function AnalyticsHeatmap() {
                 className="w-10 h-10 rounded-full border"
                 src="https://i.pravatar.cc/40"
               />
-              <UserCircle className="w-8 h-8 text-[#A9BA9D]" />
+
               <div className="hidden md:block">
-                <p className="font-semibold text-white">Admin User</p>
-                <p className="text-sm text-[#A9BA9D]">admin@agritrack.com</p>
+
               </div>
             </div>
           </div>
@@ -149,19 +126,19 @@ export default function AnalyticsHeatmap() {
 
         {/* Filters */}
         <div className="p-8 flex flex-wrap gap-3">
-          <select className="h-10 px-4 rounded-lg bg-[#4CDF20]/10 text-[#A9BA9D] hover:bg-[#4CDF20]/20 transition-colors">
+          <select className="h-10 px-4 rounded-lg bg-[#0b2b18] text-[#A9BA9D] hover:bg-[#4CDF20]/20 transition-colors">
             <option>Disease Type</option>
             {diseases.map((d) => (
               <option key={d}>{d}</option>
             ))}
           </select>
-          <select className="h-10 px-4 rounded-lg bg-[#4CDF20]/10 text-[#A9BA9D] hover:bg-[#4CDF20]/20 transition-colors">
+          <select className="h-10 px-4 rounded-lg bg-[#0b2b18] text-[#A9BA9D] hover:bg-[#4CDF20]/20 transition-colors">
             <option>District</option>
             {districts.map((d) => (
               <option key={d}>{d}</option>
             ))}
           </select>
-          <select className="h-10 px-4 rounded-lg bg-[#4CDF20]/10 text-[#A9BA9D] hover:bg-[#4CDF20]/20 transition-colors">
+          <select className="h-10 px-4 rounded-lg bg-[#0b2b18] text-[#A9BA9D] hover:bg-[#4CDF20]/20 transition-colors">
             <option>Farm Type</option>
             {farmTypes.map((f) => (
               <option key={f}>{f}</option>

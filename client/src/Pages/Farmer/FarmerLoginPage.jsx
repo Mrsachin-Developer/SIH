@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import WifiOffIcon from "@mui/icons-material/WifiOff";
+import logo from "../../assets/pnhg.png";
 
 export default function FarmerLoginPage() {
   const [phone, setPhone] = useState("");
@@ -28,48 +29,19 @@ export default function FarmerLoginPage() {
   };
 
   return (
-    <div className="font-display bg-[#0A100B] text-[#f8f8f8]">
+    <div className="font-display  bg-[#121212] text-[#f8f8f8]">
       <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 overflow-y-auto">
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="flex justify-center mb-6">
             <div className="flex items-center gap-3">
-              <svg
-                className="w-10 h-10 text-green-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2L2 7V17L12 22L22 17V7L12 2Z"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M2 7L12 12L22 7"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M12 22V12"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-                AgriTrack
-              </h1>
+
+              <img src={logo} alt="Logo" className="w-35"/>
             </div>
           </div>
 
           {/* Form */}
-          <div className="bg-[#111912] p-5 sm:p-6 rounded-xl shadow-2xl border border-[#333]">
+          <div className=" bg-[#1f1f1f] p-5 sm:p-6 rounded-xl shadow-2xl border border-[#333]">
             <h2 className="text-lg sm:text-xl font-bold text-center mb-1">
               Create your account
             </h2>
@@ -180,11 +152,31 @@ export default function FarmerLoginPage() {
               </div>
 
               <button
-                className="w-full h-11 bg-green-400 text-[#0A100B] font-bold rounded-lg hover:bg-green-300 transition-colors"
+                className="w-full h-11  bg-[#21c45d] text-[#0A100B] font-bold rounded-lg hover:bg-green-300 transition-colors"
                 type="submit"
               >
                 Sign Up
               </button>
+
+              <div className="flex-grow h-px bg-gray-700"></div>
+
+              <div className="flex flex-col gap-3">
+                <button
+                  type="button"
+                  className="w-full py-2.5 rounded-lg bg-[#2a2f2c] text-white font-medium flex items-center justify-center gap-2 hover:bg-[#333]"
+                >
+                  <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
+                  Continue with Google
+                </button>
+
+                <button
+                  type="button"
+                  className="w-full py-2.5 rounded-lg bg-[#3b5998] text-white font-medium flex items-center justify-center gap-2 hover:bg-[#334d84]"
+                >
+                  <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Facebook" className="w-5 h-5" />
+                  Continue with Facebook
+                </button>
+              </div>
             </form>
           </div>
 
@@ -196,12 +188,16 @@ export default function FarmerLoginPage() {
               <div className="flex-grow border-t border-[#333]" />
             </div>
 
+
+
+
+
             <div className="w-full">
               <label className="sr-only" htmlFor="language">
                 Language
               </label>
               <select
-                className="w-full h-11 px-4 bg-[#111912] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 text-center"
+                className="w-full h-11 px-4 bg-[#1f1f1f] border border-[#333] rounded-lg focus:ring-green-400 focus:border-green-400 text-center"
                 id="language"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}

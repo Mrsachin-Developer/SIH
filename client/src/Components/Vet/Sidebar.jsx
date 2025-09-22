@@ -24,8 +24,7 @@ const Sidebar = () => {
       id="sidebar"
       className="fixed top-0 left-0 z-40 w-64 h-screen 
       bg-[#050505]/95 backdrop-blur-xl border-r border-gray-800 
-      text-white shadow-2xl flex flex-col justify-between"
-    >
+      text-white shadow-2xl flex flex-col justify-between">
       {/* Logo/Header */}
       <div className="flex items-center justify-center h-20 border-b border-gray-800">
         <img
@@ -34,7 +33,7 @@ const Sidebar = () => {
           className="w-40 p-2 rounded-lg cursor-pointer hover:scale-105 transition-transform"
           onClick={goToHome}
         />
-        
+
       </div>
 
       {/* Navigation */}

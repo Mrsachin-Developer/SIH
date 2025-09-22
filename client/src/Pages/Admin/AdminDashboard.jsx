@@ -21,21 +21,22 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-[#0A100A]">
+    <div className="flex h-screen  bg-[#121212]">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarOpen ? "w-64" : "w-16"
-        } bg-[#1A241A] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
+        className={`${sidebarOpen ? "w-64" : "w-16"
+          } bg-[#050505] border-r border-[#2C3B2C] flex flex-col transition-all duration-300`}
       >
+        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-[#2C3B2C]">
-          <h1
-            className={`text-xl font-bold text-white transition-all duration-300 ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            AgriTrack
-          </h1>
+          {sidebarOpen && (
+            <img
+              onClick={() => navigate("/farmer/dashboard")}
+              className="w-32 cursor-pointer"
+              src="\src\assets\pnhg.png"
+              alt="Logo"
+            />
+          )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-2 rounded-lg hover:bg-[#2C3B2C]"
@@ -49,69 +50,41 @@ export default function AdminDashboard() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-4 py-6 space-y-2">
-          <a
-            onClick={() => navigate("/admin/dashboard")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#556B2F]/40 text-[#A9BA9D] font-bold cursor-pointer"
-          >
-            <LayoutDashboard size={20} />
-            {sidebarOpen && <span>Dashboard</span>}
-          </a>
-
-          {/* Updated link */}
-          <a
-            onClick={() => navigate("/admin/analytics-heatmap")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white cursor-pointer"
-          >
-            <BarChart3 size={20} />
-            {sidebarOpen && <span>Analysis & Heatmap</span>}
-          </a>
-
-          <a
-            onClick={() => navigate("/admin/ComplianceReports")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <FileText size={20} />
-            {sidebarOpen && <span>Compliance & Reports</span>}
-          </a>
-          <a
-            onClick={() => navigate("/admin/alerts")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <Bell size={20} />
-            {sidebarOpen && <span>Alerts & Outbreaks</span>}
-          </a>
-          <a
-            onClick={() => navigate("/admin/users")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <Users size={20} />
-            {sidebarOpen && <span>Users</span>}
-          </a>
-          <a
-            onClick={() => navigate("/admin/admin-profile")}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-[#556B2F]/30 hover:text-[#A9BA9D] transition-colors text-white"
-          >
-            <UserCircle size={20} />
-            {sidebarOpen && <span>Profile</span>}
-          </a>
+        <nav className="flex-1 px-2 py-6 space-y-2">
+          {[
+            { label: "Dashboard", icon: LayoutDashboard, path: "/admin/dashboard", active: true },
+            { label: "Analysis & Heatmap", icon: BarChart3, path: "/admin/analytics-heatmap" },
+            { label: "Compliance & Reports", icon: FileText, path: "/admin/ComplianceReports" },
+            { label: "Alerts & Outbreaks", icon: Bell, path: "/admin/alerts" },
+            { label: "Users", icon: Users, path: "/admin/users" },
+            { label: "Profile", icon: UserCircle, path: "/admin/admin-profile" },
+          ].map((item) => (
+            <a
+              key={item.label}
+              onClick={() => navigate(item.path)}
+              className={`flex items-center ${sidebarOpen ? "gap-3 justify-start px-4" : "justify-center"
+                } py-2 rounded-lg cursor-pointer transition-colors ${item.active
+                  ? "bg-primary/20 text-primary shadow-inner font-bold"
+                  : "text-gray-300 hover:text-white hover:bg-white/10"
+                }`}
+            >
+              <item.icon size={22} className="shrink-0" />
+              {sidebarOpen && <span className="truncate">{item.label}</span>}
+            </a>
+          ))}
         </nav>
 
+        {/* Footer */}
         <div className="p-6 border-t border-[#2C3B2C]">
-          <p
-            className={`text-sm text-[#A9BA9D] ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            © 2024 AgriTrack
-          </p>
+          {sidebarOpen && <p className="text-sm text-[#A9BA9D]">© 2024 AgriTrack</p>}
         </div>
       </aside>
+
 
       {/* Main */}
       <main className="flex-1 overflow-y-auto">
         {/* Header */}
-        <header className="flex items-center justify-between px-8 py-4 bg-[#1A241A] border-b border-[#2C3B2C] sticky top-0 z-10">
+        <header className="flex items-center justify-between px-8 py-4  bg-[#121212] border-b border-[#2C3B2C] sticky top-0 z-10">
           <h2 className="text-2xl font-bold text-white">Dashboard Overview</h2>
           <div className="flex items-center gap-4">
             {/* Notifications */}
@@ -129,10 +102,9 @@ export default function AdminDashboard() {
                   e.target.style.display = "none";
                 }}
               />
-              <User className="w-8 h-8 text-[#A9BA9D]" />
+
               <div className="hidden md:block">
-                <p className="font-semibold text-white">Admin User</p>
-                <p className="text-sm text-[#A9BA9D]">admin@agritrack.com</p>
+
               </div>
             </div>
           </div>
@@ -142,8 +114,8 @@ export default function AdminDashboard() {
         <div className="p-8">
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm flex items-center gap-4">
-              <div className="p-3 bg-[#556B2F]/40 rounded-full">
+            <div className=" bg-[#1f1f1f] p-6 rounded-xl shadow-sm flex items-center gap-4">
+              <div className="p-3 bg-[#1fde6b]/40 rounded-full">
                 <Tractor className="text-[#A9BA9D] text-3xl" />
               </div>
               <div>
@@ -151,8 +123,8 @@ export default function AdminDashboard() {
                 <p className="text-3xl font-bold text-white">1,250</p>
               </div>
             </div>
-            <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm flex items-center gap-4">
-              <div className="p-3 bg-red-500/20 rounded-full">
+            <div className=" bg-[#1f1f1f] p-6 rounded-xl shadow-sm flex items-center gap-4">
+              <div className="p-3 bg-[#db2525]/20 rounded-full">
                 <AlertTriangle className="text-red-500 text-3xl" />
               </div>
               <div>
@@ -160,7 +132,7 @@ export default function AdminDashboard() {
                 <p className="text-3xl font-bold text-white">32</p>
               </div>
             </div>
-            <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm flex items-center gap-4">
+            <div className=" bg-[#1f1f1f] p-6 rounded-xl shadow-sm flex items-center gap-4">
               <div className="p-3 bg-yellow-500/20 rounded-full">
                 <Activity className="text-yellow-500 text-3xl" />
               </div>
@@ -169,7 +141,7 @@ export default function AdminDashboard() {
                 <p className="text-3xl font-bold text-white">6.8</p>
               </div>
             </div>
-            <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm flex items-center gap-4">
+            <div className=" bg-[#1f1f1f] p-6 rounded-xl shadow-sm flex items-center gap-4">
               <div className="p-3 bg-blue-500/20 rounded-full">
                 <Syringe className="text-blue-500 text-3xl" />
               </div>
@@ -183,14 +155,14 @@ export default function AdminDashboard() {
           </div>
 
           {/* Risk Distribution */}
-          <div className="bg-[#2C3B2C] p-6 rounded-xl shadow-sm mb-8">
+          <div className=" bg-[#1f1f1f] p-6 rounded-xl shadow-sm mb-8">
             <h3 className="text-lg font-bold text-white mb-4">
               Risk Distribution
             </h3>
             <div className="flex items-end gap-8 h-64">
               <div className="flex flex-col items-center flex-1 h-full justify-end">
                 <div
-                  className="w-full bg-[#556B2F]/40 rounded-t-lg"
+                  className="w-full bg-[#1fde6b] rounded-t-lg"
                   style={{ height: "45%" }}
                 ></div>
                 <p className="mt-2 text-sm font-semibold text-[#A9BA9D]">
@@ -199,7 +171,7 @@ export default function AdminDashboard() {
               </div>
               <div className="flex flex-col items-center flex-1 h-full justify-end">
                 <div
-                  className="w-full bg-yellow-500/20 rounded-t-lg"
+                  className="w-full bg-[#ebb207] rounded-t-lg"
                   style={{ height: "35%" }}
                 ></div>
                 <p className="mt-2 text-sm font-semibold text-[#A9BA9D]">
@@ -208,7 +180,7 @@ export default function AdminDashboard() {
               </div>
               <div className="flex flex-col items-center flex-1 h-full justify-end">
                 <div
-                  className="w-full bg-red-500/20 rounded-t-lg"
+                  className="w-full bg-[#db2525] rounded-t-lg"
                   style={{ height: "20%" }}
                 ></div>
                 <p className="mt-2 text-sm font-semibold text-[#A9BA9D]">
@@ -223,7 +195,7 @@ export default function AdminDashboard() {
             <h3 className="text-lg font-bold text-white mb-4">Recent Alerts</h3>
             <div className="overflow-x-auto bg-[#2C3B2C] rounded-xl shadow-sm">
               <table className="w-full text-sm text-left text-[#A9BA9D]">
-                <thead className="text-xs uppercase bg-[#1A241A] text-[#A9BA9D]">
+                <thead className="text-xs uppercase  bg-[#1f1f1f] text-[#A9BA9D]">
                   <tr>
                     <th className="px-6 py-3">Alert ID</th>
                     <th className="px-6 py-3">Farm Name</th>
