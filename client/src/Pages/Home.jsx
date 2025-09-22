@@ -89,7 +89,7 @@ const Home = () => {
           <div
             className="flex min-h-[320px] md:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-4 md:px-10 pb-10"
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url("src/assets/veterinary-farm-walking-cowshed-checking-cows.jpg")`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url("src/assets/photorealistic-scene-poultry-farm-with-people-chickens.jpg")`,
             }}
           >
             <h1 className="text-white text-3xl md:text-5xl font-black">

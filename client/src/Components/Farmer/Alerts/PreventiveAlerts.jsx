@@ -1,6 +1,6 @@
 // src/components/PreventiveAlerts.jsx
 import React from "react";
-import GppGoodIcon from '@mui/icons-material/GppGood';
+import GppGoodIcon from "@mui/icons-material/GppGood";
 
 const PreventiveAlerts = () => {
   const preventiveAlerts = [
@@ -17,7 +17,7 @@ const PreventiveAlerts = () => {
   ];
 
   return (
-    <div className="mb-5">
+    <div className="mb-5 px-4 sm:px-6 lg:px-8">
       <h3 className="font-semibold text-gray-700 mb-3">Preventive Alerts</h3>
       {preventiveAlerts.map((alert, idx) => (
         <div
