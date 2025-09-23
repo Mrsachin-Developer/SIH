@@ -63,16 +63,14 @@ export default function FarmerDashboard() {
                 </button>
 
                 {/* Notification Icon */}
-                <button
-                  className="relative rounded-full p-1.5 sm:p-2 text-gray-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                >
+                <button className="relative rounded-full p-1.5 sm:p-2 text-gray-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                   <NotificationsIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></span>
                 </button>
 
                 {/* Profile Avatar */}
                 <div
-                 onClick={() => navigate("/farmer/profile")}
+                  onClick={() => navigate("/farmer/profile")}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cover bg-center border-2 border-primary"
                   style={{
                     backgroundImage:
@@ -186,7 +184,10 @@ export default function FarmerDashboard() {
                             {task.time}
                           </p>
                         </div>
-                        <button className="text-xs sm:text-sm font-medium text-primary hover:underline">
+                        <button
+                          onClick={() => navigate("/farmer/record")}
+                          className="text-xs sm:text-sm font-medium text-primary hover:underline"
+                        >
                           View
                         </button>
                       </div>

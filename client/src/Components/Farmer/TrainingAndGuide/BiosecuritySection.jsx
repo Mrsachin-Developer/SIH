@@ -4,8 +4,8 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import paultry1 from "../../../assets/paultry1.jpg";
-import paultry2 from "../../../assets/paultry2.webp"
-import paultry3 from "../../../assets/paultry3.webp"
+import paultry2 from "../../../assets/paultry2.webp";
+import paultry3 from "../../../assets/paultry3.webp";
 
 const BiosecuritySection = ({ activeTab }) => {
   const data = {
@@ -13,11 +13,12 @@ const BiosecuritySection = ({ activeTab }) => {
       {
         title: "Biosecurity Tips for Poultry",
         description:
-          "Watch a short video on essential poultry biosecurity practices.",
+          "Watch a playlist on essential poultry biosecurity practices.",
         imgSrc: paultry1,
         buttonText: "Watch Video",
         buttonIcon: <PlayArrowIcon />,
-        buttonLink: "https://www.youtube.com/watch?v=qyKdLM1t2Zc",
+        buttonLink:
+          "https://www.youtube.com/playlist?list=PL5k_DwL02TAXAcinQMyQ86HhndlOkK8Zv",
       },
       {
         title: "Poultry Biosecurity Infographic",
@@ -26,7 +27,7 @@ const BiosecuritySection = ({ activeTab }) => {
         imgSrc: paultry2,
         buttonText: "View Infographic",
         buttonIcon: <RemoveRedEyeIcon />,
-        buttonLink: "https://www.poultrydvm.com/featured-infographic/biosecurity-backyard-poultry",
+        buttonLink: "https://poultrybiosecurity.org/",
       },
       {
         title: "Poultry Biosecurity Guide",
@@ -35,7 +36,8 @@ const BiosecuritySection = ({ activeTab }) => {
         imgSrc: paultry3,
         buttonText: "Read Guide",
         buttonIcon: <AutoStoriesIcon />,
-        buttonLink: "https://en.wikipedia.org/wiki/Poultry_farming",
+        buttonLink:
+          "https://fieldreport.caes.uga.edu/publications/B1306/biosecurity-basics-for-poultry-growers/",
       },
     ],
     pigs: [
@@ -45,7 +47,7 @@ const BiosecuritySection = ({ activeTab }) => {
         imgSrc: paultry3,
         buttonText: "Watch Video",
         buttonIcon: <PlayArrowIcon />,
-        buttonLink: "https://www.youtube.com/watch?v=VIOwydNgAVY",
+        buttonLink: "https://youtu.be/IL_jgfYcwX0?si=zjMiWE1ufzRAaLTa",
       },
       {
         title: "Pig Biosecurity Infographic",
@@ -53,7 +55,8 @@ const BiosecuritySection = ({ activeTab }) => {
         imgSrc: paultry2,
         buttonText: "View Infographic",
         buttonIcon: <RemoveRedEyeIcon />,
-        buttonLink: "https://www.poultrydvm.com/featured-infographic/biosecurity-backyard-poultry",
+        buttonLink:
+          "https://porcinehealthmanagement.biomedcentral.com/articles/10.1186/s40813-020-00181-z",
       },
       {
         title: "Pig Biosecurity Guide",
@@ -73,7 +76,7 @@ const BiosecuritySection = ({ activeTab }) => {
         imgSrc: paultry2,
         buttonText: "Watch Video",
         buttonIcon: <PlayArrowIcon />,
-        buttonLink: "https://www.youtube.com/watch?v=jXHanV7ge6E",
+        buttonLink: "https://www.youtube.com/watch?v=8WfJYaBWJ78",
       },
       {
         title: "Waste Management Infographic",
@@ -92,7 +95,7 @@ const BiosecuritySection = ({ activeTab }) => {
         buttonText: "Read Guide",
         buttonIcon: <AutoStoriesIcon />,
         buttonLink:
-          "https://harmony1.com/waste-management-and-recycling-infographic/",
+          "https://extension.psu.edu/farm-worker-health-and-hygiene-basic-rules",
       },
     ],
   };
