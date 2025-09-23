@@ -49,7 +49,7 @@ export default function FarmerDashboard() {
 
               <div className="flex items-center gap-2 sm:gap-3">
                 {/* Alert Button */}
-                <button className="flex items-center gap-2 rounded-md bg-red-900 px-2 py-1 sm:px-3 text-red-300 hover:bg-red-800 transition text-xs sm:text-sm">
+                <button className="flex items-center gap-1 sm:gap-2 rounded-md bg-red-900 px-2 py-1 sm:px-3 text-red-300 hover:bg-red-800 transition text-xs sm:text-sm">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -59,7 +59,7 @@ export default function FarmerDashboard() {
                   >
                     <path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm0 17.5a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm1-5.5h-2V7h2v7z" />
                   </svg>
-                  <span className="font-medium">Alert</span>
+                  <span className="font-medium hidden xs:inline">Alert</span>
                 </button>
 
                 {/* Notification Icon */}
@@ -83,21 +83,21 @@ export default function FarmerDashboard() {
         </header>
 
         {/* Main */}
-        <main className="flex-grow h-screen container mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 bg-[#121212]">
-          <div className="max-w-7xl mx-auto h-full">
+        <main className="flex-grow container mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 bg-[#121212]">
+          <div className="max-w-7xl mx-auto w-full">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Dashboard
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               {/* Left column */}
-              <div className="lg:col-span-2 space-y-4">
+              <div className="lg:col-span-2 space-y-4 w-full">
                 {/* Risk Overview */}
                 <div className="bg-card-dark rounded-xl p-3 sm:p-4 shadow-lg">
                   <h2 className="text-base sm:text-lg font-bold text-white mb-3">
                     Risk Overview
                   </h2>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    <div className="flex-1">
+                    <div className="flex-1 w-full">
                       <p className="text-xs sm:text-sm text-gray-400">
                         Current Farm Risk Score
                       </p>
@@ -110,7 +110,7 @@ export default function FarmerDashboard() {
                       </p>
                     </div>
                     <div
-                      className="flex-1 w-full sm:w-auto h-32 sm:h-44 rounded-lg bg-cover bg-center"
+                      className="flex-1 w-full h-32 sm:h-44 rounded-lg bg-cover bg-center"
                       style={{
                         backgroundImage:
                           'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOgSJ5jf5d5Mxd4gluXnqHuWt4M6eXbYdKRfJguYmEYjZcKPbuva9EQUH_2bo4n0iX8LA6o7VKY1BGMsZOJKw3VqgdN9Nj5gvAUTerqtEtZ8rwioaT7z3o7W6ncXQAtgkNeQv2bNBG5l6UL9qxaPP3kFuABukd4re4c6F39v2EouZwCAA57MqnJfh_H1l5L-VP0_byZ_ePpeKakNDNEXaihzhr0ZOJnqQ2AW658C85bU30GXh-jx_wH3EWDOOrGYBCe2yrP3NXAsGM")',
@@ -120,9 +120,9 @@ export default function FarmerDashboard() {
                 </div>
 
                 {/* Action buttons */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
                   <button
-                    className="flex items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all text-sm sm:text-base"
+                    className="flex items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all text-sm sm:text-base w-full"
                     onClick={() => navigate("/farmer/survey")}
                   >
                     <PlaylistAddCheckIcon />
@@ -131,14 +131,14 @@ export default function FarmerDashboard() {
 
                   <button
                     onClick={() => navigate("/farmer/alert")}
-                    className="flex items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all text-sm sm:text-base"
+                    className="flex items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all text-sm sm:text-base w-full"
                   >
                     <CampaignIcon />
                     <span>View Alerts</span>
                   </button>
 
                   <button
-                    className="flex items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all text-sm sm:text-base"
+                    className="flex items-center justify-center gap-1 sm:gap-2 py-2 px-2 sm:px-3 rounded-lg bg-primary text-background-dark font-bold hover:bg-primary/80 transition-all text-sm sm:text-base w-full"
                     onClick={() => navigate("/farmer/incident-report")}
                   >
                     <ReportIcon />
@@ -197,7 +197,7 @@ export default function FarmerDashboard() {
               </div>
 
               {/* Right column */}
-              <div className="space-y-8">
+              <div className="space-y-8 w-full">
                 {/* Vets Nearby Map */}
                 <div>
                   <h2 className="text-lg sm:text-xl font-bold text-white mb-4">
@@ -205,7 +205,7 @@ export default function FarmerDashboard() {
                   </h2>
                   <div className="aspect-video w-full rounded-lg overflow-hidden">
                     <MapContainer
-                      center={[20.5937, 78.9629]} // Default India
+                      center={[20.5937, 78.9629]}
                       zoom={5}
                       scrollWheelZoom={true}
                       className="w-full h-full"
@@ -231,7 +231,7 @@ export default function FarmerDashboard() {
                 </div>
 
                 {/* Risk Graph */}
-                <div className="bg-[#1E1E1E] rounded-2xl p-2 shadow-lg ">
+                <div className="bg-[#1E1E1E] rounded-2xl p-2 shadow-lg w-full overflow-x-auto">
                   <h2 className="text-lg sm:text-xl font-bold text-white mb-1 p-2">
                     Risk Graph
                   </h2>
