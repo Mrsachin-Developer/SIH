@@ -71,11 +71,7 @@ export default function FarmerDashboard() {
                 {/* Profile Avatar */}
                 <div
                   onClick={() => navigate("/farmer/profile")}
-<<<<<<< HEAD
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cover bg-center border-2 border-primary cursor-pointer"
-=======
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cover bg-center border-2 border-primary"
->>>>>>> 7914faa0d3b8bc41233a11cab07c7f391b88bf99
                   style={{
                     backgroundImage:
                       'url("https://lh3.googleusercontent.com/aida-public/AB6AXuApitNH8Vxnlc0ZDXYm8zpeRLXuadImTIP_C4nv1LyDXu-3cgVuormhICIcO5yt8aulZqgNb-3HS73TOWWRH7NHWgILrtHvi7_Lvr7oBs06O0LF1vC0BBdcxvd1e3g67DFTFf1AQP4QmSAOL5jtuLKwHjJsKrWohiLTtiqofDa8e8rrQ7NBy5jtLZbZ27cRYZYs2Dfi7CAKkxfl4hQvXHP35330vmeUrWqApgTqMBN2JTggjYmpqOrF_h9qXKpjLkHkFEHUjy2J9WUf")',
