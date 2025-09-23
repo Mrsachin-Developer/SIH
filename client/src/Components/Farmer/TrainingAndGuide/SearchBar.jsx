@@ -5,7 +5,7 @@ export default function DarkSearchBar() {
     <div className="relative w-full max-w-sm">
       {/* Search Icon */}
       <Search
-        className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+        className="absolute left-3 top-3/4 -translate-y-1/2 text-gray-400"
         size={20}
       />
 

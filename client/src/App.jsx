@@ -60,7 +60,10 @@ export default function App() {
         <Route path="/vet-profileEdit" element={<VetProfileEdit />} />
         <Route path="/vet/dashboard" element={<VetDashboard />} />
         <Route path="/vet/vet-farmDetails" element={<VetFarmDetails />} />
-        <Route path="/vet/vet-appointmentdetails" element={<VetAppointment />} />
+        <Route
+          path="/vet/vet-appointmentdetails"
+          element={<VetAppointment />}
+        />
         {/* Farmer */}
         <Route path="/farmer/login" element={<FarmerLoginPage />} />
         <Route path="/farmer/record" element={<MyRecords />} />

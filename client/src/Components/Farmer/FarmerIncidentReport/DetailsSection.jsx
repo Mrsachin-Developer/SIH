@@ -13,6 +13,7 @@ export default function DetailsSection() {
   const [time, setTime] = useState("14:35");
   const [location, setLocation] = useState("40.7128° N, 74.0060° W");
   const [files, setFiles] = useState([]);
+  const [animals, setAnimals] = useState(5);
 
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
@@ -166,10 +167,11 @@ export default function DetailsSection() {
               type="range"
               min="0"
               max="100"
-              defaultValue="5"
+              value={animals}
+              onChange={(e) => setAnimals(e.target.value)}
               className="w-full h-2 bg-primary/30 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary"
             />
-            <span className="font-bold text-lg text-primary">5</span>
+            <span className="font-bold text-lg text-primary">{animals}</span>
           </div>
         </div>
 

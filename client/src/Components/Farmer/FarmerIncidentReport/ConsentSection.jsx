@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ConsentSection() {
+  const [enabled, setEnabled] = useState(false);
+
   return (
     <div className="space-y-4">
       <h2 className="text-xl sm:text-2xl font-bold text-white">Consent</h2>
@@ -13,10 +15,20 @@ export default function ConsentSection() {
             Share report with Vet/Government
           </p>
         </div>
-        <label className="relative inline-flex items-center cursor-pointer mt-2 sm:mt-0">
-          <input type="checkbox" value="" className="sr-only peer" />
-          <div className="w-11 h-6 bg-primary/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-600 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-        </label>
+
+        {/* New Toggle */}
+        <button
+          onClick={() => setEnabled(!enabled)}
+          className={`relative w-12 h-7 flex items-center rounded-full transition-colors duration-300 ${
+            enabled ? "bg-green-500" : "bg-gray-400"
+          }`}
+        >
+          <span
+            className={`w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+              enabled ? "translate-x-3" : "translate-x-0"
+            }`}
+          />
+        </button>
       </div>
     </div>
   );
