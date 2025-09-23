@@ -23,8 +23,9 @@ const Sidebar = () => {
     <aside
       id="sidebar"
       className="fixed top-0 left-0 z-40 w-64 h-screen 
-      bg-[#050505]/95 backdrop-blur-xl border-r border-gray-800 
-      text-white shadow-2xl flex flex-col justify-between">
+      bg-[#050505] backdrop-blur-xl border-r border-gray-800 
+      text-white shadow-2xl flex flex-col justify-between"
+    >
       {/* Logo/Header */}
       <div className="flex items-center justify-center h-20 border-b border-gray-800">
         <img
@@ -33,7 +34,6 @@ const Sidebar = () => {
           className="w-40 p-2 rounded-lg cursor-pointer hover:scale-105 transition-transform"
           onClick={goToHome}
         />
-
       </div>
 
       {/* Navigation */}
@@ -44,10 +44,11 @@ const Sidebar = () => {
             to={item.path}
             className={({ isActive }) =>
               `group relative flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200
-    ${isActive
-                ? "bg-primary/20 text-primary shadow-inner"
-                : "text-gray-300 hover:text-white hover:bg-white/10"
-              }`
+    ${
+      isActive
+        ? "bg-primary/20 text-primary shadow-inner"
+        : "text-gray-300 hover:text-white hover:bg-white/10"
+    }`
             }
           >
             {({ isActive }) => (
