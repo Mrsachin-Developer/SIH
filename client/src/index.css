@@ -45,3 +45,89 @@
   padding: 1rem !important;
   font-size: 1rem;
 }
+
+
+
+body {
+  top: 0px !important; /* fix the page offset caused by the banner */
+}
+@import "tailwindcss";
+
+
+/* Hide the top blue banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Hide the white strip iframe */
+.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
+  display: none !important;
+}
+
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+.goog-te-gadget-simple{
+  width: 170px;
+  height: 50px;
+
+}
+
+
+.VIpgJd-ZVi9od-xl07Ob-lTBxed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Selector box background */
+.goog-te-gadget-simple {
+  background-color: #2e2e2e !important; /* grey background */
+  border: none !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  color: white !important;
+  font-size: 14px !important;
+}
+
+/* Selector text and arrow */
+.goog-te-gadget-simple span,
+.goog-te-gadget-simple a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Dropdown popup menu */
+.goog-te-menu2 {
+  background-color: #2e2e2e !important; /* grey background */
+  border: none !important;
+  border-radius: 6px !important;
+}
+
+/* Dropdown items */
+.goog-te-menu2 * {
+  background: transparent !important;
+  color: white !important;
+}
+
+/* Hover effect */
+.goog-te-menu2-item div,
+.goog-te-menu2-item:link div,
+.goog-te-menu2-item:visited div,
+.goog-te-menu2-item:active div {
+  color: white !important;
+}
+
+.goog-te-menu2-item:hover div {
+  background-color: #444 !important; /* darker grey on hover */
+}
+
+
+
+/* Reset page offset caused by Google */
+body {
+  top: 0px !important;
+}
+
+
